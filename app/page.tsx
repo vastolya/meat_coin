@@ -1,65 +1,182 @@
+import Tag from "@/components/ui/Tag";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main>
+      <section className="grid grid-cols-12 gap-7 max-w-360 mx-auto py-18 px-20">
+        <p className="font-medium text-[16px] leading-[148%] tracking-[0.01em] col-span-4  text-(--color-gray)">
+          Бренд, где выбор отрубов, выдержка <br />и прожарка — традиция
+          поколений
+        </p>
+        <div className="col-span-7 flex flex-col gap-2">
+          <h1 className="font-albertus font-[250] text-6xl leading-[113%] tracking-[-0.01em] uppercase">
+            <span className="flex">
+              <span className="text-(--color-accent)">Meat_Coin&nbsp;</span>
+              <span>сеть</span>
+            </span>
+            <span>мясных ресторанов</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="font-medium text-[16px] leading-[148%] tracking-[0.01em] col-span-4 ">
+            В Москве и Санкт-Петербурге
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="w-full h-170 bg-[url('/video.webp')] bg-cover" />
+
+      <section className="grid grid-cols-12 gap-7 max-w-360 mx-auto pt-30 px-20">
+        <p className="font-medium text-base leading-[148%] tracking-[1%] col-span-4  text-(--color-gray)">
+          География вкуса
+        </p>
+        <div className="col-span-6 flex flex-col gap-2">
+          <h2 className="font-albertus font-normal text-[2.5rem] leading-[120%] tracking-[-1%] uppercase">
+            стейк-хаусы Meat_Coin в Москве и Петербурге
+          </h2>
+          <p className="font-medium text-base leading-[148%] tracking-[1%] col-span-4 text-(--color-gray)">
+            Каждый наш ресторан имеет свой характер, но все они хранят верность
+            <br />
+            главному принципу — дарить гостям совершенный опыт знакомства с
+            мясом
+          </p>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section>
+        <div className="grid grid-cols-12 gap-7 max-w-360 mx-auto pt-18 pb-7 px-20">
+          <div className="col-span-4">
+            <Tag text="Санкт-Петербург" />
+          </div>
+          <div className="col-span-8 flex flex-col gap-2">
+            <div className="flex justify-between">
+              <p className="font-medium text-base leading-[148%] tracking-[1%] w-fit flex items-end">
+                Meat_Coin&nbsp;
+                <span className="font-extrabold text-2xl leading-[116%]">
+                  Butcher&Grill
+                </span>
+              </p>
+              <Image src={"/arrow.svg"} alt="arrow" width={24} height={24} />
+            </div>
+            <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+              История бренда началась именно здесь, на улице Рубинштейна. Здесь
+              сформировался <br /> характер Meat_Coin. Аутентичное мясное меню,
+              открытая кухня и одна из первых в городе <br /> камер сухого
+              вызревания
+            </p>
+          </div>
+        </div>
+        <div className="w-full h-118 bg-[url('/butcher.webp')] bg-cover" />
+      </section>
+
+      <section>
+        <div className="grid grid-cols-12 gap-7 max-w-360 mx-auto pt-18 pb-7 px-20">
+          <div className="col-span-4">
+            <Tag text="Москва" />
+          </div>
+          <div className="col-span-8 flex flex-col gap-2">
+            <div className="flex justify-between">
+              <p className="font-medium text-base leading-[148%] tracking-[1%] w-fit flex items-end">
+                Meat_Coin&nbsp;
+                <span className="font-extrabold text-2xl leading-[116%]">
+                  Steak&Terrace
+                </span>
+              </p>
+              <Image src={"/arrow.svg"} alt="arrow" width={24} height={24} />
+            </div>
+            <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+              Стейк-хаус с панорамной террасой в ТЦ «Смоленский Пассаж».
+              Современная <br /> интерпретация классики и авторская подача
+              в ритме столицы
+            </p>
+          </div>
+        </div>
+        <div className="w-full h-118 bg-[url('/steak.webp')] bg-cover" />
+      </section>
+
+      <section>
+        <div className="grid grid-cols-12 gap-7 max-w-360 mx-auto pt-18 pb-7 px-20">
+          <div className="col-span-4">
+            <Tag text="Комарово" />
+          </div>
+          <div className="col-span-8 flex flex-col gap-2">
+            <div className="flex justify-between">
+              <p className="font-medium text-base leading-[148%] tracking-[1%] w-fit flex items-end">
+                Meat_Coin&nbsp;
+                <span className="font-extrabold text-2xl leading-[116%]">
+                  Country Club
+                </span>
+              </p>
+              <Image src={"/arrow.svg"} alt="arrow" width={24} height={24} />
+            </div>
+            <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+              Загородный гриль-ресторан на берегу Финского залива. Идеальное
+              место для семейного <br /> отдыха в окружении живописной природы.
+              Уютный зал с камином, просторная терраса <br /> с видом на воду
+              и детская комната
+            </p>
+          </div>
+        </div>
+        <div className="w-full h-118 bg-[url('/country.webp')] bg-cover" />
+      </section>
+
+      <section className="grid grid-cols-12 gap-7 max-w-360 mx-auto py-45 px-20 items-center">
+        <Image src={"ornament.svg"} alt="ornament" width={260} height={66} />
+        <div className="col-span-5 col-start-5 gap-30 flex flex-col">
+          <div className="flex flex-col gap-7">
+            <h3 className="font-extrabold text-2xl leading-[116%] tracking-normal text-(--color-accent)">
+              Познать совершенный вкус <br /> авторской кухни
+            </h3>
+            <div className="flex flex-col gap-2">
+              <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+                Философия ресторанов Meat_Coin строится вокруг <br /> главной
+                ценности — премиального мяса
+              </p>
+              <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+                Мы не просто готовим стейки, мы создаём культуру, <br />{" "}
+                где каждый ингредиент имеет значение. Наши рестораны — <br />{" "}
+                это пространство, где турецкие традиции обращения с мясом <br />{" "}
+                встречаются с современной гастрономической эстетикой
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-7">
+            <h3 className="font-extrabold text-2xl leading-[116%] tracking-normal text-(--color-accent)">
+              Познать совершенный вкус <br /> авторской кухни
+            </h3>
+            <div className="flex flex-col gap-2">
+              <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+                Философия ресторанов Meat_Coin строится вокруг <br /> главной
+                ценности — премиального мяса
+              </p>
+              <p className="font-medium text-base leading-[148%] tracking-[1%] ">
+                Мы не просто готовим стейки, мы создаём культуру, <br />{" "}
+                где каждый ингредиент имеет значение. Наши рестораны — <br />{" "}
+                это пространство, где турецкие традиции обращения с мясом <br />{" "}
+                встречаются с современной гастрономической эстетикой
+              </p>
+            </div>
+          </div>
+        </div>
+        <Image
+          src={"ornament.svg"}
+          alt="ornament"
+          width={260}
+          height={66}
+          className="col-start-12"
+        />
+      </section>
+
+      <section className="grid grid-cols-12 gap-7 max-w-360 mx-auto py-45 px-20">
+        <p className="font-medium text-[16px] leading-[148%] tracking-[0.01em] col-span-4  text-(--color-gray)">
+          Хранители традиций
+        </p>
+        <div className="col-span-8">
+          <h2 className="font-albertus font-normal text-[2.5rem] leading-[120%] tracking-[-1%] uppercase">
+            Шеф-повара Meat_Coin
+          </h2>
+        </div>
+      </section>
+    </main>
   );
 }
