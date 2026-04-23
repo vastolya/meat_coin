@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Button from './Button'
+import MailIcon from '../icons/MailIcon'
+import Telegram from './Telegram'
 
 const Footer = () => {
   return (
-    <footer className="px-20 py-11">
-      <div className="mx-auto grid max-w-360 grid-cols-12 gap-7">
+    <footer className="mx-auto max-w-360 px-20 py-11">
+      <div className="grid grid-cols-12 gap-7">
         <div className="col-span-4 flex h-full flex-col justify-between gap-4">
           <div className="gap7 flex flex-col gap-7">
             <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
@@ -28,10 +31,10 @@ const Footer = () => {
                 +7 (499) 283-19-11
               </a>
               <a href="" target="_blank" className="px-4 py-2">
-                <Image src={'/mail.svg'} alt="mail" width={24} height={24} />{' '}
+                <MailIcon width={24} height={24} />
               </a>
               <a href="" target="_blank" className="px-4 py-2">
-                <Image src={'/tg.svg'} alt="mail" width={24} height={24} />{' '}
+                <Telegram width={24} height={24} />
               </a>
             </div>
           </div>
@@ -60,10 +63,10 @@ const Footer = () => {
                 +7 (499) 283-19-11
               </a>
               <a href="" target="_blank" className="px-4 py-2">
-                <Image src={'/mail.svg'} alt="mail" width={24} height={24} />{' '}
+                <MailIcon width={24} height={24} />
               </a>
               <a href="" target="_blank" className="px-4 py-2">
-                <Image src={'/tg.svg'} alt="mail" width={24} height={24} />{' '}
+                <Telegram width={24} height={24} />
               </a>
             </div>
           </div>
@@ -91,19 +94,19 @@ const Footer = () => {
                 +7 (499) 283-19-11
               </a>
               <a href="" target="_blank" className="px-4 py-2">
-                <Image src={'/mail.svg'} alt="mail" width={24} height={24} />{' '}
+                <MailIcon width={24} height={24} />
               </a>
               <a href="" target="_blank" className="px-4 py-2">
-                <Image src={'/tg.svg'} alt="mail" width={24} height={24} />{' '}
+                <Telegram width={24} height={24} />
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-devider mt-7 mb-11 h-[1.5px] w-full" />
+      <div className="bg-devider mt-7 h-[1.5px] w-full" />
 
-      <div className="mx-auto grid max-w-360 grid-cols-12 gap-7">
+      <div className="grid grid-cols-12 gap-7 py-11">
         <div className="col-span-4 flex flex-col gap-4">
           <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
             Навигация
@@ -161,7 +164,41 @@ const Footer = () => {
         </div>
       </div>
 
+      <div className="flex items-center justify-between">
+        <Link href={'/'} className="">
+          <Image src={'/logo_accent.svg'} alt="" width={190} height={34} />
+        </Link>
+        <div className="flex gap-7">
+          <Image src={'/yandex_mesto.svg'} alt="" width={71} height={40} />
+          <Button text="Оставить отзыв" variant="secondary" />
+        </div>
+      </div>
+
       <div className="bg-devider mt-7 mb-11 h-[1.5px] w-full" />
+
+      <div className="flex justify-between">
+        <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
+          © Meat_Coin, 2026 . Все права защищены
+        </p>
+
+        <div className="flex gap-6">
+          {[
+            { title: 'Правила посещения ресторана', href: '/rules' },
+            { title: 'Политика конфиденциальности', href: '/policy' },
+            { title: 'Согласие на получение рассылки', href: '/agreement' },
+            { title: 'Настройки cookies', href: '/cookies' },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              target="_blank"
+              className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray) underline"
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+      </div>
     </footer>
   )
 }

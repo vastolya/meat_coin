@@ -1,13 +1,19 @@
 interface TagProps {
-  text: string;
+  text: string
+  variant?: 'black' | 'gray'
 }
 
-const Tag = ({ text }: TagProps) => {
-  return (
-    <p className="bg-(--color-dark-black) py-1 px-2 font-medium text-base leading-[148%] tracking-[1%] w-fit rounded-sm">
-      {text}
-    </p>
-  );
-};
+const baseStyles = 'w-fit rounded-sm px-2 py-1 text-base leading-[148%] font-medium tracking-[1%]'
 
-export default Tag;
+const variantStyles: Record<NonNullable<TagProps['variant']>, string> = {
+  black: 'bg-(--color-dark-black)',
+  gray: 'bg-(--color-devider)',
+}
+
+const Tag = ({ text, variant = 'black' }: TagProps) => {
+  const combinedClassName = `${baseStyles} ${variantStyles[variant]}`
+
+  return <p className={combinedClassName}>{text}</p>
+}
+
+export default Tag

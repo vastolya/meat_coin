@@ -1,0 +1,25 @@
+interface ArrowProps {
+  width?: number
+  height?: number
+  color?: string
+}
+
+export default function ArrowIcon({ width = 24, height = 24, color = 'white' }: ArrowProps) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5 12H19M19 12L13.75 7M19 12L13.75 17"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
