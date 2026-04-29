@@ -132,7 +132,7 @@ export default function MenuSection() {
               </div>
               <div className="relative col-span-8 h-120 rounded-lg bg-[url('/bar_02.webp')] bg-cover">
                 <div className="absolute bottom-4 left-4 rounded-sm bg-white/10 p-4 text-2xl leading-[116%] font-extrabold tracking-[0%] text-white backdrop-blur-sm">
-                  Коллекция вин
+                  Коктейльная карта
                 </div>
               </div>
             </>
