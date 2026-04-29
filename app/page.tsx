@@ -1,5 +1,3 @@
-import ArrowIcon from '@/components/icons/ArrowIcon'
-import Button from '@/components/ui/Button'
 import HeroSection from '@/components/HeroSection'
 import LocationCards from '@/components/LocationCards'
 import PhilosophySection from '@/components/PhilosophySection'
@@ -7,7 +5,8 @@ import ChefsSection from '@/components/ChefsSection'
 import MenuSection from '@/components/MenuSection'
 import BookingSection from '@/components/BookingSection'
 import MarqueeSection from '@/components/MarqueeSection'
-import Image from 'next/image'
+import EventsSection from '@/components/EventsSection'
+import LoyaltySection from '@/components/LoyaltySection'
 
 export default function Home() {
   return (
@@ -42,12 +41,7 @@ export default function Home() {
 
       <MarqueeSection />
 
-      <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 py-30">
-        <h2 className="font-albertus col-span-8 col-start-5 text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
-          <span className="text-accent">Meat_Coin —&nbsp;</span> пространство для ваших мероприятий
-          в Москве и Санкт-Петербурге
-        </h2>
-      </section>
+      <EventsSection />
 
       <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20">
         <p className="text-gray col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
@@ -71,44 +65,7 @@ export default function Home() {
         <div className="col-span-12 mt-18 h-119 w-full rounded-lg bg-[url('/store.webp')] bg-cover" />
       </section>
 
-      <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 py-30">
-        <p className="text-gray col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
-          Станьте частью закрытого круга
-        </p>
-        <h2 className="font-albertus col-span-8 text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
-          Программа лояльности
-        </h2>
-        <div className="col-span-4 flex flex-col justify-end py-18">
-          <Image src={'/loyalty.svg'} alt="loyalty" width={299} height={236} />
-        </div>
-        <div className="col-span-8 py-18">
-          <p className="text-accent text-base leading-[148%] font-medium tracking-[1%]">
-            Участники программы получают
-          </p>
-          {[
-            'Приоритетное бронирование столов',
-            'Доступ к предпродаже на специальные мероприятия',
-            'Персональные предложения и накопление баллов (meat_coins)',
-            'Подарочный сертификат на сумму номинала — универсальный статусный подарок',
-          ].map((item) => (
-            <h3
-              className="border-devider border-b-[1.5px] py-11 text-2xl leading-[116%] font-extrabold tracking-normal"
-              key={item}
-            >
-              {item}
-            </h3>
-          ))}
-        </div>
-        <div className="col-span-8 col-start-5 flex items-center gap-7">
-          <Button text="оформить подарочный сертификат" variant="secondary" />
-          <div className="flex cursor-pointer gap-2">
-            <p className="text-accent col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
-              О программе лояльности
-            </p>
-            <ArrowIcon color="var(--color-accent)" height={24} width={24} />
-          </div>
-        </div>
-      </section>
+      <LoyaltySection />
 
       <BookingSection />
     </main>
