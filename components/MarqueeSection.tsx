@@ -9,7 +9,7 @@ function Row() {
   return (
     <>
       {Array.from({ length: REPEAT }).map((_, i) => (
-        <span key={i} className="flex shrink-0 items-center gap-11 pr-11">
+        <span key={i} className="flex shrink-0 items-center pr-11">
           <div className="h-19.5 w-24 shrink-0 bg-[url('/ornament_small.svg')] bg-contain bg-no-repeat" />
           <span className="font-albertus shrink-0 text-[88px] leading-[109%] font-[250] whitespace-nowrap uppercase">
             Мясо совершенной вдержки

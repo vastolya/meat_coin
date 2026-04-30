@@ -16,7 +16,7 @@ export default function MenuSection() {
 
   return (
     <section className="rounded-t-[7.5rem] bg-(--color-beige) text-(--color-dark)">
-      <div className="relative mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 pt-30 pb-11">
+      <div className="relative mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 pt-30 pb-18">
         <div className="absolute top-72 left-20 flex bg-white p-1 text-base leading-[148%] font-medium tracking-[1%]">
           {tabs.map((tab) => (
             <button
