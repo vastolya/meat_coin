@@ -4,14 +4,16 @@ interface ParagraphProps {
   children: React.ReactNode
   className?: string
   delay?: number
+  animate?: import('framer-motion').TargetAndTransition
 }
 
-const Paragraph = ({ children, className = '', delay = 0 }: ParagraphProps) => {
+const Paragraph = ({ children, className = '', delay = 0, animate: animateProp }: ParagraphProps) => {
   return (
     <motion.p
       initial={{ x: 40, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
+      {...(animateProp
+        ? { animate: animateProp }
+        : { whileInView: { x: 0, opacity: 1 }, viewport: { once: true } })}
       transition={{
         type: 'spring',
         stiffness: 80,

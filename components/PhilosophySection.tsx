@@ -1,55 +1,98 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'motion/react'
+import { animate, motion, useMotionValue, useTransform } from 'motion/react'
+import { useEffect, useRef, useState } from 'react'
 import H3Title from './ui/H3Title'
 import Paragraph from './ui/Paragraph'
 
 export default function PhilosophySection() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const progress = useMotionValue(0)
+  const [secondVisible, setSecondVisible] = useState(false)
+
+  const firstOpacity = useTransform(progress, [0, 0.5], [1, 0], { clamp: true })
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    let animating = false
+
+    const handleWheel = (e: WheelEvent) => {
+      const rect = section.getBoundingClientRect()
+      const fullyVisible = rect.top >= -10 && rect.bottom <= window.innerHeight + 10
+
+      if (!fullyVisible) return
+
+      const p = progress.get()
+      if (e.deltaY > 0 && p >= 1) return
+      if (e.deltaY < 0 && p <= 0) return
+      if (animating) { e.preventDefault(); return }
+
+      e.preventDefault()
+      animating = true
+      const target = e.deltaY > 0 ? 1 : 0
+
+      setSecondVisible(target === 1)
+
+      animate(progress, target, {
+        duration: 0.5,
+        ease: 'easeInOut',
+        onComplete: () => { animating = false },
+      })
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    return () => window.removeEventListener('wheel', handleWheel)
+  }, [progress, setSecondVisible])
+
   return (
-    <section className="mx-auto grid max-w-360 grid-cols-12 items-center gap-7 px-20 py-45">
+    <section
+      ref={sectionRef}
+      className="mx-auto grid h-134 max-w-360 grid-cols-12 items-center gap-7 px-20"
+    >
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{
-          type: 'spring',
-          stiffness: 80,
-          damping: 15,
-          delay: 0.1,
-        }}
+        transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.1 }}
       >
         <Image src={'ornament.svg'} alt="ornament" width={260} height={66} />
       </motion.div>
 
-      <div className="col-span-5 col-start-5 flex flex-col gap-30">
-        <div className="flex flex-col gap-7">
+      <div className="relative col-span-5 col-start-5">
+        <motion.div style={{ opacity: firstOpacity }} className="flex flex-col gap-7">
           <H3Title className="text-accent" delay={0.2}>
             Познать совершенный вкус <br /> авторской кухни
           </H3Title>
-
           <div className="flex flex-col gap-2">
             <Paragraph delay={0.4}>
               Философия ресторанов Meat_Coin строится вокруг <br /> главной ценности — премиального
               мяса
             </Paragraph>
-
             <Paragraph delay={0.6}>
               Мы не просто готовим стейки, мы создаём культуру, <br /> где каждый ингредиент имеет
               значение. Наши рестораны — <br /> это пространство, где турецкие традиции обращения с
               мясом <br /> встречаются с современной гастрономической эстетикой
             </Paragraph>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-7">
-          <H3Title className="text-accent" delay={0.8}>
-            Открытый огонь и бескомпромиссное качество
+        <div className="absolute inset-0 flex flex-col gap-7">
+          <H3Title
+            className="text-accent"
+            animate={secondVisible ? { x: 0, opacity: 1 } : { x: 40, opacity: 0 }}
+          >
+            Открытый огонь и бескомпромиссное качество
           </H3Title>
           <div className="flex flex-col gap-2">
-            <Paragraph delay={1}>
-              Мы используем только мраморную говядину высших категорий и камеры сухого вызревания,
-              чтобы раскрыть глубину вкуса. Каждое блюдо отражает наше стремление к идеалу и дарит
+            <Paragraph
+              animate={secondVisible ? { x: 0, opacity: 1 } : { x: 40, opacity: 0 }}
+              delay={secondVisible ? 0.1 : 0}
+            >
+              Мы используем только мраморную говядину высших категорий и камеры сухого вызревания,
+              чтобы раскрыть глубину вкуса. Каждое блюдо отражает наше стремление к идеалу и дарит
               гостям подлинное гастрономическое путешествие
             </Paragraph>
           </div>
@@ -60,12 +103,7 @@ export default function PhilosophySection() {
         initial={{ y: -40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{
-          type: 'spring',
-          stiffness: 80,
-          damping: 15,
-          delay: 0.1,
-        }}
+        transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.1 }}
         className="col-start-12"
       >
         <Image src={'ornament.svg'} alt="ornament" width={260} height={66} />
