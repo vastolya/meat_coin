@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, type MotionStyle } from 'motion/react'
-import ArrowIcon from '@/components/icons/ArrowIcon'
+import ArrowLink from '@/components/ui/ArrowLink'
 import Tag from '@/components/ui/Tag'
 import Paragraph from './ui/Paragraph'
 import H2Title from './ui/H2Title'
@@ -14,6 +14,7 @@ const cards = [
     description:
       'История бренда началась именно здесь, на улице Рубинштейна. Здесь сформировался характер Meat_Coin. Аутентичное мясное меню, открытая кухня и одна из первых в городе камер сухого вызревания',
     bgClass: "bg-[url('/butcher.webp')]",
+    href: '/locations/spb',
   },
   {
     city: 'Москва',
@@ -21,6 +22,7 @@ const cards = [
     description:
       'Стейк-хаус с панорамной террасой в ТЦ «Смоленский Пассаж». Современная интерпретация классики и авторская подача в ритме столицы',
     bgClass: "bg-[url('/steak.webp')]",
+    href: '/locations/moscow',
   },
   {
     city: 'Комарово',
@@ -28,33 +30,34 @@ const cards = [
     description:
       'Загородный гриль-ресторан на берегу Финского залива. Идеальное место для семейного отдыха в окружении живописной природы. Уютный зал с камином, просторная терраса с видом на воду и детская комната',
     bgClass: "bg-[url('/country.webp')]",
+    href: '/locations/komarovo',
   },
 ]
 
-function CardInner({ card, nameStyle }: { card: (typeof cards)[number]; nameStyle?: MotionStyle }) {
+function CardInner({ card, nameStyle }: { card: (typeof cards)[0]; nameStyle?: MotionStyle }) {
   return (
     <div className="flex h-full flex-col">
       <div className="mx-auto grid h-25 w-full max-w-360 shrink-0 grid-cols-12 items-center gap-7 px-20">
         <div className="col-span-4">
           <Tag text={card.city} />
         </div>
-        <div className="col-span-7">
-          <motion.p
-            className="flex w-fit items-end text-base leading-[148%] font-medium tracking-[1%]"
-            style={nameStyle}
-          >
-            Meat_Coin&nbsp;
-            <span className="text-2xl leading-[116%] font-extrabold">{card.name}</span>
-          </motion.p>
-        </div>
+
+        <motion.p
+          className="col-span-7 flex w-fit items-end text-base leading-[148%] font-medium tracking-[1%]"
+          style={nameStyle}
+        >
+          Meat_Coin&nbsp;
+          <span className="text-2xl leading-[116%] font-extrabold">{card.name}</span>
+        </motion.p>
+
         <div className="col-span-1 flex justify-end">
-          <ArrowIcon height={24} width={24} />
+          <ArrowLink href={card.href} />
         </div>
       </div>
       <div className="mx-auto grid w-full max-w-360 shrink-0 grid-cols-12 gap-7 px-20 pt-7 pb-7">
-        <div className="col-span-8 col-start-5">
-          <Paragraph delay={0.8}>{card.description}</Paragraph>
-        </div>
+        <Paragraph delay={0.2} className="col-span-8 col-start-5">
+          {card.description}
+        </Paragraph>
       </div>
       <div className={`min-h-0 w-full flex-1 bg-cover ${card.bgClass}`} />
     </div>

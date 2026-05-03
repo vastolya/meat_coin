@@ -3,11 +3,12 @@ import { motion } from 'framer-motion'
 type H1TitleProps = {
   children: React.ReactNode
   delay?: number
+  className?: string
 }
 
-const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
+const H1Title = ({ children, delay = 0, className = '' }: H1TitleProps) => {
   return (
-    <motion.h2
+    <motion.h3
       initial={{ x: 40, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }}
@@ -17,10 +18,10 @@ const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
         damping: 15,
         delay,
       }}
-      className="font-albertus text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase"
+      className={` ${className} text-2xl leading-[116%] font-extrabold tracking-normal`}
     >
       {children}
-    </motion.h2>
+    </motion.h3>
   )
 }
 
