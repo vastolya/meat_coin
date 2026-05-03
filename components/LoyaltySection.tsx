@@ -64,11 +64,11 @@ export default function LoyaltySection() {
         className="col-span-8 col-start-5 flex items-center gap-7"
       >
         <Button text="оформить подарочный сертификат" variant="secondary" />
-        <div className="flex cursor-pointer gap-2">
-          <p className="text-accent col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
+        <div className="text-accent flex cursor-pointer gap-2">
+          <p className="col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
             О программе лояльности
           </p>
-          <ArrowIcon color="var(--color-accent)" height={24} width={24} />
+          <ArrowIcon height={24} width={24} />
         </div>
       </motion.div>
     </section>
