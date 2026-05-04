@@ -24,15 +24,15 @@ const slideIn = (delay: number) => ({
 
 const Header = () => {
   return (
-    <header className="mx-auto flex max-w-360 justify-between px-20 py-4">
+    <header className="mx-auto flex justify-between px-4 py-2 md:max-w-360 md:px-20 md:py-4">
       <div className="flex items-center gap-7">
-        <motion.div {...slideIn(0)}>
+        <motion.div {...slideIn(0)} className="relative h-11 w-39.5">
           <Link href="/">
-            <Image src="/logo.svg" alt="" width={158} height={44} />
+            <Image src="/logo.svg" alt="" fill sizes="auto" />
           </Link>
         </motion.div>
 
-        <div className="flex">
+        <div className="hidden md:flex">
           {nav_menu.map((i, idx) => (
             <motion.div key={i.title} {...slideIn(0.25 + idx * 0.07)}>
               <Link href={i.link} className="px-4">
@@ -43,7 +43,13 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-7">
+      <div className="flex flex-col gap-1">
+        <div className="h-0.5 w-4.5 bg-white" />
+        <div className="h-0.5 w-4.5 bg-white" />
+        <div className="h-0.5 w-4.5 bg-white" />
+      </div>
+
+      <div className="hidden items-center gap-7 md:flex">
         <motion.div {...slideIn(0.8)}>
           <div className="text-(--color-accent)">RU</div>
         </motion.div>

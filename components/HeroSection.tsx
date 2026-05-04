@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform, useMotionValue, animate } from 'motion/react'
 import H1Title from './ui/H1Title'
 import Paragraph from './ui/Paragraph'
+import GridSection from './ui/GridSection'
 
 function buildClipPath(scrollP: number, entranceP: number, textH: number) {
   const topClip = textH * (1 - scrollP)
@@ -48,9 +49,9 @@ export default function HeroSection() {
   )
 
   return (
-    <section ref={containerRef} style={{ height: '200vh' }} className="relative">
+    <section ref={containerRef} className="relative">
       <div className="sticky top-0 h-screen overflow-hidden">
-        <section ref={textRef} className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 py-18">
+        <GridSection ref={textRef} className="py-35 md:py-18">
           <Paragraph delay={0.2} className="text-gray col-span-4">
             Бренд, где выбор отрубов, выдержка <br />и прожарка — традиция поколений
           </Paragraph>
@@ -63,7 +64,7 @@ export default function HeroSection() {
 
             <Paragraph delay={0.6}>В Москве и Санкт-Петербурге</Paragraph>
           </div>
-        </section>
+        </GridSection>
 
         <motion.div className="absolute inset-0 overflow-hidden" style={{ clipPath }}>
           <video

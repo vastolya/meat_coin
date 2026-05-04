@@ -4,6 +4,10 @@ import { motion } from 'motion/react'
 import Image from 'next/image'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 import Button from '@/components/ui/Button'
+import GridSection from '@/components/ui/GridSection'
+import Paragraph from './ui/Paragraph'
+import H2Title from './ui/H2Title'
+import H3Title from './ui/H3Title'
 
 const BENEFITS = [
   'Приоритетное бронирование столов',
@@ -21,56 +25,47 @@ const fadeUp = (delay = 0) => ({
 
 export default function LoyaltySection() {
   return (
-    <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 py-30">
-      <motion.p
-        {...fadeUp(0)}
-        className="text-gray col-span-4 text-base leading-[148%] font-medium tracking-[1%]"
-      >
+    <GridSection className="py-30">
+      <Paragraph className="text-gray col-span-5 md:col-span-4">
         Станьте частью закрытого круга
-      </motion.p>
+      </Paragraph>
 
-      <motion.h2
-        {...fadeUp(0.1)}
-        className="font-albertus col-span-8 text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase"
+      <H2Title className="col-span-5 md:col-span-8">Программа лояльности</H2Title>
+
+      <motion.div
+        {...fadeUp(0.2)}
+        className="hidden flex-col justify-end py-18 md:col-span-4 md:flex"
       >
-        Программа лояльности
-      </motion.h2>
-
-      <motion.div {...fadeUp(0.2)} className="col-span-4 flex flex-col justify-end py-18">
         <Image src="/loyalty.svg" alt="loyalty" width={299} height={236} />
       </motion.div>
 
-      <div className="col-span-8 py-18">
-        <motion.p
-          {...fadeUp(0.25)}
-          className="text-accent text-base leading-[148%] font-medium tracking-[1%]"
-        >
-          Участники программы получают
-        </motion.p>
+      <div className="col-span-5 py-7 md:col-span-8 md:py-18">
+        <Paragraph className="text-accent">Участники программы получают</Paragraph>
 
         {BENEFITS.map((item, idx) => (
-          <motion.h3
-            key={item}
-            {...fadeUp(0.3 + idx * 0.1)}
-            className="border-devider border-b-[1.5px] py-11 text-2xl leading-[116%] font-extrabold tracking-normal"
-          >
-            {item}
-          </motion.h3>
+          <div key={item}>
+            <H3Title
+              delay={idx * 0.2}
+              className="md:border-devider py-7 md:border-b-[1.5px] md:py-11"
+            >
+              {item}
+            </H3Title>
+            <div className="border-devider -mx-4 border-b-[1.5px]" />
+          </div>
         ))}
       </div>
 
       <motion.div
         {...fadeUp(0.3 + BENEFITS.length * 0.1)}
-        className="col-span-8 col-start-5 flex items-center gap-7"
+        className="col-span-5 flex flex-col items-center gap-7 md:col-span-8 md:col-start-5 md:flex-row"
       >
-        <Button text="оформить подарочный сертификат" variant="secondary" />
+        <Button text="оформить подарочный сертификат" variant="secondary" className="text-white" />
         <div className="text-accent flex cursor-pointer gap-2">
-          <p className="col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
-            О программе лояльности
-          </p>
+          <Paragraph className="col-span-5 md:col-span-4">О программе лояльности</Paragraph>
+
           <ArrowIcon height={24} width={24} />
         </div>
       </motion.div>
-    </section>
+    </GridSection>
   )
 }

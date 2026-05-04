@@ -7,6 +7,7 @@ import BookingSection from '@/components/BookingSection'
 import MarqueeSection from '@/components/MarqueeSection'
 import EventsSection from '@/components/EventsSection'
 import LoyaltySection from '@/components/LoyaltySection'
+import GridSection from '@/components/ui/GridSection'
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
 
       <ChefsSection />
 
-      <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 pb-30">
+      <GridSection className="pb-30">
         <div className="col-span-3 h-full w-full rounded-lg bg-[url('/classes.webp')] bg-cover" />
 
         <div className="col-span-5 col-start-5">
@@ -35,7 +36,7 @@ export default function Home() {
             идеального стейка, узнавая тонкости от настоящих профессионалов
           </p>
         </div>
-      </section>
+      </GridSection>
 
       <MenuSection />
 
@@ -43,7 +44,7 @@ export default function Home() {
 
       <EventsSection />
 
-      <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20">
+      <GridSection>
         <p className="text-gray col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
           Мясная лавка: ваш идеальный стейк
         </p>
@@ -63,7 +64,7 @@ export default function Home() {
           </div>
         </div>
         <div className="col-span-12 mt-18 h-119 w-full rounded-lg bg-[url('/store.webp')] bg-cover" />
-      </section>
+      </GridSection>
 
       <LoyaltySection />
 

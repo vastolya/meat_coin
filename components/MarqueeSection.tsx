@@ -9,10 +9,10 @@ function Row() {
   return (
     <>
       {Array.from({ length: REPEAT }).map((_, i) => (
-        <span key={i} className="flex shrink-0 items-center pr-11">
-          <div className="h-19.5 w-24 shrink-0 bg-[url('/ornament_small.svg')] bg-contain bg-no-repeat" />
-          <span className="font-albertus shrink-0 text-[88px] leading-[109%] font-[250] whitespace-nowrap uppercase">
-            Мясо совершенной вдержки
+        <span key={i} className="flex shrink-0 items-center pr-4 md:pr-11">
+          <div className="mr-4 h-10 w-8 shrink-0 bg-[url('/ornament_small.svg')] bg-contain bg-no-repeat md:mr-0 md:h-19.5 md:w-24" />
+          <span className="font-albertus shrink-0 text-center text-4xl leading-[122%] font-[250] tracking-[-0.01em] whitespace-nowrap uppercase md:text-[5.5rem] md:leading-[109%]">
+            Мясо совершенной выдержки
           </span>
         </span>
       ))}
@@ -32,7 +32,7 @@ export default function MarqueeSection() {
   const x2 = useTransform(scrollYProgress, [0, 1], [-700, -1800])
 
   return (
-    <section ref={ref} className="bg-accent flex flex-col gap-7 overflow-hidden py-30">
+    <section ref={ref} className="bg-accent flex flex-col gap-7 overflow-hidden py-12 md:py-30">
       <motion.div style={{ x: x1 }} className="flex">
         <Row />
       </motion.div>

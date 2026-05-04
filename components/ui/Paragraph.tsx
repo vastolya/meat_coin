@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 
 interface ParagraphProps {
@@ -7,7 +9,12 @@ interface ParagraphProps {
   animate?: import('framer-motion').TargetAndTransition
 }
 
-const Paragraph = ({ children, className = '', delay = 0, animate: animateProp }: ParagraphProps) => {
+const Paragraph = ({
+  children,
+  className = '',
+  delay = 0,
+  animate: animateProp,
+}: ParagraphProps) => {
   return (
     <motion.p
       initial={{ x: 40, opacity: 0 }}

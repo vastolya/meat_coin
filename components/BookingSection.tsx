@@ -5,6 +5,9 @@ import MailIcon from '@/components/icons/MailIcon'
 import Button from '@/components/ui/Button'
 import Tag from '@/components/ui/Tag'
 import Telegram from '@/components/ui/Telegram'
+import GridSection from './ui/GridSection'
+import H2Title from './ui/H2Title'
+import Paragraph from './ui/Paragraph'
 
 const MAP_URLS = {
   msc: 'https://yandex.ru/map-widget/v1/?um=constructor%3A8fa274675addcb7c5913109f940af88d15084baefad65478edc23090113f6f82&source=constructor',
@@ -24,19 +27,18 @@ export default function BookingSection() {
 
   return (
     <>
-      <section className="mx-auto grid max-w-360 grid-cols-12 px-20 py-30">
-        <div className="col-span-8 col-start-5 flex flex-col gap-2 pb-7">
-          <h2 className="font-albertus text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
-            Забронировать стол
-          </h2>
-          <p className="text-base leading-[148%] font-medium tracking-[1%]">
+      <GridSection className="py-30">
+        <div className="col-span-5 flex flex-col gap-2 pb-7 md:col-span-8 md:col-start-5">
+          <H2Title>Забронировать стол</H2Title>
+
+          <Paragraph>
             Хотите увидеть магию приготовления идеального стейка своими глазами? Узнать секреты
             турецких мясников и попробовать блюда от лучших шефов?
-          </p>
+          </Paragraph>
         </div>
 
-        <div className="group col-span-12 grid grid-cols-12">
-          <div className="col-span-4 flex flex-col justify-between py-11">
+        <div className="group col-span-5 md:col-span-12 md:grid md:grid-cols-12">
+          <div className="flex flex-col justify-between py-11 md:col-span-4">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl leading-[116%] font-extrabold tracking-normal">
                 Steak & Terrace
@@ -47,7 +49,7 @@ export default function BookingSection() {
               Бесплатный крытый паркинг для гостей
             </p>
           </div>
-          <div className="col-span-6 flex flex-col gap-7 py-11">
+          <div className="flex flex-col gap-7 py-11 md:col-span-6">
             <div className="flex flex-col">
               <p className="text-gray pb-1 text-sm leading-[148%] font-medium tracking-[1%]">
                 Адрес
@@ -88,16 +90,16 @@ export default function BookingSection() {
             </div>
           </div>
           <div
-            className="relative col-span-2 my-11 cursor-pointer overflow-hidden rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            className="relative my-11 cursor-pointer overflow-hidden rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:col-span-2"
             onClick={() => setActiveMap(MAP_URLS.msc)}
           >
             <div className="h-full w-full rounded-lg bg-[url('/map_msc.webp')] bg-cover" />
           </div>
-          <div className="bg-devider col-span-12 h-[1.5px] w-full" />
+          <div className="bg-devider h-[1.5px] w-full md:col-span-12" />
         </div>
 
-        <div className="group col-span-12 grid grid-cols-12">
-          <div className="col-span-4 flex flex-col justify-between py-11">
+        <div className="group col-span-5 md:col-span-12 md:grid md:grid-cols-12">
+          <div className="flex flex-col justify-between py-11 md:col-span-4">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl leading-[116%] font-extrabold tracking-normal">
                 Country Club
@@ -108,7 +110,7 @@ export default function BookingSection() {
               Парковка 2 часа
             </p>
           </div>
-          <div className="col-span-6 flex flex-col gap-7 py-11">
+          <div className="flex flex-col gap-7 py-11 md:col-span-6">
             <div className="flex flex-col">
               <p className="text-gray pb-1 text-sm leading-[148%] font-medium tracking-[1%]">
                 Адрес
@@ -164,16 +166,16 @@ export default function BookingSection() {
             </div>
           </div>
           <div
-            className="relative col-span-2 my-11 cursor-pointer overflow-hidden rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            className="relative my-11 cursor-pointer overflow-hidden rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 md:col-span-2"
             onClick={() => setActiveMap(MAP_URLS.kmr)}
           >
             <div className="h-full w-full rounded-lg bg-[url('/map_kmr.webp')] bg-cover" />
           </div>
-          <div className="bg-devider col-span-12 h-[1.5px] w-full" />
+          <div className="bg-devider h-[1.5px] w-full md:col-span-12" />
         </div>
 
-        <div className="group col-span-12 grid grid-cols-12">
-          <div className="col-span-4 flex flex-col justify-between py-11">
+        <div className="group grid grid-cols-12 md:col-span-12">
+          <div className="flex flex-col justify-between py-11 md:col-span-4">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl leading-[116%] font-extrabold tracking-normal">
                 Butcher&Grill
@@ -184,7 +186,7 @@ export default function BookingSection() {
               С видом на Садовое кольцо, у открытой кухни
             </p>
           </div>
-          <div className="col-span-6 flex flex-col gap-7 py-11">
+          <div className="flex flex-col gap-7 py-11 md:col-span-6">
             <div className="flex flex-col">
               <p className="text-gray pb-1 text-sm leading-[148%] font-medium tracking-[1%]">
                 Адрес
@@ -227,9 +229,9 @@ export default function BookingSection() {
           >
             <div className="h-full w-full rounded-lg bg-[url('/map_spb.webp')] bg-cover" />
           </div>
-          <div className="bg-devider col-span-12 h-[1.5px] w-full" />
+          <div className="bg-devider h-[1.5px] w-full md:col-span-12" />
         </div>
-      </section>
+      </GridSection>
 
       {activeMap && (
         <div

@@ -6,6 +6,7 @@ import ArrowLink from '@/components/ui/ArrowLink'
 import Tag from '@/components/ui/Tag'
 import Paragraph from './ui/Paragraph'
 import H2Title from './ui/H2Title'
+import GridSection from './ui/GridSection'
 
 const cards = [
   {
@@ -80,7 +81,7 @@ export default function LocationCards() {
 
   return (
     <>
-      <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 pt-30">
+      <GridSection className="pt-30">
         <Paragraph delay={0.2} className="text-gray col-span-4">
           География вкуса
         </Paragraph>
@@ -92,7 +93,7 @@ export default function LocationCards() {
             главному принципу — дарить гостям совершенный опыт знакомства с мясом
           </Paragraph>
         </div>
-      </section>
+      </GridSection>
 
       <div ref={ref} className="h-[300vh]">
         <div className="sticky top-0 h-screen overflow-hidden bg-(--color-dark)">

@@ -10,6 +10,7 @@ import {
   type MotionValue,
 } from 'motion/react'
 import Button from '@/components/ui/Button'
+import GridSection from '@/components/ui/GridSection'
 
 const tabs = [
   { id: 'kitchen', label: 'Кухня' },
@@ -154,7 +155,7 @@ export default function MenuSection() {
     <section className="rounded-t-[7.5rem] bg-(--color-beige) text-(--color-dark)">
       <div ref={wrapperRef} style={{ height: `${(N + 1) * 100}vh` }}>
         <div className="sticky top-0 h-fit rounded-t-[7.5rem] bg-(--color-beige)">
-          <div className="relative mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 pt-30 pb-18">
+          <GridSection className="relative pt-30 pb-18">
             <div className="absolute top-72 left-20 flex rounded-sm bg-white p-1 text-base leading-[148%] font-medium tracking-[1%]">
               {bgPos && (
                 <motion.div
@@ -188,9 +189,9 @@ export default function MenuSection() {
             <h2 className="font-albertus col-span-8 text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
               Авторская кухня и турецкие традиции мясников
             </h2>
-          </div>
+          </GridSection>
 
-          <div className="mx-auto grid max-w-360 grid-cols-12 items-start gap-7 px-20 pb-30">
+          <GridSection className="items-start pb-30">
             <div className="relative col-span-4" style={{ height: `${containerH}rem` }}>
               <AnimatePresence mode="wait">
                 {activeText && (
@@ -230,7 +231,7 @@ export default function MenuSection() {
                 ))}
               </motion.div>
             </AnimatePresence>
-          </div>
+          </GridSection>
         </div>
       </div>
     </section>

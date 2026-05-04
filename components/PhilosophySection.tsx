@@ -3,11 +3,12 @@
 import Image from 'next/image'
 import { animate, motion, useMotionValue, useTransform } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
+import GridSection from './ui/GridSection'
 import H3Title from './ui/H3Title'
 import Paragraph from './ui/Paragraph'
 
 export default function PhilosophySection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
   const progress = useMotionValue(0)
   const [secondVisible, setSecondVisible] = useState(false)
 
@@ -48,10 +49,7 @@ export default function PhilosophySection() {
   }, [progress, setSecondVisible])
 
   return (
-    <section
-      ref={sectionRef}
-      className="mx-auto grid h-134 max-w-360 grid-cols-12 items-center gap-7 px-20"
-    >
+    <GridSection ref={sectionRef} className="h-134 items-center">
       <motion.div
         initial={{ y: -40, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -108,6 +106,6 @@ export default function PhilosophySection() {
       >
         <Image src={'ornament.svg'} alt="ornament" width={260} height={66} />
       </motion.div>
-    </section>
+    </GridSection>
   )
 }

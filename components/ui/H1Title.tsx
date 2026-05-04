@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 
 type H1TitleProps = {
@@ -17,7 +19,7 @@ const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
         damping: 15,
         delay,
       }}
-      className="font-albertus text-6xl leading-[113%] font-[250] tracking-[-1%] uppercase"
+      className="font-albertus text-4xl leading-[122%] font-[250] tracking-[-1%] uppercase md:text-6xl md:leading-[113%]"
     >
       {children}
     </motion.h1>

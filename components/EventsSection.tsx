@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import Tag from './ui/Tag'
 import Button from './ui/Button'
+import GridSection from './ui/GridSection'
+import H2Title from './ui/H2Title'
 
 export default function EventsSection() {
   return (
-    <section className="mx-auto grid max-w-360 grid-cols-12 gap-7 px-20 py-30">
-      <h2 className="font-albertus col-span-8 col-start-5 pb-18 text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
+    <GridSection className="py-30">
+      <H2Title className="col-span-5 md:col-span-8 md:col-start-5">
         <span className="text-accent">Meat_Coin —&nbsp;</span> пространство для ваших мероприятий в
         Москве и Санкт-Петербурге
-      </h2>
+      </H2Title>
 
       <>
-        <div className="col-span-3 h-75 rounded-lg bg-[url('/event_01.webp')] bg-cover" />
-        <div className="col-span-8 col-start-5 flex flex-col gap-4">
+        <div className="col-span-5 h-75 rounded-lg bg-[url('/event_01.webp')] bg-cover md:col-span-3" />
+
+        <div className="col-span-5 flex flex-col gap-4 md:col-span-8 md:col-start-5">
           <h3 className="text-2xl leading-[116%] font-extrabold tracking-normal">
             Рестораны Meat_Coin идеальны <br /> для проведения
           </h3>
@@ -24,8 +27,8 @@ export default function EventsSection() {
       </>
 
       <>
-        <div className="col-span-4 col-start-1 h-119 rounded-lg bg-[url('/event_02.webp')] bg-cover" />
-        <div className="col-span-5 col-start-5 flex flex-col gap-4">
+        <div className="col-span-5 h-119 rounded-lg bg-[url('/event_02.webp')] bg-cover md:col-span-4 md:col-start-1" />
+        <div className="col-span-5 flex flex-col gap-4 md:col-start-5">
           <h3 className="text-2xl leading-[116%] font-extrabold tracking-normal">
             Панорамная терраса в Москве, вип-зал, летняя терраса и беседки в Комарово, атмосфера
             первого ресторана на Рубинштейна
@@ -37,8 +40,8 @@ export default function EventsSection() {
       </>
 
       <>
-        <div className="col-span-4 col-start-1 h-174 rounded-lg bg-[url('/event_03.webp')] bg-cover" />
-        <div className="col-span-8 col-start-5 flex flex-col gap-4">
+        <div className="col-span-4 h-174 rounded-lg bg-[url('/event_03.webp')] bg-cover md:col-start-1" />
+        <div className="flex flex-col gap-4 md:col-span-8 md:col-start-5">
           <div className="h-119 rounded-lg bg-[url('/event_04.webp')] bg-cover" />
           <h3 className="text-2xl leading-[116%] font-extrabold tracking-normal">
             Наша команда поможет организовать событие любого уровня сложности
@@ -49,11 +52,11 @@ export default function EventsSection() {
         </div>
       </>
 
-      <div className="col-span-4 col-start-1 h-119 rounded-lg bg-[url('/event_05.webp')] bg-cover" />
+      <div className="col-span-4 h-119 rounded-lg bg-[url('/event_05.webp')] bg-cover md:col-start-1" />
 
       <>
-        <div className="col-span-4 col-start-1 h-86 rounded-lg bg-[url('/event_06.webp')] bg-cover" />
-        <div className="col-span-8 col-start-5 flex flex-col justify-end gap-4">
+        <div className="col-span-4 h-86 rounded-lg bg-[url('/event_06.webp')] bg-cover md:col-start-1" />
+        <div className="col-span-8 flex flex-col justify-end gap-4 md:col-start-5">
           <p className="text-gray text-base leading-[148%] font-medium tracking-[1%]">
             Мы предлагаем персональное меню, разработанное шеф-поварами, <br /> помощь в подборе
             вин и полное сопровождение
@@ -72,6 +75,6 @@ export default function EventsSection() {
           </div>
         </div>
       </>
-    </section>
+    </GridSection>
   )
 }

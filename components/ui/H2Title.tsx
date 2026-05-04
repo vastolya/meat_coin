@@ -1,11 +1,14 @@
+'use client'
+
 import { motion } from 'framer-motion'
 
 type H1TitleProps = {
   children: React.ReactNode
   delay?: number
+  className?: string
 }
 
-const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
+const H1Title = ({ children, className = '', delay = 0 }: H1TitleProps) => {
   return (
     <motion.h2
       initial={{ x: 40, opacity: 0 }}
@@ -17,7 +20,7 @@ const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
         damping: 15,
         delay,
       }}
-      className="font-albertus text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase"
+      className={` ${className} font-albertus text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase`}
     >
       {children}
     </motion.h2>
