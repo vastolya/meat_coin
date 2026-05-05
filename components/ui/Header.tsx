@@ -43,7 +43,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 md:hidden">
         <div className="h-0.5 w-4.5 bg-white" />
         <div className="h-0.5 w-4.5 bg-white" />
         <div className="h-0.5 w-4.5 bg-white" />
