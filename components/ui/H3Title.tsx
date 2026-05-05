@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 
-type H1TitleProps = {
+type H3TitleProps = {
   children: React.ReactNode
   delay?: number
   className?: string
   animate?: import('framer-motion').TargetAndTransition
 }
 
-const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: H1TitleProps) => {
+const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: H3TitleProps) => {
   return (
     <motion.h3
       initial={{ x: 40, opacity: 0 }}

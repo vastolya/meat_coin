@@ -1,15 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import H1Title from './H3Title'
 
-type H1TitleProps = {
+type H2TitleProps = {
   children: React.ReactNode
   delay?: number
   className?: string
 }
 
-const H2Title = ({ children, className = '', delay = 0 }: H1TitleProps) => {
+const H2Title = ({ children, className = '', delay = 0 }: H2TitleProps) => {
   return (
     <motion.h2
       initial={{ x: 40, opacity: 0 }}
