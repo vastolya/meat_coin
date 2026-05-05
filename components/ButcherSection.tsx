@@ -1,29 +1,30 @@
 'use client'
 
 import GridSection from '@/components/ui/GridSection'
+import H2Title from './ui/H2Title'
+import Paragraph from './ui/Paragraph'
 
 export default function ButcherSection() {
   return (
     <GridSection>
-      <p className="text-gray col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
+      <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
         Мясная лавка: ваш идеальный стейк
-      </p>
-      <div className="col-span-5 flex flex-col gap-4">
-        <h2 className="font-albertus text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
-          От мясного бутика до высокой кухни
-        </h2>
-        <div className="flex flex-col gap-2">
-          <p className="col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
-            Концепция «мясная лавка» позволяет не только попробовать, но и купить премиальные
-            отрубы с собой
-          </p>
-          <p className="text-gray col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
+      </Paragraph>
+      <div className="col-span-5 flex flex-col gap-9 md:col-span-5 md:col-start-5 md:gap-4">
+        <H2Title delay={0.4}>От мясного бутика до высокой кухни</H2Title>
+        <div className="flex flex-col gap-4 md:gap-2">
+          <Paragraph delay={0.6}>
+            Концепция «мясная лавка» позволяет не только попробовать, но и купить премиальные отрубы
+            с собой
+          </Paragraph>
+          <Paragraph delay={0.8}>
             Мясная витрина всегда полна лучших образцов мраморной говядины для ресторанного опыта
             дома
-          </p>
+          </Paragraph>
         </div>
       </div>
-      <div className="col-span-12 mt-18 h-119 w-full rounded-lg bg-[url('/store.webp')] bg-cover" />
+      {/* добавить отрицательный -mx-4 картинке, когда будет готов адаптив на всей странице */}
+      <div className="col-span-5 mt-9 h-98.5 w-full rounded-lg bg-[url('/store.webp')] bg-cover md:col-span-12 md:mt-18 md:h-119" />
     </GridSection>
   )
 }

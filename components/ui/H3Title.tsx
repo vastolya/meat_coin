@@ -7,7 +7,7 @@ type H1TitleProps = {
   animate?: import('framer-motion').TargetAndTransition
 }
 
-const H1Title = ({ children, delay = 0, className = '', animate: animateProp }: H1TitleProps) => {
+const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: H1TitleProps) => {
   return (
     <motion.h3
       initial={{ x: 40, opacity: 0 }}
@@ -27,4 +27,4 @@ const H1Title = ({ children, delay = 0, className = '', animate: animateProp }: 
   )
 }
 
-export default H1Title
+export default H3Title

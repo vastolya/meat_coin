@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import H1Title from './H3Title'
 
 type H1TitleProps = {
   children: React.ReactNode
@@ -8,7 +9,7 @@ type H1TitleProps = {
   className?: string
 }
 
-const H1Title = ({ children, className = '', delay = 0 }: H1TitleProps) => {
+const H2Title = ({ children, className = '', delay = 0 }: H1TitleProps) => {
   return (
     <motion.h2
       initial={{ x: 40, opacity: 0 }}
@@ -27,4 +28,4 @@ const H1Title = ({ children, className = '', delay = 0 }: H1TitleProps) => {
   )
 }
 
-export default H1Title
+export default H2Title
