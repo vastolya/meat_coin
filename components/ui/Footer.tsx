@@ -1,11 +1,23 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import Button from './Button'
+import Dropdown from './Dropdown'
 import MailIcon from '../icons/MailIcon'
 import Telegram from './Telegram'
 import Paragraph from './Paragraph'
 
+const FOOTER_RESTAURANTS = [
+  { city: 'Москва', restaurant: 'Steak&Terrace' },
+  { city: 'Комарово', restaurant: 'Coin Country Club' },
+  { city: 'Санкт-Петербург', restaurant: 'Butcher&Grill' },
+]
+
 const Footer = () => {
+  const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
+
   return (
     <footer className="mx-auto max-w-360 overflow-hidden px-4 py-12 md:px-20 md:py-11">
       <div className="hidden grid-cols-12 gap-7 md:grid">
@@ -145,10 +157,24 @@ const Footer = () => {
               {col.title}
             </p>
             {'header' in col && (
-              <div className="flex justify-between gap-2">
-                <Paragraph>{col.header.label}</Paragraph>
-                <Image src={'/dropdown.svg'} alt="dropdown" width={24} height={24} />
-              </div>
+              <Dropdown
+                isOpen={isRestaurantsOpen}
+                onToggle={() => setIsRestaurantsOpen((current) => !current)}
+                buttonClassName="flex w-full items-center justify-between md:justify-start gap-2 text-left"
+                contentClassName="flex flex-col gap-2 pt-2 md:pt-4"
+                trigger={<Paragraph>{col.header.label}</Paragraph>}
+              >
+                {FOOTER_RESTAURANTS.map((item) => (
+                  <Link key={item.city} href="/" className="group flex flex-col">
+                    <span className="group-hover:text-accent text-base leading-[148%] font-medium tracking-[1%]">
+                      {item.city}
+                    </span>
+                    <span className="text-gray text-base leading-[148%] font-medium tracking-[1%]">
+                      {item.restaurant}
+                    </span>
+                  </Link>
+                ))}
+              </Dropdown>
             )}
             {col.links.map((link, index) => (
               <Link
@@ -188,7 +214,7 @@ const Footer = () => {
             { title: 'Политика конфиденциальности', href: '/policy' },
             { title: 'Согласие на получение рассылки', href: '/agreement' },
             { title: 'Настройки cookies', href: '/cookies' },
-          ].map((item, index) => (
+          ].map((item) => (
             <Link
               key={item.href}
               href={item.href}

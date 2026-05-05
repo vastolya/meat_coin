@@ -2,9 +2,9 @@
 
 import MailIcon from '@/components/icons/MailIcon'
 import Button from '@/components/ui/Button'
+import Dropdown from '@/components/ui/Dropdown'
 import Tag from '@/components/ui/Tag'
 import Telegram from '@/components/ui/Telegram'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import GridSection from './ui/GridSection'
 import H2Title from './ui/H2Title'
@@ -96,7 +96,6 @@ interface MobileLocationCardProps {
   location: Location
   isExpanded: boolean
   onToggle: () => void
-  onMapOpen: () => void
 }
 
 interface DesktopLocationCardProps {
@@ -104,97 +103,74 @@ interface DesktopLocationCardProps {
   onMapOpen: () => void
 }
 
-function MobileLocationCard({
-  location,
-  isExpanded,
-  onToggle,
-  onMapOpen,
-}: MobileLocationCardProps) {
+function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCardProps) {
   return (
-    <div className="border-devider border-t first:border-t-0 last:border-b">
-      <button
-        type="button"
-        className={`flex w-full items-center justify-between gap-4 pt-7 text-left transition-[padding] duration-300 ease-out ${
-          isExpanded ? 'pb-2' : 'pb-7'
-        }`}
-        onClick={onToggle}
-        aria-expanded={isExpanded}
-      >
+    <Dropdown
+      isOpen={isExpanded}
+      onToggle={onToggle}
+      className="border-devider border-t first:border-t-0 last:border-b"
+      buttonClassName={`flex w-full items-center justify-between gap-4 pt-7 text-left transition-[padding] duration-300 ease-out ${
+        isExpanded ? 'pb-2' : 'pb-7'
+      }`}
+      contentClassName="flex flex-col gap-6 pb-8 md:gap-8"
+      iconClassName="[filter:brightness(0)_saturate(100%)_invert(54%)_sepia(12%)_saturate(713%)_hue-rotate(2deg)_brightness(89%)_contrast(85%)]"
+      trigger={
         <div className="flex flex-col gap-2">
           <H3Title className="text-[2rem] leading-[104%] font-extrabold tracking-normal">
             {location.name}
           </H3Title>
           <Tag className="px-2! py-1!" text={location.city} variant="gray" />
         </div>
-        <span
-          className={`text-accent inline-flex h-6 w-6 origin-center items-center justify-center transition-transform duration-300 ease-out ${
-            isExpanded ? 'rotate-180' : 'rotate-0'
-          }`}
-          aria-hidden="true"
-        >
-          <Image src="/dropdown.svg" alt="Dropdown" width={24} height={24} />
-        </span>
-      </button>
+      }
+    >
+      <Paragraph className="text-gray">{location.note}</Paragraph>
 
-      <div
-        className={`grid transition-[grid-template-rows,opacity] duration-1000 ease-out ${
-          isExpanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-        }`}
-        aria-hidden={!isExpanded}
-      >
-        <div className="min-h-0 overflow-hidden">
-          <div className="flex flex-col gap-6 pb-8 md:gap-8">
-            <Paragraph className="text-gray">{location.note}</Paragraph>
+      <div className="flex flex-col gap-2">
+        <Paragraph className="text-gray">Адрес</Paragraph>
+        {location.address.map(({ text, className }) => (
+          <Paragraph key={text} className={className}>
+            {text}
+          </Paragraph>
+        ))}
+      </div>
 
-            <div className="flex flex-col gap-2">
-              <Paragraph className="text-gray">Адрес</Paragraph>
-              {location.address.map(({ text, className }) => (
-                <Paragraph key={text} className={className}>
-                  {text}
-                </Paragraph>
-              ))}
+      <div className="flex flex-col gap-2 md:gap-1">
+        <Paragraph className="text-gray">Режим работы</Paragraph>
+        <div className="flex flex-col gap-2">
+          {location.schedule.map(({ label, time }) => (
+            <div key={label} className="grid grid-cols-[6.5rem_1fr] items-center gap-4">
+              <Paragraph>{label}</Paragraph>
+              <H3Title className="text-2xl leading-[116%] font-extrabold tracking-normal tabular-nums">
+                {time}
+              </H3Title>
             </div>
-
-            <div className="flex flex-col gap-2 md:gap-1">
-              <Paragraph className="text-gray">Режим работы</Paragraph>
-              <div className="flex flex-col gap-2">
-                {location.schedule.map(({ label, time }) => (
-                  <div key={label} className="grid grid-cols-[6.5rem_1fr] items-center gap-4">
-                    <Paragraph>{label}</Paragraph>
-                    <H3Title className="text-2xl leading-[116%] font-extrabold tracking-normal tabular-nums">
-                      {time}
-                    </H3Title>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 md:gap-4">
-              <Button text="Оставить заявку" className="w-full" />
-              <div className="flex items-center justify-between gap-4">
-                <a href="tel:84992831911" className="text-accent">
-                  +7 (499) 283-19-11
-                </a>
-                {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
-                  <a key={label} href={href} target="_blank" className="py-2">
-                    <Icon width={24} height={24} color="white" />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <iframe
-              src={location.mapUrl}
-              width="100%"
-              height="100%"
-              className="h-105 rounded-sm border-0"
-              allowFullScreen
-              title="Yandex Map"
-            />
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+
+      <div className="flex flex-col gap-2 md:gap-4">
+        <Button text="Оставить заявку" className="w-full" />
+        <div className="flex items-center justify-between gap-4">
+          <a href="tel:84992831911" className="text-accent">
+            +7 (499) 283-19-11
+          </a>
+          {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
+            <a key={label} href={href} target="_blank" className="py-2">
+              <Icon width={24} height={24} color="white" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <iframe
+        src={location.mapUrl}
+        width="100%"
+        height="100%"
+        className="h-105 rounded-sm border-0"
+        allowFullScreen
+        title="Yandex Map"
+      />
+    </Dropdown>
   )
 }
 
@@ -297,7 +273,6 @@ export default function BookingSection() {
               onToggle={() =>
                 setExpandedLocation((current) => (current === location.name ? null : location.name))
               }
-              onMapOpen={() => setActiveMap(location.mapUrl)}
             />
           ))}
         </div>
