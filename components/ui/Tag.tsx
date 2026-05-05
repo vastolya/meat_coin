@@ -1,6 +1,7 @@
 interface TagProps {
   text: string
   variant?: 'black' | 'gray'
+  className?: string
 }
 
 const baseStyles =
@@ -11,8 +12,8 @@ const variantStyles: Record<NonNullable<TagProps['variant']>, string> = {
   gray: 'bg-(--color-devider)',
 }
 
-const Tag = ({ text, variant = 'black' }: TagProps) => {
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]}`
+const Tag = ({ text, variant = 'black', className = ''}: TagProps) => {
+  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`
 
   return <p className={combinedClassName}>{text}</p>
 }
