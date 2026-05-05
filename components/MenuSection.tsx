@@ -11,6 +11,8 @@ import {
 } from 'motion/react'
 import Button from '@/components/ui/Button'
 import GridSection from '@/components/ui/GridSection'
+import H2Title from './ui/H2Title'
+import Paragraph from './ui/Paragraph'
 
 const tabs = [
   { id: 'kitchen', label: 'Кухня' },
@@ -35,11 +37,15 @@ const KITCHEN_CARDS = [
 ]
 
 const BAR_CARDS = [
-  { image: '/bar_01.webp', label: 'Коллекция вин', text: null },
+  {
+    image: '/bar_01.webp',
+    label: 'Коллекция вин',
+    text: 'Винная карта и коктейли собраны так, чтобы поддерживать вкус мяса и не спорить с ним',
+  },
   {
     image: '/bar_02.webp',
     label: 'Коктейльная карта',
-    text: 'Винная карта и коктейли собраны так, чтобы поддерживать вкус мяса и не спорить с ним',
+    text: null,
   },
 ]
 
@@ -75,6 +81,48 @@ function MenuCard({
         {card.label}
       </div>
     </motion.div>
+  )
+}
+
+function MobileMenuCard({ card }: { card: CardData }) {
+  return (
+    <div
+      style={{ backgroundImage: `url(${card.image})` }}
+      className="relative mb-4 h-104.5 w-[calc(90vw)] shrink-0 snap-start rounded-lg bg-cover bg-center"
+    >
+      <div className="absolute bottom-4 left-4 rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white backdrop-blur-sm">
+        {card.label}
+      </div>
+    </div>
+  )
+}
+
+function getEffectiveText(cards: CardData[], idx: number): string | null {
+  for (let i = idx; i >= 0; i--) {
+    if (cards[i].text) return cards[i].text
+  }
+  return null
+}
+
+type SliderDotProps = {
+  isActive: boolean
+  label: string
+  onClick: () => void
+}
+
+function SliderDot({ isActive, label, onClick }: SliderDotProps) {
+  return (
+    <motion.button
+      type="button"
+      aria-label={label}
+      animate={{
+        width: isActive ? '2rem' : '1rem',
+        backgroundColor: isActive ? 'var(--color-devider)' : 'transparent',
+      }}
+      transition={{ type: 'spring', stiffness: 800, damping: 35 }}
+      className="h-4 rounded-full border border-(--color-devider)"
+      onClick={onClick}
+    />
   )
 }
 
@@ -151,9 +199,40 @@ export default function MenuSection() {
   const containerH = 30 + (N - 1) * 2.5
   const textBottom = containerH - 30 - activeTextCardIdx * 2.5
 
+  // Mobile slider
+  const mobileSliderRef = useRef<HTMLDivElement>(null)
+  const [mobileActiveIndex, setMobileActiveIndex] = useState(0)
+
+  const handleMobileScroll = () => {
+    const slider = mobileSliderRef.current
+    if (!slider) return
+    const children = Array.from(slider.children) as HTMLElement[]
+    if (!children.length) return
+    const closest = children.reduce((best, card, i) => {
+      const d = Math.abs(card.offsetLeft - slider.scrollLeft)
+      const bd = Math.abs(children[best].offsetLeft - slider.scrollLeft)
+      return d < bd ? i : best
+    }, 0)
+    if (closest !== mobileActiveIndex) setMobileActiveIndex(closest)
+  }
+
+  const handleDotClick = (index: number) => {
+    const slider = mobileSliderRef.current
+    const target = slider?.children[index] as HTMLElement | undefined
+    if (!slider || !target) return
+    slider.scrollTo({ left: target.offsetLeft, behavior: 'smooth' })
+    setMobileActiveIndex(index)
+  }
+
+  useEffect(() => {
+    setMobileActiveIndex(0)
+    mobileSliderRef.current?.scrollTo({ left: 0, behavior: 'instant' })
+  }, [activeTab])
+
   return (
-    <section className="rounded-t-[7.5rem] bg-(--color-beige) text-(--color-dark)">
-      <div ref={wrapperRef} style={{ height: `${(N + 1) * 100}vh` }}>
+    <section className="rounded-t-[3.75rem] bg-(--color-beige) text-(--color-dark) md:rounded-t-[7.5rem]">
+      {/* Desktop: scroll-based stacking animation */}
+      <div ref={wrapperRef} style={{ height: `${(N + 1) * 100}vh` }} className="hidden md:block">
         <div className="sticky top-0 h-fit rounded-t-[7.5rem] bg-(--color-beige)">
           <GridSection className="relative pt-30 pb-18">
             <div className="absolute top-72 left-20 flex rounded-sm bg-white p-1 text-base leading-[148%] font-medium tracking-[1%]">
@@ -167,7 +246,9 @@ export default function MenuSection() {
               {tabs.map((tab, idx) => (
                 <button
                   key={tab.id}
-                  ref={(el) => { tabRefs.current[idx] = el }}
+                  ref={(el) => {
+                    tabRefs.current[idx] = el
+                  }}
                   onClick={() => setActiveTab(tab.id)}
                   className="relative rounded-sm px-6 py-2"
                 >
@@ -232,6 +313,73 @@ export default function MenuSection() {
               </motion.div>
             </AnimatePresence>
           </GridSection>
+        </div>
+      </div>
+
+      {/* Mobile: horizontal snap-scroll slider */}
+      <div className="md:hidden">
+        <GridSection className="pt-16 pb-4">
+          <Paragraph className="text-gray col-span-5">География вкуса</Paragraph>
+          <H2Title className="col-span-5">Авторская кухня и турецкие традиции мясников</H2Title>
+
+          <div className="col-span-5 mt-7 flex rounded-sm bg-white p-1 text-sm leading-[148%] font-medium tracking-[1%]">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`relative flex-1 rounded-sm px-3 py-2 text-center transition-colors duration-200 ${
+                  activeTab === tab.id ? 'bg-accent text-white' : 'text-accent'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </GridSection>
+
+        <div
+          ref={mobileSliderRef}
+          className="ml-4 flex snap-x snap-mandatory gap-4 overflow-x-auto pr-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          onScroll={handleMobileScroll}
+        >
+          {cards.map((card) => (
+            <MobileMenuCard key={card.label} card={card} />
+          ))}
+        </div>
+
+        {cards.some((c) => c.text) && (
+          <div className="grid px-4">
+            {cards
+              .filter((c) => c.text)
+              .map((c) => (
+                <p
+                  key={c.text}
+                  style={{ gridArea: '1/1' }}
+                  className={`text-base leading-[148%] font-medium tracking-[1%] transition-opacity duration-300 ${
+                    c.text === getEffectiveText(cards, mobileActiveIndex)
+                      ? 'opacity-100'
+                      : 'opacity-0'
+                  }`}
+                >
+                  {c.text}
+                </p>
+              ))}
+          </div>
+        )}
+
+        <div className="mt-4 mb-8 flex items-center justify-center gap-2">
+          {cards.map((card, index) => (
+            <SliderDot
+              key={card.label}
+              label={`Показать карточку ${index + 1}`}
+              isActive={index === mobileActiveIndex}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
+        </div>
+        <div className="col-span-5 flex w-full gap-2 px-4 pb-12">
+          <Button text="Меню" variant="secondary" className="w-full" />
+          <Button text="Винная карта" variant="secondary" className="w-full" />
         </div>
       </div>
     </section>

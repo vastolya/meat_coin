@@ -8,7 +8,7 @@ import Paragraph from './ui/Paragraph'
 
 export default function EventsSection() {
   return (
-    <GridSection className="pt-12 md:py-30 md:pt-0">
+    <GridSection className="pt-12 md:py-30">
       <H2Title className="col-span-5 pb-7 md:col-span-8 md:col-start-5 md:pb-0">
         <span className="text-accent">Meat_Coin —&nbsp;</span> пространство для ваших мероприятий в
         Москве и Санкт-Петербурге
