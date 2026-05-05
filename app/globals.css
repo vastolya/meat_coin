@@ -50,3 +50,65 @@ body {
 .font-albertus {
   font-family: var(--font-albertus);
 }
+
+.burger-menu {
+  position: relative;
+  display: inline-flex;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  vertical-align: middle;
+  z-index: 1110;
+}
+
+.burger-menu span,
+.burger-menu span::before,
+.burger-menu span::after {
+  position: absolute;
+  left: calc(50% - 13px);
+  top: calc(50% - 1px);
+  height: 2px;
+  width: 26px;
+  background: var(--color-white);
+  transform-origin: 50% 50%;
+  transition:
+    background-color 0.2s ease-in-out,
+    top 0.2s 0.2s ease-out,
+    transform 0.2s linear;
+  content: "";
+}
+
+.burger-menu span::before {
+  top: 7px;
+}
+
+.burger-menu span::after {
+  top: -7px;
+}
+
+.burger-menu.active span {
+  background-color: transparent;
+  transition: background 0.2s ease-out;
+}
+
+.burger-menu.active span::before,
+.burger-menu.active span::after {
+  transition:
+    top 0.2s ease-out,
+    transform 0.2s 0.2s ease-out;
+}
+
+.burger-menu.active span::before {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.burger-menu.active span::after {
+  top: 0;
+  transform: rotate(45deg);
+}

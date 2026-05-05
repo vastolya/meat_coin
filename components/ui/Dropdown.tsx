@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { ReactNode } from 'react'
 
 interface DropdownProps {
@@ -34,7 +33,14 @@ const Dropdown = ({
           }`}
           aria-hidden="true"
         >
-          <Image src="/dropdown.svg" alt="" width={24} height={24} className={iconClassName} />
+          <span
+            className={`block h-6 w-6 ${iconClassName}`}
+            style={{
+              backgroundColor: '#81807D',
+              mask: "url('/dropdown.svg') center / contain no-repeat",
+              WebkitMask: "url('/dropdown.svg') center / contain no-repeat",
+            }}
+          />
         </span>
       </button>
 
