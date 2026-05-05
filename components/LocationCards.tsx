@@ -60,7 +60,9 @@ function CardInner({ card, nameStyle }: { card: (typeof cards)[0]; nameStyle?: M
           {card.description}
         </Paragraph>
       </div>
-      <div className={`min-h-0 w-full flex-1 bg-center md:bg-cover ${card.bgClass}`} />
+      <div
+        className={`h-[650px] w-full shrink-0 bg-center md:h-auto md:min-h-0 md:flex-1 md:bg-cover ${card.bgClass}`}
+      />
     </div>
   )
 }
@@ -80,42 +82,42 @@ export default function LocationCards() {
   const card2NameColor = useTransform(scrollYProgress, [0.5, 1], ['#ffffff', '#81807d'])
 
   return (
-    <>
-      <GridSection className="pt-12 pb-6 md:pt-30 md:pb-0">
-        <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
-          География вкуса
-        </Paragraph>
-        <div className="col-span-5 flex flex-col gap-2 md:col-span-6">
-          <H2Title delay={0.4}>стейк-хаусы Meat_Coin в Москве и Петербурге</H2Title>
-          <Paragraph delay={0.6} className="text-gray col-span-4">
-            Каждый наш ресторан имеет свой характер, но все они хранят верность
-            <br />
-            главному принципу — дарить гостям совершенный опыт знакомства с мясом
+    <div ref={ref} className="h-[300vh]">
+      <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-(--color-dark)">
+        <GridSection className="shrink-0 pt-12 pb-6 md:pt-18 md:pb-6">
+          <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
+            География вкуса
           </Paragraph>
-        </div>
-      </GridSection>
+          <div className="col-span-5 flex flex-col gap-2 md:col-span-6">
+            <H2Title delay={0.4}>стейк-хаусы Meat_Coin в Москве и Петербурге</H2Title>
+            <Paragraph delay={0.6} className="text-gray col-span-4">
+              Каждый наш ресторан имеет свой характер, но все они хранят верность
+              <br />
+              главному принципу — дарить гостям совершенный опыт знакомства с мясом
+            </Paragraph>
+          </div>
+        </GridSection>
 
-      <div ref={ref} className="h-[300vh]">
-        <div className="sticky top-0 h-screen overflow-hidden bg-(--color-dark)">
+        <div className="relative flex-1">
           <div className="absolute inset-0 z-10">
             <CardInner card={cards[0]} nameStyle={{ color: card1NameColor }} />
           </div>
 
           <motion.div
-            className="absolute top-25 right-0 bottom-0 left-0 z-20 bg-(--color-dark)"
+            className="absolute inset-0 top-25 z-20 bg-(--color-dark) md:right-0 md:bottom-0 md:left-0"
             style={{ y: card2Y }}
           >
             <CardInner card={cards[1]} nameStyle={{ color: card2NameColor }} />
           </motion.div>
 
           <motion.div
-            className="absolute top-50 right-0 bottom-0 left-0 z-30 bg-(--color-dark)"
+            className="absolute inset-0 top-50 z-30 bg-(--color-dark) md:right-0 md:bottom-0 md:left-0"
             style={{ y: card3Y }}
           >
             <CardInner card={cards[2]} />
           </motion.div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
