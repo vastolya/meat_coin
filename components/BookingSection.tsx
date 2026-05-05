@@ -143,7 +143,7 @@ function MobileLocationCard({
         aria-hidden={!isExpanded}
       >
         <div className="min-h-0 overflow-hidden">
-          <div className="flex flex-col gap-6 md:gap-8 pb-8">
+          <div className="flex flex-col gap-6 pb-8 md:gap-8">
             <Paragraph className="text-gray">{location.note}</Paragraph>
 
             <div className="flex flex-col gap-2">
@@ -183,10 +183,13 @@ function MobileLocationCard({
               </div>
             </div>
 
-            <div
-              className="aspect-square cursor-pointer overflow-hidden rounded-lg bg-cover bg-center"
-              style={{ backgroundImage: `url('${location.mapPreview}')` }}
-              onClick={onMapOpen}
+            <iframe
+              src={location.mapUrl}
+              width="100%"
+              height="100%"
+              className="h-105 rounded-sm border-0"
+              allowFullScreen
+              title="Yandex Map"
             />
           </div>
         </div>
