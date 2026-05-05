@@ -1,10 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import { animate, motion, useMotionValue, useTransform } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import GridSection from './ui/GridSection'
 import H3Title from './ui/H3Title'
+import Ornament from './ui/Ornament'
 import Paragraph from './ui/Paragraph'
 
 export default function PhilosophySection() {
@@ -29,7 +29,10 @@ export default function PhilosophySection() {
       const p = progress.get()
       if (e.deltaY > 0 && p >= 1) return
       if (e.deltaY < 0 && p <= 0) return
-      if (animating) { e.preventDefault(); return }
+      if (animating) {
+        e.preventDefault()
+        return
+      }
 
       e.preventDefault()
       animating = true
@@ -40,7 +43,9 @@ export default function PhilosophySection() {
       animate(progress, target, {
         duration: 0.5,
         ease: 'easeInOut',
-        onComplete: () => { animating = false },
+        onComplete: () => {
+          animating = false
+        },
       })
     }
 
@@ -49,30 +54,22 @@ export default function PhilosophySection() {
   }, [progress, setSecondVisible])
 
   return (
-    <GridSection ref={sectionRef} className="h-134 items-center">
-      <motion.div
-        initial={{ y: -40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.1 }}
-      >
-        <Image src={'ornament.svg'} alt="ornament" width={260} height={66} />
-      </motion.div>
+    <GridSection ref={sectionRef} className="h-full items-center md:h-134">
+      <Ornament className="py-12 md:col-span-1 md:py-0" />
 
-      <div className="relative col-span-5 col-start-5">
+      <div className="relative col-span-5 md:col-start-5">
         <motion.div style={{ opacity: firstOpacity }} className="flex flex-col gap-7">
           <H3Title className="text-accent" delay={0.2}>
-            Познать совершенный вкус <br /> авторской кухни
+            Познать совершенный вкус авторской кухни
           </H3Title>
           <div className="flex flex-col gap-2">
             <Paragraph delay={0.4}>
-              Философия ресторанов Meat_Coin строится вокруг <br /> главной ценности — премиального
-              мяса
+              Философия ресторанов Meat_Coin строится вокруг главной ценности — премиального мяса
             </Paragraph>
             <Paragraph delay={0.6}>
-              Мы не просто готовим стейки, мы создаём культуру, <br /> где каждый ингредиент имеет
-              значение. Наши рестораны — <br /> это пространство, где турецкие традиции обращения с
-              мясом <br /> встречаются с современной гастрономической эстетикой
+              Мы не просто готовим стейки, мы создаём культуру, где каждый ингредиент имеет
+              значение. Наши рестораны — это пространство, где турецкие традиции обращения с мясом
+              встречаются с современной гастрономической эстетикой
             </Paragraph>
           </div>
         </motion.div>
@@ -97,15 +94,7 @@ export default function PhilosophySection() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ y: -40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: 'spring', stiffness: 80, damping: 15, delay: 0.1 }}
-        className="col-start-12"
-      >
-        <Image src={'ornament.svg'} alt="ornament" width={260} height={66} />
-      </motion.div>
+      <Ornament className="py-12 md:col-start-12 md:justify-end! md:py-0" />
     </GridSection>
   )
 }
