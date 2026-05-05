@@ -7,7 +7,7 @@ import Paragraph from './Paragraph'
 
 const Footer = () => {
   return (
-    <footer className="mx-auto max-w-360 px-4 py-12 md:px-20 md:py-11">
+    <footer className="mx-auto max-w-360 overflow-hidden px-4 py-12 md:px-20 md:py-11">
       <div className="hidden grid-cols-12 gap-7 md:grid">
         <div className="col-span-4 flex h-full flex-col justify-between gap-4">
           <div className="gap7 flex flex-col gap-7">

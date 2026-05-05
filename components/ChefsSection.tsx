@@ -132,7 +132,7 @@ export default function ChefsSection() {
   }
 
   return (
-    <GridSection className="pt-24 pb-24 md:pt-30 md:pb-35">
+    <GridSection className="pt-0pb-0md:pt-30 md:pb-35">
       <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
         Хранители традиций
       </Paragraph>

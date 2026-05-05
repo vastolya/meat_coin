@@ -8,21 +8,21 @@ import Paragraph from './ui/Paragraph'
 
 export default function EventsSection() {
   return (
-    <GridSection className="py-30">
-      <H2Title className="col-span-5 md:col-span-8 md:col-start-5">
+    <GridSection className="pt-12 md:py-30 md:pt-0">
+      <H2Title className="col-span-5 pb-7 md:col-span-8 md:col-start-5 md:pb-0">
         <span className="text-accent">Meat_Coin —&nbsp;</span> пространство для ваших мероприятий в
         Москве и Санкт-Петербурге
       </H2Title>
 
       <>
-        <div className="col-span-5 h-75 rounded-lg bg-[url('/event_01.webp')] bg-cover md:col-span-3" />
+        <div className="col-span-5 mb-4 h-90 rounded-lg bg-[url('/event_01.webp')] bg-cover md:col-span-3 md:mb-0 md:h-75" />
 
-        <div className="col-span-5 flex flex-col gap-4 md:col-span-8 md:col-start-5">
+        <div className="col-span-5 flex flex-col gap-2 pb-4 md:col-span-8 md:col-start-5 md:gap-4 md:pb-0">
           <H3Title>
             Рестораны Meat_Coin идеальны <br /> для проведения
           </H3Title>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-1 md:gap-2">
             <Tag text="Свадьба" /> <Tag text="Юбилей" /> <Tag text="Корпоратив" />
             <Tag text="Деловой ужин" />
           </div>
@@ -60,14 +60,20 @@ export default function EventsSection() {
             Мы предлагаем персональное меню, разработанное шеф-поварами, <br /> помощь в подборе
             вин и полное сопровождение
           </Paragraph>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center md:gap-0">
             <Link href={'/'} className="hover:text-accent transition-all duration-300">
               <Paragraph>Подробнее о событиях</Paragraph>
             </Link>
-            <div className="flex flex-col gap-2 md:flex-row">
-              <Button text="Комарово" variant="secondary" />
-              <Button text="Москва" variant="secondary" />
-              <Button text="Санкт-Петербург" variant="secondary" />
+            <div className="flex w-full flex-col gap-2 md:flex-row">
+              <Link href={'/'}>
+                <Button text="Комарово" variant="secondary" className="w-full text-white" />
+              </Link>
+              <Link href={'/'}>
+                <Button text="Москва" variant="secondary" className="w-full text-white" />
+              </Link>
+              <Link href={'/'}>
+                <Button text="Санкт-Петербург" variant="secondary" className="w-full text-white" />
+              </Link>
             </div>
           </div>
         </div>

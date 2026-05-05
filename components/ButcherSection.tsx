@@ -6,7 +6,7 @@ import Paragraph from './ui/Paragraph'
 
 export default function ButcherSection() {
   return (
-    <GridSection>
+    <GridSection className="pt-12 md:pt-0">
       <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
         Мясная лавка: ваш идеальный стейк
       </Paragraph>
@@ -23,8 +23,7 @@ export default function ButcherSection() {
           </Paragraph>
         </div>
       </div>
-      {/* добавить отрицательный -mx-4 картинке, когда будет готов адаптив на всей странице */}
-      <div className="col-span-5 mt-9 h-98.5 w-full rounded-lg bg-[url('/store.webp')] bg-cover md:col-span-12 md:mt-18 md:h-119" />
+      <div className="col-span-5 -mx-4 mt-9 h-98.5 w-screen rounded-lg bg-[url('/store.webp')] bg-cover md:col-span-12 md:mx-0 md:mt-18 md:h-119 md:w-full" />
     </GridSection>
   )
 }

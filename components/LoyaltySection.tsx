@@ -25,7 +25,7 @@ const fadeUp = (delay = 0) => ({
 
 export default function LoyaltySection() {
   return (
-    <GridSection className="py-30">
+    <GridSection className="py-12 md:py-30">
       <Paragraph className="text-gray col-span-5 md:col-span-4">
         Станьте частью закрытого круга
       </Paragraph>

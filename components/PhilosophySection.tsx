@@ -72,12 +72,12 @@ export default function PhilosophySection() {
     <GridSection ref={sectionRef} className="h-full items-center md:h-134">
       <Ornament className="py-12 md:col-span-1 md:py-0" />
 
-      <div className="relative col-span-5 md:col-start-5">
+      <div className="relative col-span-5 overflow-hidden md:col-start-5">
         <motion.div style={{ opacity: firstOpacity }} className="flex flex-col gap-7">
           <H3Title className="text-accent" delay={0.2}>
-            Познать совершенный вкус авторской кухни
+            Познать совершенный вкус <br /> авторской кухни
           </H3Title>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 overflow-hidden">
             <Paragraph delay={0.4}>
               Философия ресторанов Meat_Coin строится вокруг главной ценности — премиального мяса
             </Paragraph>
@@ -96,7 +96,7 @@ export default function PhilosophySection() {
           >
             Открытый огонь и бескомпромиссное качество
           </H3Title>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 overflow-hidden">
             <Paragraph
               animate={secondVisible ? { x: 0, opacity: 1 } : { x: 40, opacity: 0 }}
               delay={secondVisible ? 0.1 : 0}

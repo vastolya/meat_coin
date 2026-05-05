@@ -12,12 +12,14 @@ import ButcherSection from '@/components/ButcherSection'
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <HeroSection />
 
       <LocationCards />
 
+      {/* <div className="hidden md:flex"> */}
       <PhilosophySection />
+      {/* </div> */}
 
       <ChefsSection />
 

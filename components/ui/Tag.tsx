@@ -3,7 +3,8 @@ interface TagProps {
   variant?: 'black' | 'gray'
 }
 
-const baseStyles = 'w-fit rounded-sm px-2 py-1 text-base leading-[148%] font-medium tracking-[1%]'
+const baseStyles =
+  'w-fit rounded-sm px-3 py-3 md:px-2 md:py-1 text-base leading-[148%] font-medium tracking-[1%] whitespace-nowrap'
 
 const variantStyles: Record<NonNullable<TagProps['variant']>, string> = {
   black: 'bg-(--color-dark-black)',

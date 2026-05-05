@@ -14,7 +14,7 @@ const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
 }
 
 const Button = ({ text, variant = 'primary', className = '' }: ButtonProps) => {
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`
+  const combinedClassName = `${className} ${baseStyles} ${variantStyles[variant]} `
 
   return <button className={combinedClassName}>{text}</button>
 }
