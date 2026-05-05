@@ -7,6 +7,7 @@ import BookingSection from '@/components/BookingSection'
 import MarqueeSection from '@/components/MarqueeSection'
 import EventsSection from '@/components/EventsSection'
 import LoyaltySection from '@/components/LoyaltySection'
+import ClassesSection from '@/components/ClassesSection'
 import GridSection from '@/components/ui/GridSection'
 
 export default function Home() {
@@ -20,23 +21,7 @@ export default function Home() {
 
       <ChefsSection />
 
-      <GridSection className="pb-30">
-        <div className="col-span-3 h-full w-full rounded-lg bg-[url('/classes.webp')] bg-cover" />
-
-        <div className="col-span-5 col-start-5">
-          <h3 className="pb-2 text-2xl leading-[116%] font-extrabold tracking-normal">
-            Искусство, которое можно увидеть
-          </h3>
-          <p className="col-span-4 pb-30 text-base leading-[148%] font-medium tracking-[1%]">
-            В ресторанах Meat_Coin регулярно проходят мастер-классы по приготовлению стейков и
-            гастрономические шоу, где шефы делятся секретами мастерства
-          </p>
-          <p className="col-span-4 text-base leading-[148%] font-medium tracking-[1%]">
-            Гости могут не только насладиться блюдами, но и прикоснуться к процессу создания
-            идеального стейка, узнавая тонкости от настоящих профессионалов
-          </p>
-        </div>
-      </GridSection>
+      <ClassesSection />
 
       <MenuSection />
 
