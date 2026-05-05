@@ -11,6 +11,7 @@ export default function PhilosophySection() {
   const sectionRef = useRef<HTMLElement>(null)
   const progress = useMotionValue(0)
   const [secondVisible, setSecondVisible] = useState(false)
+  const secondVisibleRef = useRef(false)
 
   const firstOpacity = useTransform(progress, [0, 0.5], [1, 0], { clamp: true })
 
@@ -23,7 +24,6 @@ export default function PhilosophySection() {
     const handleWheel = (e: WheelEvent) => {
       const rect = section.getBoundingClientRect()
       const fullyVisible = rect.top >= -10 && rect.bottom <= window.innerHeight + 10
-
       if (!fullyVisible) return
 
       const p = progress.get()
@@ -37,7 +37,7 @@ export default function PhilosophySection() {
       e.preventDefault()
       animating = true
       const target = e.deltaY > 0 ? 1 : 0
-
+      secondVisibleRef.current = target === 1
       setSecondVisible(target === 1)
 
       animate(progress, target, {
@@ -49,9 +49,24 @@ export default function PhilosophySection() {
       })
     }
 
+    const handleScroll = () => {
+      if (window.innerWidth >= 768) return
+      const rect = section.getBoundingClientRect()
+      const shouldShow = rect.top < window.innerHeight / 2
+      if (shouldShow === secondVisibleRef.current) return
+      secondVisibleRef.current = shouldShow
+      setSecondVisible(shouldShow)
+      animate(progress, shouldShow ? 1 : 0, { duration: 0.5, ease: 'easeInOut' })
+    }
+
     window.addEventListener('wheel', handleWheel, { passive: false })
-    return () => window.removeEventListener('wheel', handleWheel)
-  }, [progress, setSecondVisible])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [progress])
 
   return (
     <GridSection ref={sectionRef} className="h-full items-center md:h-134">
