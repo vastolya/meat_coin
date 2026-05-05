@@ -20,7 +20,7 @@ const H2Title = ({ children, className = '', delay = 0 }: H2TitleProps) => {
         damping: 15,
         delay,
       }}
-      className={` ${className} font-albertus text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase`}
+      className={`${className} font-albertus text-[1.75rem] leading-[120%] font-normal tracking-[-1%] uppercase md:text-[2.5rem]`}
     >
       {children}
     </motion.h2>

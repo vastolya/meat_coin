@@ -20,7 +20,7 @@ const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: 
         damping: 15,
         delay,
       }}
-      className={` ${className} text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal`}
+      className={`text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal ${className}`}
     >
       {children}
     </motion.h3>
