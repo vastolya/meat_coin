@@ -38,8 +38,8 @@ const cards = [
 function CardInner({ card, nameStyle }: { card: (typeof cards)[0]; nameStyle?: MotionStyle }) {
   return (
     <div className="flex h-full flex-col">
-      <div className="mx-auto grid h-25 w-full max-w-360 shrink-0 grid-cols-12 items-center gap-7 px-20">
-        <div className="col-span-4">
+      <div className="col-cols-5 mx-auto grid h-25 w-full max-w-360 shrink-0 items-center gap-3 px-4 md:grid-cols-12 md:gap-7 md:px-20">
+        <div className="col-span-5 md:col-span-4">
           <Tag text={card.city} />
         </div>
 
@@ -55,12 +55,12 @@ function CardInner({ card, nameStyle }: { card: (typeof cards)[0]; nameStyle?: M
           <ArrowLink href={card.href} />
         </div>
       </div>
-      <div className="mx-auto grid w-full max-w-360 shrink-0 grid-cols-12 gap-7 px-20 pt-7 pb-7">
+      <div className="mx-auto hidden w-full max-w-360 shrink-0 grid-cols-12 gap-7 px-20 pt-7 pb-7 md:grid">
         <Paragraph delay={0.2} className="col-span-8 col-start-5">
           {card.description}
         </Paragraph>
       </div>
-      <div className={`min-h-0 w-full flex-1 bg-cover ${card.bgClass}`} />
+      <div className={`min-h-0 w-full flex-1 bg-center md:bg-cover ${card.bgClass}`} />
     </div>
   )
 }
@@ -81,11 +81,11 @@ export default function LocationCards() {
 
   return (
     <>
-      <GridSection className="pt-30">
-        <Paragraph delay={0.2} className="text-gray col-span-4">
+      <GridSection className="pt-12 pb-6 md:pt-30 md:pb-0">
+        <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
           География вкуса
         </Paragraph>
-        <div className="col-span-6 flex flex-col gap-2">
+        <div className="col-span-5 flex flex-col gap-2 md:col-span-6">
           <H2Title delay={0.4}>стейк-хаусы Meat_Coin в Москве и Петербурге</H2Title>
           <Paragraph delay={0.6} className="text-gray col-span-4">
             Каждый наш ресторан имеет свой характер, но все они хранят верность
