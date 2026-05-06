@@ -53,7 +53,6 @@ body {
 
 .burger-menu {
   position: relative;
-  display: inline-flex;
   height: 50px;
   width: 50px;
   cursor: pointer;

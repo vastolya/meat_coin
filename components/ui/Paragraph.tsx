@@ -7,6 +7,7 @@ interface ParagraphProps {
   className?: string
   delay?: number
   animate?: import('framer-motion').TargetAndTransition
+  disableAnimation?: boolean
 }
 
 const Paragraph = ({
@@ -14,11 +15,14 @@ const Paragraph = ({
   className = '',
   delay = 0,
   animate: animateProp,
+  disableAnimation = false,
 }: ParagraphProps) => {
   return (
     <motion.p
-      initial={{ x: 40, opacity: 0 }}
-      {...(animateProp
+      initial={disableAnimation ? false : { x: 40, opacity: 0 }}
+      {...(disableAnimation
+        ? { animate: { x: 0, opacity: 1 } }
+        : animateProp
         ? { animate: animateProp }
         : { whileInView: { x: 0, opacity: 1 }, viewport: { once: true } })}
       transition={{

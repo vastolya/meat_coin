@@ -11,6 +11,7 @@ interface DropdownProps {
   buttonClassName?: string
   contentClassName?: string
   iconClassName?: string
+  iconColor?: string
 }
 
 const Dropdown = ({
@@ -22,6 +23,7 @@ const Dropdown = ({
   buttonClassName = '',
   contentClassName = '',
   iconClassName = '',
+  iconColor = '#81807D',
 }: DropdownProps) => {
   return (
     <div className={className}>
@@ -36,7 +38,7 @@ const Dropdown = ({
           <span
             className={`block h-6 w-6 ${iconClassName}`}
             style={{
-              backgroundColor: '#81807D',
+              backgroundColor: iconColor,
               mask: "url('/dropdown.svg') center / contain no-repeat",
               WebkitMask: "url('/dropdown.svg') center / contain no-repeat",
             }}

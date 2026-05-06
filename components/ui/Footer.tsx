@@ -3,17 +3,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { RESTAURANTS } from '../../consts/restaurants'
+import { COPYRIGHT_TEXT } from '../../consts/site'
+import MailIcon from '../icons/MailIcon'
 import Button from './Button'
 import Dropdown from './Dropdown'
-import MailIcon from '../icons/MailIcon'
-import Telegram from './Telegram'
 import Paragraph from './Paragraph'
-
-const FOOTER_RESTAURANTS = [
-  { city: 'Москва', restaurant: 'Steak&Terrace' },
-  { city: 'Комарово', restaurant: 'Coin Country Club' },
-  { city: 'Санкт-Петербург', restaurant: 'Butcher&Grill' },
-]
+import Telegram from './Telegram'
 
 const Footer = () => {
   const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
@@ -164,7 +160,7 @@ const Footer = () => {
                 contentClassName="flex flex-col gap-2 pt-2 md:pt-4"
                 trigger={<Paragraph>{col.header.label}</Paragraph>}
               >
-                {FOOTER_RESTAURANTS.map((item) => (
+                {RESTAURANTS.map((item) => (
                   <Link key={item.city} href="/" className="group flex flex-col">
                     <span className="group-hover:text-accent text-base leading-[148%] font-medium tracking-[1%]">
                       {item.city}
@@ -205,7 +201,7 @@ const Footer = () => {
 
       <div className="flex flex-col justify-between gap-4 md:flex-row md:gap-0">
         <p className="text-base leading-[148%] font-medium tracking-[1%] text-(--color-gray) md:text-sm">
-          © Meat_Coin, 2026 . Все права защищены
+          {COPYRIGHT_TEXT}
         </p>
 
         <div className="flex flex-col gap-4 md:flex-row md:gap-6">
