@@ -113,7 +113,6 @@ function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCa
         isExpanded ? 'pb-2' : 'pb-7'
       }`}
       contentClassName="flex flex-col gap-6 pb-8 md:gap-8"
-      iconClassName="[filter:brightness(0)_saturate(100%)_invert(54%)_sepia(12%)_saturate(713%)_hue-rotate(2deg)_brightness(89%)_contrast(85%)]"
       trigger={
         <div className="flex flex-col gap-2">
           <H3Title className="text-[2rem] leading-[104%] font-extrabold tracking-normal">
