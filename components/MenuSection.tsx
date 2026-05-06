@@ -232,7 +232,7 @@ export default function MenuSection() {
   return (
     <section className="rounded-t-[3.75rem] bg-(--color-beige) text-(--color-dark) md:rounded-t-[7.5rem]">
       {/* Desktop: scroll-based stacking animation */}
-      <div ref={wrapperRef} style={{ height: `${(N + 1) * 100}vh` }} className="hidden md:block">
+      <div ref={wrapperRef} style={{ height: `${(N + 1) * 60}vh` }} className="hidden md:block">
         <div className="sticky top-0 h-fit rounded-t-[7.5rem] bg-(--color-beige)">
           <GridSection className="relative pt-30 pb-18">
             <div className="absolute top-72 left-20 flex rounded-sm bg-white p-1 text-base leading-[148%] font-medium tracking-[1%]">

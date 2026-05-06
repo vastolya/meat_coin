@@ -156,7 +156,7 @@ const Footer = () => {
               <Dropdown
                 isOpen={isRestaurantsOpen}
                 onToggle={() => setIsRestaurantsOpen((current) => !current)}
-                buttonClassName="flex w-full items-center justify-between md:justify-start gap-2 text-left"
+                buttonClassName="flex w-full items-center justify-between md:justify-start gap-2 text-left cursor-pointer"
                 contentClassName="flex flex-col gap-2 pt-2 md:pt-4"
                 trigger={<Paragraph>{col.header.label}</Paragraph>}
               >
