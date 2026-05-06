@@ -15,7 +15,7 @@ export default function EventsSection() {
       </H2Title>
 
       <>
-        <div className="col-span-5 mb-4 h-90 rounded-lg bg-[url('/event_01.webp')] bg-contain md:col-span-3 md:mb-0 md:h-75" />
+        <div className="col-span-5 mb-4 h-90 rounded-lg bg-[url('/event_01.webp')] bg-cover md:col-span-3 md:mb-0 md:h-75" />
 
         <div className="col-span-5 flex flex-col gap-2 pb-4 md:col-span-8 md:col-start-5 md:gap-4 md:pb-0">
           <H3Title>
@@ -30,7 +30,7 @@ export default function EventsSection() {
       </>
 
       <>
-        <div className="col-span-5 h-119 rounded-lg bg-[url('/event_02.webp')] bg-contain md:col-span-4 md:col-start-1" />
+        <div className="col-span-5 h-119 rounded-lg bg-[url('/event_02.webp')] bg-cover md:col-span-4 md:col-start-1" />
         <div className="col-span-5 flex flex-col gap-4 md:col-start-5">
           <H3Title>
             Панорамная терраса в Москве, вип-зал, летняя терраса и беседки в Комарово, атмосфера
@@ -41,9 +41,9 @@ export default function EventsSection() {
       </>
 
       <>
-        <div className="col-span-5 h-174 rounded-lg bg-[url('/event_03.webp')] bg-contain md:col-span-4 md:col-start-1" />
+        <div className="col-span-5 h-174 rounded-lg bg-[url('/event_03.webp')] bg-cover md:col-span-4 md:col-start-1" />
         <div className="col-span-5 flex flex-col gap-4 md:col-span-8 md:col-start-5">
-          <div className="h-119 rounded-lg bg-[url('/event_04.webp')] bg-contain" />
+          <div className="h-119 rounded-lg bg-[url('/event_04.webp')] bg-cover" />
           <H3Title>Наша команда поможет организовать событие любого уровня сложности</H3Title>
           <div className="flex gap-2">
             <Tag text="Камерный ужин" /> <Tag text="Масштабный гала-вечер" />
@@ -51,10 +51,10 @@ export default function EventsSection() {
         </div>
       </>
 
-      <div className="col-span-5 h-119 rounded-lg bg-[url('/event_05.webp')] bg-contain md:col-span-4 md:col-start-1" />
+      <div className="col-span-5 h-119 rounded-lg bg-[url('/event_05.webp')] bg-cover md:col-span-4 md:col-start-1" />
 
       <>
-        <div className="col-span-5 h-86 rounded-lg bg-[url('/event_06.webp')] bg-contain md:col-span-4 md:col-start-1" />
+        <div className="col-span-5 h-86 rounded-lg bg-[url('/event_06.webp')] bg-cover md:col-span-4 md:col-start-1" />
         <div className="col-span-5 flex flex-col justify-end gap-4 md:col-span-8 md:col-start-5">
           <Paragraph className="text-gray">
             Мы предлагаем персональное меню, разработанное шеф-поварами, <br /> помощь в подборе

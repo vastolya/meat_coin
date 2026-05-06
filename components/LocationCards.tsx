@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useLayoutEffect, useState } from 'react'
+import { useRef, useLayoutEffect, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import ArrowLink from '@/components/ui/ArrowLink'
 import Tag from '@/components/ui/Tag'
@@ -63,7 +63,9 @@ function CardContent({ card }: { card: (typeof cards)[0] }) {
           {card.description}
         </Paragraph>
       </div>
-      <div className={`h-[560px] w-full bg-cover bg-center md:h-[70vh] ${card.bgClass}`} />
+      <div
+        className={`h-[calc(100dvh-100px)] w-full bg-cover bg-center md:h-[70vh] ${card.bgClass}`}
+      />
     </>
   )
 }
@@ -75,6 +77,15 @@ export default function LocationCards() {
 
   const [headerH, setHeaderH] = useState(0)
   const [cardH, setCardH] = useState(660)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)')
+    setIsMobile(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
 
   useLayoutEffect(() => {
     const headerEl = headerRef.current
@@ -98,16 +109,16 @@ export default function LocationCards() {
     offset: ['start start', 'end end'],
   })
 
-  const card2Y = useTransform(scrollYProgress, [0, 0.5], ['100vh', '0vh'])
-  const card3Y = useTransform(scrollYProgress, [0.5, 1], ['100vh', '0vh'])
+  const card2Y = useTransform(scrollYProgress, [0, 0.4], ['100vh', '0vh'])
+  const card3Y = useTransform(scrollYProgress, [0.4, 0.8], ['100vh', '0vh'])
 
   // Высота собранного стека: хвостики карточек 1–2 + полная карточка 3
   const assembledH = CARD_HEADER_H * (cards.length - 1) + cardH
 
   return (
     <div className="bg-(--color-dark)">
-      {/* Секция-заголовок: sticky, остаётся видимой пока карточки собираются */}
-      <div ref={headerRef} className="sticky top-0 z-0 bg-(--color-dark)">
+      {/* Секция-заголовок: sticky только на десктопе */}
+      <div ref={headerRef} className="z-0 bg-(--color-dark) md:sticky md:top-0">
         <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
           <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
             География вкуса
@@ -124,11 +135,11 @@ export default function LocationCards() {
       </div>
 
       {/* Scroll-контейнер: задаёт длину анимации сборки */}
-      <div ref={scrollRef} className="h-[250vh]">
+      <div ref={scrollRef} className="h-[300vh]">
         {/* Единый sticky-блок — весь стек уходит наверх как одно целое */}
         <div
           className="sticky overflow-hidden bg-(--color-dark)"
-          style={{ top: headerH, height: assembledH }}
+          style={{ top: isMobile ? 0 : headerH, height: assembledH }}
         >
           {/* Карточка 1 — всегда видна в основании стека */}
           <div ref={cardRef} className="absolute inset-x-0 top-0 z-1 bg-(--color-dark)">
