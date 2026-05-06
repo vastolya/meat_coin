@@ -10,10 +10,13 @@ import Paragraph from './ui/Paragraph'
 export default function PhilosophySection() {
   const sectionRef = useRef<HTMLElement>(null)
   const progress = useMotionValue(0)
+
   const [secondVisible, setSecondVisible] = useState(false)
   const secondVisibleRef = useRef(false)
 
-  const firstOpacity = useTransform(progress, [0, 0.5], [1, 0], { clamp: true })
+  const firstOpacity = useTransform(progress, [0, 0.5], [1, 0], {
+    clamp: true,
+  })
 
   useEffect(() => {
     const section = sectionRef.current
@@ -24,11 +27,14 @@ export default function PhilosophySection() {
     const handleWheel = (e: WheelEvent) => {
       const rect = section.getBoundingClientRect()
       const fullyVisible = rect.top >= -10 && rect.bottom <= window.innerHeight + 10
+
       if (!fullyVisible) return
 
       const p = progress.get()
+
       if (e.deltaY > 0 && p >= 1) return
       if (e.deltaY < 0 && p <= 0) return
+
       if (animating) {
         e.preventDefault()
         return
@@ -36,7 +42,9 @@ export default function PhilosophySection() {
 
       e.preventDefault()
       animating = true
+
       const target = e.deltaY > 0 ? 1 : 0
+
       secondVisibleRef.current = target === 1
       setSecondVisible(target === 1)
 
@@ -51,12 +59,29 @@ export default function PhilosophySection() {
 
     const handleScroll = () => {
       if (window.innerWidth >= 768) return
+
       const rect = section.getBoundingClientRect()
-      const shouldShow = rect.top < window.innerHeight / 2
-      if (shouldShow === secondVisibleRef.current) return
-      secondVisibleRef.current = shouldShow
-      setSecondVisible(shouldShow)
-      animate(progress, shouldShow ? 1 : 0, { duration: 0.5, ease: 'easeInOut' })
+
+      // центр секции
+      const sectionCenter = rect.top + rect.height / 2
+
+      // центр экрана
+      const viewportCenter = window.innerHeight / 2
+
+      // небольшая зона, чтобы не дёргалось
+      const threshold = window.innerHeight * 0.05
+
+      const shouldShowSecond = sectionCenter < viewportCenter - threshold
+
+      if (shouldShowSecond === secondVisibleRef.current) return
+
+      secondVisibleRef.current = shouldShowSecond
+      setSecondVisible(shouldShowSecond)
+
+      animate(progress, shouldShowSecond ? 1 : 0, {
+        duration: 0.5,
+        ease: 'easeInOut',
+      })
     }
 
     window.addEventListener('wheel', handleWheel, { passive: false })
@@ -73,14 +98,17 @@ export default function PhilosophySection() {
       <Ornament className="py-12 md:col-span-1 md:py-0" />
 
       <div className="relative col-span-5 overflow-hidden md:col-start-5">
+        {/* Первый текст */}
         <motion.div style={{ opacity: firstOpacity }} className="flex flex-col gap-7">
           <H3Title className="text-accent" delay={0.2}>
             Познать совершенный вкус <br /> авторской кухни
           </H3Title>
+
           <div className="flex flex-col gap-2 overflow-hidden">
             <Paragraph delay={0.4}>
               Философия ресторанов Meat_Coin строится вокруг главной ценности — премиального мяса
             </Paragraph>
+
             <Paragraph delay={0.6}>
               Мы не просто готовим стейки, мы создаём культуру, где каждый ингредиент имеет
               значение. Наши рестораны — это пространство, где турецкие традиции обращения с мясом
@@ -89,6 +117,7 @@ export default function PhilosophySection() {
           </div>
         </motion.div>
 
+        {/* Второй текст */}
         <div className="absolute inset-0 flex flex-col gap-7">
           <H3Title
             className="text-accent"
@@ -96,6 +125,7 @@ export default function PhilosophySection() {
           >
             Открытый огонь и бескомпромиссное качество
           </H3Title>
+
           <div className="flex flex-col gap-2 overflow-hidden">
             <Paragraph
               animate={secondVisible ? { x: 0, opacity: 1 } : { x: 40, opacity: 0 }}

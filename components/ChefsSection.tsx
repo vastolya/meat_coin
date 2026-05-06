@@ -139,7 +139,7 @@ export default function ChefsSection() {
       <div className="col-span-5 flex flex-col gap-2 md:col-span-8">
         <H2Title delay={0.4}>Шеф-повара Meat_Coin</H2Title>
         <Paragraph delay={0.6}>
-          <span className="text-(--color-accent)">Команду Meat_Coin возглавляют шефы</span>
+          <span className="text-(--color-accent)">Команду Meat_Coin возглавляют шефы&nbsp;</span>
           <br className="md:hidden" />с турецкой школой <br className="hidden md:block" /> и
           глубоким пониманием ремесла
         </Paragraph>
