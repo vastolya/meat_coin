@@ -109,7 +109,7 @@ export default function PhilosophySection() {
         </div>
       </div>
 
-      <Ornament className="py-12 md:col-start-12 md:justify-end! md:py-0" />
+      <Ornament className="col-span-5 py-12 md:col-span-3! md:col-start-8 md:justify-end! md:py-0" />
     </GridSection>
   )
 }

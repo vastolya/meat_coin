@@ -60,11 +60,14 @@ export default function EventsSection() {
             Мы предлагаем персональное меню, разработанное шеф-поварами, <br /> помощь в подборе
             вин и полное сопровождение
           </Paragraph>
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center md:gap-0">
-            <Link href={'/'} className="hover:text-accent transition-all duration-300">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
+            <Link
+              href={'/'}
+              className="hover:text-accent whitespace-nowrap transition-all duration-300"
+            >
               <Paragraph>Подробнее о событиях</Paragraph>
             </Link>
-            <div className="flex w-full flex-col gap-2 md:flex-row">
+            <div className="flex w-full flex-col justify-end gap-2 md:flex-row">
               <Link href={'/'}>
                 <Button text="Комарово" variant="secondary" className="w-full text-white" />
               </Link>
