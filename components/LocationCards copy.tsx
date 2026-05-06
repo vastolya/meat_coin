@@ -98,12 +98,11 @@ export default function LocationCards() {
     offset: ['start start', 'end end'],
   })
 
+  const card2Y = useTransform(scrollYProgress, [0, 0.5], ['100vh', '0vh'])
+  const card3Y = useTransform(scrollYProgress, [0.5, 1], ['100vh', '0vh'])
+
   // Высота собранного стека: хвостики карточек 1–2 + полная карточка 3
   const assembledH = CARD_HEADER_H * (cards.length - 1) + cardH
-
-  // Карточки стартуют ровно с нижнего края стека (не с края вьюпорта)
-  const card2Y = useTransform(scrollYProgress, [0, 0.5], [assembledH - CARD_HEADER_H, 0])
-  const card3Y = useTransform(scrollYProgress, [0.5, 1], [assembledH - CARD_HEADER_H * 2, 0])
 
   return (
     <div className="bg-(--color-dark)">
@@ -125,7 +124,7 @@ export default function LocationCards() {
       </div>
 
       {/* Scroll-контейнер: задаёт длину анимации сборки */}
-      <div ref={scrollRef} className="h-[250vh] bg-(--color-dark)">
+      <div ref={scrollRef} className="h-[250vh]">
         {/* Единый sticky-блок — весь стек уходит наверх как одно целое */}
         <div
           className="sticky overflow-hidden bg-(--color-dark)"
