@@ -49,7 +49,7 @@ export default function HeroSection() {
   )
 
   return (
-    <section ref={containerRef} className="relative">
+    <section ref={containerRef} className="relative h-[200vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
         <GridSection ref={textRef} className="py-35 md:py-18">
           <Paragraph delay={0.2} className="text-gray col-span-4">

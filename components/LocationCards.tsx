@@ -1,12 +1,15 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform, type MotionStyle } from 'motion/react'
+import { useRef, useLayoutEffect, useState } from 'react'
+import { motion, useScroll, useTransform } from 'motion/react'
 import ArrowLink from '@/components/ui/ArrowLink'
 import Tag from '@/components/ui/Tag'
 import Paragraph from './ui/Paragraph'
 import H2Title from './ui/H2Title'
 import GridSection from './ui/GridSection'
+
+// h-25 = 6.25rem = 100px — высота строки с тегом/названием
+const CARD_HEADER_H = 100
 
 const cards = [
   {
@@ -35,56 +38,77 @@ const cards = [
   },
 ]
 
-function CardInner({ card, nameStyle }: { card: (typeof cards)[0]; nameStyle?: MotionStyle }) {
+function CardContent({ card }: { card: (typeof cards)[0] }) {
   return (
-    <div className="flex h-full flex-col">
-      <div className="col-cols-5 mx-auto grid h-25 w-full max-w-360 shrink-0 items-center gap-3 px-4 md:grid-cols-12 md:gap-7 md:px-20">
+    <>
+      <div className="col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 md:grid-cols-12 md:gap-7 md:px-20">
         <div className="col-span-5 md:col-span-4">
           <Tag text={card.city} />
         </div>
-
-        <motion.p
-          className="col-span-7 flex w-fit items-end text-base leading-[148%] font-medium tracking-[1%]"
-          style={nameStyle}
-        >
-          Meat_Coin&nbsp;
-          <span className="text-2xl leading-[116%] font-extrabold">{card.name}</span>
-        </motion.p>
-
-        <div className="col-span-1 flex justify-end">
+        <div className="col-span-7 flex w-full items-center justify-between pb-7 md:items-end md:pb-0">
+          <Paragraph>
+            Meat_Coin&nbsp;
+            <span className="text-2xl leading-[116%] font-extrabold">{card.name}</span>
+          </Paragraph>
+          <div className="flex md:hidden">
+            <ArrowLink href={card.href} />
+          </div>
+        </div>
+        <div className="col-span-1 hidden justify-end md:flex">
           <ArrowLink href={card.href} />
         </div>
       </div>
-      <div className="mx-auto hidden w-full max-w-360 shrink-0 grid-cols-12 gap-7 px-20 pt-7 pb-7 md:grid">
+      <div className="mx-auto hidden w-full max-w-360 grid-cols-12 gap-7 px-20 pt-7 pb-7 md:grid">
         <Paragraph delay={0.2} className="col-span-8 col-start-5">
           {card.description}
         </Paragraph>
       </div>
-      <div
-        className={`h-[650px] w-full shrink-0 bg-center md:h-auto md:min-h-0 md:flex-1 md:bg-cover ${card.bgClass}`}
-      />
-    </div>
+      <div className={`h-[560px] w-full bg-cover bg-center md:h-[70vh] ${card.bgClass}`} />
+    </>
   )
 }
 
 export default function LocationCards() {
-  const ref = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const [headerH, setHeaderH] = useState(0)
+  const [cardH, setCardH] = useState(660)
+
+  useLayoutEffect(() => {
+    const headerEl = headerRef.current
+    const cardEl = cardRef.current
+    if (!headerEl || !cardEl) return
+
+    const update = () => {
+      setHeaderH(headerEl.offsetHeight)
+      setCardH(cardEl.offsetHeight)
+    }
+    update()
+
+    const ro = new ResizeObserver(update)
+    ro.observe(headerEl)
+    ro.observe(cardEl)
+    return () => ro.disconnect()
+  }, [])
 
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: scrollRef,
     offset: ['start start', 'end end'],
   })
 
-  const card2Y = useTransform(scrollYProgress, [0, 0.5, 1], ['100vh', '0vh', '0vh'])
-  const card3Y = useTransform(scrollYProgress, [0, 0.5, 1], ['100vh', '100vh', '0vh'])
+  const card2Y = useTransform(scrollYProgress, [0, 0.5], ['100vh', '0vh'])
+  const card3Y = useTransform(scrollYProgress, [0.5, 1], ['100vh', '0vh'])
 
-  const card1NameColor = useTransform(scrollYProgress, [0, 0.5], ['#ffffff', '#81807d'])
-  const card2NameColor = useTransform(scrollYProgress, [0.5, 1], ['#ffffff', '#81807d'])
+  // Высота собранного стека: хвостики карточек 1–2 + полная карточка 3
+  const assembledH = CARD_HEADER_H * (cards.length - 1) + cardH
 
   return (
-    <div ref={ref} className="h-[300vh]">
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden bg-(--color-dark)">
-        <GridSection className="shrink-0 pt-12 pb-6 md:pt-18 md:pb-6">
+    <div className="bg-(--color-dark)">
+      {/* Секция-заголовок: sticky, остаётся видимой пока карточки собираются */}
+      <div ref={headerRef} className="sticky top-0 z-0 bg-(--color-dark)">
+        <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
           <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
             География вкуса
           </Paragraph>
@@ -97,24 +121,34 @@ export default function LocationCards() {
             </Paragraph>
           </div>
         </GridSection>
+      </div>
 
-        <div className="relative flex-1">
-          <div className="absolute inset-0 z-10">
-            <CardInner card={cards[0]} nameStyle={{ color: card1NameColor }} />
+      {/* Scroll-контейнер: задаёт длину анимации сборки */}
+      <div ref={scrollRef} className="h-[250vh]">
+        {/* Единый sticky-блок — весь стек уходит наверх как одно целое */}
+        <div
+          className="sticky overflow-hidden bg-(--color-dark)"
+          style={{ top: headerH, height: assembledH }}
+        >
+          {/* Карточка 1 — всегда видна в основании стека */}
+          <div ref={cardRef} className="absolute inset-x-0 top-0 z-1 bg-(--color-dark)">
+            <CardContent card={cards[0]} />
           </div>
 
+          {/* Карточка 2 — заезжает снизу, оставляет 100px хвостик карточки 1 */}
           <motion.div
-            className="absolute inset-0 top-25 z-20 bg-(--color-dark) md:right-0 md:bottom-0 md:left-0"
+            className="absolute inset-x-0 top-[100px] z-2 bg-(--color-dark)"
             style={{ y: card2Y }}
           >
-            <CardInner card={cards[1]} nameStyle={{ color: card2NameColor }} />
+            <CardContent card={cards[1]} />
           </motion.div>
 
+          {/* Карточка 3 — заезжает снизу, оставляет хвостики 1 и 2 */}
           <motion.div
-            className="absolute inset-0 top-50 z-30 bg-(--color-dark) md:right-0 md:bottom-0 md:left-0"
+            className="absolute inset-x-0 top-[200px] z-3 bg-(--color-dark)"
             style={{ y: card3Y }}
           >
-            <CardInner card={cards[2]} />
+            <CardContent card={cards[2]} />
           </motion.div>
         </div>
       </div>
