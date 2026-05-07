@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useLayoutEffect, useState, useEffect } from 'react'
+import { useRef, useLayoutEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'motion/react'
 import ArrowLink from '@/components/ui/ArrowLink'
@@ -72,11 +72,27 @@ function CardContent({ card }: { card: (typeof cards)[0] }) {
         </Paragraph>
       </div>
       <div
-        className={`h-[calc(100dvh-100px)] w-full bg-cover bg-center md:h-[70vh] ${card.bgClass}`}
+        className={`mt-5 h-[calc(100dvh-100px)] w-full bg-cover bg-center md:mt-0 md:h-[70vh] ${card.bgClass}`}
       />
     </>
   )
 }
+
+const SectionHeader = () => (
+  <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
+    <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
+      География вкуса
+    </Paragraph>
+    <div className="col-span-5 flex flex-col gap-2 md:col-span-6">
+      <H2Title delay={0.4}>стейк-хаусы Meat_Coin в Москве и Петербурге</H2Title>
+      <Paragraph delay={0.6} className="text-gray col-span-4">
+        Каждый наш ресторан имеет свой характер, но все они хранят верность
+        <br />
+        главному принципу — дарить гостям совершенный опыт знакомства с мясом
+      </Paragraph>
+    </div>
+  </GridSection>
+)
 
 export default function LocationCards() {
   const headerRef = useRef<HTMLDivElement>(null)
@@ -85,16 +101,6 @@ export default function LocationCards() {
 
   const [headerH, setHeaderH] = useState(0)
   const [cardH, setCardH] = useState(660)
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
-  )
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)')
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
 
   useLayoutEffect(() => {
     const headerEl = headerRef.current
@@ -121,52 +127,46 @@ export default function LocationCards() {
   const card2Y = useTransform(scrollYProgress, [0, 0.4], ['100vh', '0vh'])
   const card3Y = useTransform(scrollYProgress, [0.4, 0.8], ['100vh', '0vh'])
 
-  // Высота собранного стека: хвостики карточек 1–2 + полная карточка 3
   const assembledH = CARD_HEADER_H * (cards.length - 1) + cardH
 
+  // На мобиле headerRef указывает на display:none элемент → offsetHeight=0
+  // → карточки прилипают от top:0, заголовок прокручивается отдельно
+  // На десктопе headerRef измеряет реальную высоту → всё в одном sticky-блоке
   return (
     <div className="bg-(--color-dark)">
-      {/* Секция-заголовок: sticky только на десктопе */}
-      <div ref={headerRef} className="z-0 bg-(--color-dark) md:sticky md:top-0">
-        <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
-          <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
-            География вкуса
-          </Paragraph>
-          <div className="col-span-5 flex flex-col gap-2 md:col-span-6">
-            <H2Title delay={0.4}>стейк-хаусы Meat_Coin в Москве и Петербурге</H2Title>
-            <Paragraph delay={0.6} className="text-gray col-span-4">
-              Каждый наш ресторан имеет свой характер, но все они хранят верность
-              <br />
-              главному принципу — дарить гостям совершенный опыт знакомства с мясом
-            </Paragraph>
-          </div>
-        </GridSection>
+      {/* Мобильный заголовок — прокручивается вместе со страницей */}
+      <div className="bg-(--color-dark) md:hidden">
+        <SectionHeader />
       </div>
 
-      {/* Scroll-контейнер: задаёт длину анимации сборки */}
       <div ref={scrollRef} className="h-[300vh]">
-        {/* Единый sticky-блок — весь стек уходит наверх как одно целое */}
         <div
-          className="sticky overflow-hidden bg-(--color-dark)"
-          style={{ top: isMobile ? 0 : headerH, height: assembledH }}
+          className="sticky top-0 overflow-hidden bg-(--color-dark)"
+          style={{ height: headerH + assembledH }}
         >
-          {/* Карточка 1 — всегда видна в основании стека */}
-          <div ref={cardRef} className="absolute inset-x-0 top-2 z-1 bg-(--color-dark)">
+          {/* Десктопный заголовок — внутри sticky-блока, на мобиле скрыт (offsetHeight=0) */}
+          <div ref={headerRef} className="hidden bg-(--color-dark) md:block">
+            <SectionHeader />
+          </div>
+
+          <div
+            ref={cardRef}
+            className="absolute inset-x-0 z-1 bg-(--color-dark)"
+            style={{ top: headerH }}
+          >
             <CardContent card={cards[0]} />
           </div>
 
-          {/* Карточка 2 — заезжает снизу, оставляет 100px хвостик карточки 1 */}
           <motion.div
-            className="absolute inset-x-0 top-27 z-2 bg-(--color-dark)"
-            style={{ y: card2Y }}
+            className="absolute inset-x-0 z-2 bg-(--color-dark)"
+            style={{ top: headerH + CARD_HEADER_H, y: card2Y }}
           >
             <CardContent card={cards[1]} />
           </motion.div>
 
-          {/* Карточка 3 — заезжает снизу, оставляет хвостики 1 и 2 */}
           <motion.div
-            className="absolute inset-x-0 top-52 z-3 bg-(--color-dark)"
-            style={{ y: card3Y }}
+            className="absolute inset-x-0 z-3 bg-(--color-dark)"
+            style={{ top: headerH + CARD_HEADER_H * 2, y: card3Y }}
           >
             <CardContent card={cards[2]} />
           </motion.div>
