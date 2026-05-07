@@ -119,7 +119,7 @@ export default function LocationCards() {
   return (
     <div className="bg-(--color-dark)">
       {/* Секция-заголовок: sticky только на десктопе */}
-      <div ref={headerRef} className="md:top- z-0 bg-(--color-dark) md:sticky">
+      <div ref={headerRef} className="md:top-0 z-0 bg-(--color-dark) md:sticky">
         <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
           <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
             География вкуса
