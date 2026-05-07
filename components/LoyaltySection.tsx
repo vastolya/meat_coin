@@ -44,10 +44,7 @@ export default function LoyaltySection() {
 
         {BENEFITS.map((item, idx) => (
           <div key={item}>
-            <H3Title
-              delay={idx * 0.2}
-              className="md:border-devider py-7 md:border-b-[1.5px] md:py-11"
-            >
+            <H3Title delay={idx * 0.2} className="py-7 md:py-11">
               {item}
             </H3Title>
             <div className="border-devider -mx-4 border-b-[1.5px]" />
@@ -60,11 +57,20 @@ export default function LoyaltySection() {
         className="col-span-5 flex flex-col items-center gap-7 md:col-span-8 md:col-start-5 md:flex-row"
       >
         <Button text="оформить подарочный сертификат" variant="secondary" className="text-white" />
-        <div className="text-accent flex cursor-pointer gap-2">
+        <motion.div
+          initial="rest"
+          whileHover="hovered"
+          className="flex cursor-pointer gap-2 text-white transition-colors duration-300 hover:text-accent"
+        >
           <Paragraph className="col-span-5 md:col-span-4">О программе лояльности</Paragraph>
-
-          <ArrowIcon height={24} width={24} />
-        </div>
+          <motion.span
+            className="inline-flex"
+            variants={{ rest: { x: 0 }, hovered: { x: 6 } }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+          >
+            <ArrowIcon height={24} width={24} />
+          </motion.span>
+        </motion.div>
       </motion.div>
     </GridSection>
   )

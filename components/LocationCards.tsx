@@ -1,12 +1,15 @@
 'use client'
 
 import { useRef, useLayoutEffect, useState, useEffect } from 'react'
+import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'motion/react'
 import ArrowLink from '@/components/ui/ArrowLink'
 import Tag from '@/components/ui/Tag'
 import Paragraph from './ui/Paragraph'
 import H2Title from './ui/H2Title'
 import GridSection from './ui/GridSection'
+
+const MotionLink = motion(Link)
 
 // h-25 = 6.25rem = 100px — высота строки с тегом/названием
 const CARD_HEADER_H = 100
@@ -41,23 +44,28 @@ const cards = [
 function CardContent({ card }: { card: (typeof cards)[0] }) {
   return (
     <>
-      <div className="col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 py-1 md:grid-cols-12 md:gap-7 md:px-20 md:py-0">
+      <MotionLink
+        href={card.href}
+        className="group col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 py-1 md:grid-cols-12 md:gap-7 md:px-20 md:py-0"
+        whileHover="hovered"
+        initial="rest"
+      >
         <div className="col-span-5 md:col-span-1">
           <Tag text={card.city} />
         </div>
-        <div className="col-span-7 flex w-full items-center justify-between pb-7 md:items-end md:pb-0">
+        <div className="col-span-7 flex w-full items-center justify-between pb-7 md:col-start-5 md:items-end md:pb-0">
           <Paragraph>
             Meat_Coin&nbsp;
             <span className="text-2xl leading-[116%] font-extrabold">{card.name}</span>
           </Paragraph>
           <div className="flex md:hidden">
-            <ArrowLink href={card.href} />
+            <ArrowLink />
           </div>
         </div>
         <div className="col-span-1 hidden justify-end md:flex">
-          <ArrowLink href={card.href} />
+          <ArrowLink />
         </div>
-      </div>
+      </MotionLink>
       <div className="mx-auto hidden w-full max-w-360 grid-cols-12 gap-7 px-20 pt-7 pb-7 md:grid">
         <Paragraph delay={0.2} className="col-span-8 col-start-5">
           {card.description}
@@ -119,7 +127,7 @@ export default function LocationCards() {
   return (
     <div className="bg-(--color-dark)">
       {/* Секция-заголовок: sticky только на десктопе */}
-      <div ref={headerRef} className="md:top-0 z-0 bg-(--color-dark) md:sticky">
+      <div ref={headerRef} className="z-0 bg-(--color-dark) md:sticky md:top-0">
         <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
           <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
             География вкуса
