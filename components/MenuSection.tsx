@@ -264,8 +264,8 @@ export default function MenuSection() {
             </div>
 
             <div className="col-span-4 flex gap-2">
-              <Button text="Меню" variant="secondary" />
-              <Button text="Винная карта" variant="secondary" />
+              <Button text="Меню" variant="secondary" href="/menu.pdf" />
+              <Button text="Винная карта" variant="secondary" href="/bar.pdf" />
             </div>
             <h2 className="font-albertus col-span-8 text-[2.5rem] leading-[120%] font-normal tracking-[-1%] uppercase">
               Авторская кухня и турецкие традиции мясников

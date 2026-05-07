@@ -2,6 +2,7 @@ interface ButtonProps {
   text: string
   variant?: 'primary' | 'secondary'
   className?: string
+  href?: string
 }
 
 const baseStyles =
@@ -13,8 +14,16 @@ const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
     'border-2 text-(--color-accent) hover:text-white border-(--color-accent) hover:bg-(--color-accent)',
 }
 
-const Button = ({ text, variant = 'primary', className = '' }: ButtonProps) => {
+const Button = ({ text, variant = 'primary', className = '', href }: ButtonProps) => {
   const combinedClassName = `${className} ${baseStyles} ${variantStyles[variant]} `
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={combinedClassName}>
+        {text}
+      </a>
+    )
+  }
 
   return <button className={combinedClassName}>{text}</button>
 }
