@@ -41,8 +41,8 @@ const cards = [
 function CardContent({ card }: { card: (typeof cards)[0] }) {
   return (
     <>
-      <div className="col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 md:grid-cols-12 md:gap-7 md:px-20">
-        <div className="col-span-5 md:col-span-4">
+      <div className="col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 py-1 md:grid-cols-12 md:gap-7 md:px-20 md:py-0">
+        <div className="col-span-5 md:col-span-1">
           <Tag text={card.city} />
         </div>
         <div className="col-span-7 flex w-full items-center justify-between pb-7 md:items-end md:pb-0">
@@ -77,11 +77,12 @@ export default function LocationCards() {
 
   const [headerH, setHeaderH] = useState(0)
   const [cardH, setCardH] = useState(660)
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
+  )
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)')
-    setIsMobile(mq.matches)
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
     mq.addEventListener('change', handler)
     return () => mq.removeEventListener('change', handler)
@@ -118,7 +119,7 @@ export default function LocationCards() {
   return (
     <div className="bg-(--color-dark)">
       {/* Секция-заголовок: sticky только на десктопе */}
-      <div ref={headerRef} className="z-0 bg-(--color-dark) md:sticky md:top-0">
+      <div ref={headerRef} className="md:top- z-0 bg-(--color-dark) md:sticky">
         <GridSection className="pt-12 pb-6 md:pt-18 md:pb-6">
           <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
             География вкуса
@@ -142,13 +143,13 @@ export default function LocationCards() {
           style={{ top: isMobile ? 0 : headerH, height: assembledH }}
         >
           {/* Карточка 1 — всегда видна в основании стека */}
-          <div ref={cardRef} className="absolute inset-x-0 top-0 z-1 bg-(--color-dark)">
+          <div ref={cardRef} className="absolute inset-x-0 top-2 z-1 bg-(--color-dark)">
             <CardContent card={cards[0]} />
           </div>
 
           {/* Карточка 2 — заезжает снизу, оставляет 100px хвостик карточки 1 */}
           <motion.div
-            className="absolute inset-x-0 top-[100px] z-2 bg-(--color-dark)"
+            className="absolute inset-x-0 top-27 z-2 bg-(--color-dark)"
             style={{ y: card2Y }}
           >
             <CardContent card={cards[1]} />
@@ -156,7 +157,7 @@ export default function LocationCards() {
 
           {/* Карточка 3 — заезжает снизу, оставляет хвостики 1 и 2 */}
           <motion.div
-            className="absolute inset-x-0 top-[200px] z-3 bg-(--color-dark)"
+            className="absolute inset-x-0 top-52 z-3 bg-(--color-dark)"
             style={{ y: card3Y }}
           >
             <CardContent card={cards[2]} />
