@@ -5,9 +5,10 @@ import { motion } from 'framer-motion'
 type H1TitleProps = {
   children: React.ReactNode
   delay?: number
+  className?: string
 }
 
-const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
+const H1Title = ({ children, delay = 0, className }: H1TitleProps) => {
   return (
     <motion.h1
       initial={{ x: 40, opacity: 0 }}
@@ -19,7 +20,7 @@ const H1Title = ({ children, delay = 0 }: H1TitleProps) => {
         damping: 15,
         delay,
       }}
-      className="font-albertus text-4xl leading-[122%] font-[250] tracking-[-1%] uppercase md:text-6xl md:leading-[113%]"
+      className={`font-albertus text-4xl leading-[122%] font-[250] tracking-[-1%] uppercase md:text-6xl md:leading-[113%] ${className ? ` ${className}` : ''}`}
     >
       {children}
     </motion.h1>

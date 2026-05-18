@@ -1,42 +1,43 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @font-face {
-  font-family: "Kinetika";
-  src: url("/fonts/Kinetika-Medium.woff") format("woff");
+  font-family: 'Kinetika';
+  src: url('/fonts/Kinetika-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Kinetika";
-  src: url("/fonts/Kinetika-Black.woff") format("woff");
+  font-family: 'Kinetika';
+  src: url('/fonts/Kinetika-Black.woff') format('woff');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "AlbertusNova";
-  src: url("/fonts/AlbertusNova-Light.otf") format("opentype");
+  font-family: 'AlbertusNova';
+  src: url('/fonts/AlbertusNova-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --font-kinetika: "Kinetika", sans-serif;
-  --font-albertus: "AlbertusNova", serif;
+  --font-kinetika: 'Kinetika', sans-serif;
+  --font-albertus: 'AlbertusNova', serif;
 }
 
 @theme inline {
   --color-dark-black: #090806;
-  --color-dark: #1E1E1E;
-  --color-white: #FFFFFF;
-  --color-accent: #8D7E65;
-  --color-gray: #81807D;
-  --color-beige: #FAF7F2;
+  --color-dark: #1e1e1e;
+  --color-white: #ffffff;
+  --color-accent: #8d7e65;
+  --color-gray: #81807d;
+  --color-beige: #faf7f2;
   --color-devider: #494949;
+  --color-border: #bbb6af;
 }
 
 html,
@@ -79,7 +80,7 @@ body {
     background-color 0.2s ease-in-out,
     top 0.2s 0.2s ease-out,
     transform 0.2s linear;
-  content: "";
+  content: '';
 }
 
 .burger-menu span::before {

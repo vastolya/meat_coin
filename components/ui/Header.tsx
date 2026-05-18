@@ -9,7 +9,7 @@ import MobileMenu from './MobileMenu'
 
 const nav_menu = [
   { title: 'Меню', link: '/menu' },
-  { title: 'Шефы', link: '/shefs' },
+  { title: 'Шефы', link: '/chefs' },
   { title: 'Программа лояльности', link: '/loyalty' },
   { title: 'События', link: '/event' },
   { title: 'Медиа', link: '/media' },
@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative z-[1101] mx-auto flex items-center justify-between px-5 py-2 md:max-w-360 md:px-20 md:py-4">
+      <header className="relative z-1101 mx-auto flex items-center justify-between px-5 py-2 md:max-w-360 md:px-20 md:py-4">
         <div className="flex items-center gap-7">
           <motion.div {...slideIn(0)} className="relative h-11 w-39.5">
             <Link href="/">
