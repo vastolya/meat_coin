@@ -11,7 +11,8 @@ import Paragraph from './Paragraph'
 
 interface NavItem {
   title: string
-  link: string
+  link?: string
+  dropdown?: boolean
 }
 
 interface MobileMenuProps {
@@ -61,10 +62,10 @@ const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
             </Dropdown>
 
             <nav className="flex flex-col">
-              {navItems.map((item) => (
+              {navItems.filter((item) => !item.dropdown).map((item) => (
                 <Link
                   key={item.title}
-                  href={item.link}
+                  href={item.link!}
                   className="py-4 text-base leading-[148%] font-medium"
                   onClick={onClose}
                 >

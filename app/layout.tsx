@@ -17,6 +17,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className="">
         <Header />
+        <div className="h-[60px] md:h-[90px]" />
         {children}
         <Footer />
       </body>

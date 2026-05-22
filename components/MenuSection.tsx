@@ -154,7 +154,7 @@ export default function MenuSection() {
   const cardsRef = useRef(cards)
   const activeTextRef = useRef(activeText)
   const activeTabRef = useRef(activeTab)
-  const isMounted = useRef(false)
+  const prevTab = useRef<Tab>(activeTab)
 
   useEffect(() => {
     cardsRef.current = cards
@@ -163,10 +163,8 @@ export default function MenuSection() {
   })
 
   useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true
-      return
-    }
+    if (prevTab.current === activeTab) return
+    prevTab.current = activeTab
     setActiveText(cardsRef.current[0].text)
     setTextKey((k) => k + 1)
     setActiveTextCardIdx(0)

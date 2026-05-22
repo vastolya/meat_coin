@@ -17,7 +17,7 @@ const Chefs = () => {
     <div className="bg-beige text-dark">
       <ChefsHero />
 
-      <GridSection className="py-84">
+      <GridSection className="py-81.5">
         <div className="col-span-1 col-start-1">
           <PatternIcon size={76} color="var(--color-border)" />
           <PatternIcon size={76} color="var(--color-border)" />
@@ -49,7 +49,7 @@ const Chefs = () => {
 
       <ChefScrollSection />
 
-      <GridSection className="py-30">
+      <GridSection className="pb-30">
         <Paragraph delay={0.2} className="text-accent col-span-4">
           Искусство, которое можно увидеть
         </Paragraph>
