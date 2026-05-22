@@ -67,6 +67,137 @@ const About = () => {
         </div>
       </GridSection>
 
+      <div className="text-dark bg-white">
+        <GridSection className="gap-y-0!">
+          <>
+            <div className="col-span-4 h-255 bg-[url('/about_06.webp')] bg-cover bg-center bg-no-repeat" />
+            <div className="col-span-8 flex h-full flex-col justify-between py-30">
+              <div className="flex flex-col gap-18">
+                <H2Title>
+                  Как открывался мясной ресторан{' '}
+                  <span className="text-accent">в сердце культурной столицы</span>
+                </H2Title>
+
+                <H3Title>
+                  В 2017 году на Рубинштейна, 4, открыл <br /> свои двери первый ресторан Meat_Coin
+                  <br />
+                  Butcher&Grill
+                </H3Title>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Paragraph>
+                  Именно здесь впервые в России турецкие мастера
+                  <br />
+                  представили искусство выбора, разделки и приготовления
+                  <br />
+                  мяса как высокую культуру
+                </Paragraph>
+                <Paragraph>
+                  Сегодня традиции хранит шеф Серкан Йигит, продолжая дело,
+                  <br />
+                  начатое у истоков
+                </Paragraph>
+              </div>
+            </div>
+          </>
+          <>
+            <div className="col-span-4 h-255 bg-[url('/about_07.webp')] bg-cover bg-center bg-no-repeat" />
+            <div className="col-span-8 flex h-full flex-col justify-between py-30">
+              <div className="flex flex-col gap-18">
+                <H2Title>
+                  мясной-ресторан <span className="text-accent">в Москве</span>  на Смоленской
+                </H2Title>
+
+                <H3Title>
+                  Вдохновлённые успехом, основатели
+                  <br />
+                  решили расширяться,&nbsp;
+                  <span className="text-accent">
+                    так появился —
+                    <br />
+                    Meat_Coin Steak&Terrace в Москве
+                  </span>
+                </H3Title>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Paragraph>
+                  Ресторан расположился на четвёртом этаже «Смоленского <br />
+                  Пассажа» с отдельным входом и видом на Садовое кольцо <br />
+                  и монументальное здание МИД
+                </Paragraph>
+                <Paragraph>
+                  Панорамная терраса стала местом притяжения для тех, <br />
+                  кто ценит красоту столицы с высоты
+                </Paragraph>
+              </div>
+            </div>
+          </>
+          <>
+            <div className="col-span-4 h-255 bg-[url('/about_08.webp')] bg-cover bg-center bg-no-repeat" />
+            <div className="col-span-8 flex h-full flex-col justify-between py-30">
+              <div className="flex flex-col gap-18">
+                <H2Title>
+                  загородный мясной-ресторан <span className="text-accent">у Финского залива</span>
+                </H2Title>
+
+                <div className="flex flex-col gap-2">
+                  <H3Title className="text-accent">
+                    Новый формат семейный отдых
+                    <br />
+                    и завтраки на природе
+                  </H3Title>
+                  <Paragraph>
+                    Meat_Coin Country Club в Комарово стал ответом на желание создать место,
+                    <br />
+                    где гастрономия встречается с природой
+                  </Paragraph>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Paragraph className="text-gray">
+                  Ленинградская область • пос.. Комарово • Приморское шоссе • 466
+                </Paragraph>
+                <Paragraph>
+                  Расположенный на Приморском шоссе, 466, в окружении вековых сосен
+                  <br />
+                  и с видом на Финский залив, этот ресторан — убежище для тех, кто ищет
+                  <br />
+                  уединения и гармонии
+                </Paragraph>
+                <Paragraph>
+                  Просторный зал с камином, панорамные окна и терраса, выходящая к воде,
+                  <br />
+                  создают атмосферу безмятежной роскоши. Здесь предусмотрено
+                  <br />
+                  всё для семейного отдыха
+                </Paragraph>
+                <div className="flex gap-2">
+                  <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                    <Paragraph className="text-accent">Детская комната</Paragraph>
+                  </div>
+                  <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                    <Paragraph className="text-accent">Уединенные беседки</Paragraph>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                    <Paragraph className="text-accent">
+                      Вип-гостиная с собственным камином
+                    </Paragraph>
+                  </div>
+                  <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                    <Paragraph className="text-accent">Берег моря</Paragraph>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        </GridSection>
+      </div>
+
       <div className="bg-dark">
         <GridSection className="py-30">
           <Paragraph className="text-gray col-span-4" delay={0.2}>

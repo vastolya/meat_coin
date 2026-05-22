@@ -7,11 +7,11 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { RESTAURANTS } from '../../consts/restaurants'
 import Button from './Button'
-import MobileMenu from './MobileMenu'
 import H3Title from './H3Title'
+import MobileMenu from './MobileMenu'
 import Paragraph from './Paragraph'
 
-const nav_menu = [
+const navMenu = [
   { title: 'Рестораны', dropdown: true },
   { title: 'Меню', link: '/menu' },
   { title: 'Шефы', link: '/chefs' },
@@ -28,7 +28,11 @@ const slideIn = (delay: number) => ({
   transition: { duration: 0.4, ease: 'easeOut' as const, delay },
 })
 
-// logo: 0s  nav: 0.25s + idx*0.07s  language: 0.80s  button: 0.92s
+const dropdownIconStyle = {
+  backgroundColor: 'currentColor',
+  mask: "url('/dropdown.svg') center / contain no-repeat",
+  WebkitMask: "url('/dropdown.svg') center / contain no-repeat",
+} as const
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -37,23 +41,23 @@ const Header = () => {
   const lastScrollY = useRef(0)
   const pathname = usePathname()
   const prevPathname = useRef<string | null>(null)
-  const prevHadUnderline = nav_menu.some((i) => !i.dropdown && i.link === prevPathname.current)
-  useEffect(() => { prevPathname.current = pathname }, [pathname])
+  const prevHadUnderline = navMenu.some((i) => !i.dropdown && i.link === prevPathname.current)
+
+  useEffect(() => {
+    prevPathname.current = pathname
+  }, [pathname])
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY
-      if (currentY < 10) {
+      if (currentY < 10 || currentY < lastScrollY.current) {
         setIsVisible(true)
-      } else if (currentY > lastScrollY.current) {
+      } else {
         setIsVisible(false)
         setIsDropdownOpen(false)
-      } else {
-        setIsVisible(true)
       }
       lastScrollY.current = currentY
     }
-
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -66,17 +70,16 @@ const Header = () => {
   }, [isDropdownOpen])
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
-    document.documentElement.style.overflow = isMenuOpen ? 'hidden' : ''
-    document.body.style.touchAction = isMenuOpen ? 'none' : ''
-    document.documentElement.style.touchAction = isMenuOpen ? 'none' : ''
-
-    return () => {
-      document.body.style.overflow = ''
-      document.documentElement.style.overflow = ''
-      document.body.style.touchAction = ''
-      document.documentElement.style.touchAction = ''
-    }
+    const els = [document.body, document.documentElement]
+    els.forEach((el) => {
+      el.style.overflow = isMenuOpen ? 'hidden' : ''
+      el.style.touchAction = isMenuOpen ? 'none' : ''
+    })
+    return () =>
+      els.forEach((el) => {
+        el.style.overflow = ''
+        el.style.touchAction = ''
+      })
   }, [isMenuOpen])
 
   return (
@@ -87,9 +90,10 @@ const Header = () => {
         transition={{ duration: 0.3, ease: 'easeInOut' }}
       >
         <header className="relative mx-auto flex items-center justify-between px-5 py-2 md:max-w-360 md:px-20 md:py-4">
-          {/* перекрывает дропдаун пока он анимируется за хедером */}
-          <div className="bg-dark pointer-events-none absolute inset-0 z-[1]" />
-          <div className="relative z-[2] flex w-full items-center justify-between">
+          {/* covers dropdown while it animates behind the header */}
+          <div className="bg-dark pointer-events-none absolute inset-0 z-1" />
+
+          <div className="relative z-2 flex w-full items-center justify-between">
             <div className="flex items-center gap-7">
               <motion.div {...slideIn(0)} className="relative h-11 w-39.5">
                 <Link href="/">
@@ -97,10 +101,10 @@ const Header = () => {
                 </Link>
               </motion.div>
 
-              <div className="hidden md:flex">
-                {nav_menu.map((i, idx) =>
-                  i.dropdown ? (
-                    <motion.div key={i.title} {...slideIn(0.25 + idx * 0.07)}>
+              <nav className="hidden md:flex">
+                {navMenu.map((item, idx) =>
+                  item.dropdown ? (
+                    <motion.div key={item.title} {...slideIn(0.25 + idx * 0.07)}>
                       <button
                         type="button"
                         onClick={(e) => {
@@ -109,36 +113,28 @@ const Header = () => {
                         }}
                         className="hover:text-accent flex cursor-pointer items-center gap-1 px-4 text-sm leading-[146%] tracking-normal whitespace-nowrap transition-all duration-300"
                       >
-                        {i.title}
+                        {item.title}
                         <span
-                          className={`inline-flex h-6 w-6 origin-center items-center justify-center transition-transform duration-300 ease-out ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
+                          className={`inline-flex h-6 w-6 origin-center items-center justify-center transition-transform duration-300 ease-out ${isDropdownOpen ? 'rotate-180' : ''}`}
                           aria-hidden="true"
                         >
-                          <span
-                            className="block h-6 w-6"
-                            style={{
-                              backgroundColor: 'currentColor',
-                              mask: "url('/dropdown.svg') center / contain no-repeat",
-                              WebkitMask: "url('/dropdown.svg') center / contain no-repeat",
-                            }}
-                          />
+                          <span className="block h-6 w-6" style={dropdownIconStyle} />
                         </span>
                       </button>
                     </motion.div>
                   ) : (
-                    <motion.div key={i.title} {...slideIn(0.25 + idx * 0.07)}>
+                    <motion.div key={item.title} {...slideIn(0.25 + idx * 0.07)}>
                       <Link
-                        href={i.link!}
+                        href={item.link!}
                         className={`relative px-4 text-sm leading-[146%] tracking-normal whitespace-nowrap transition-colors duration-300 ${
-                          pathname === i.link ? 'text-accent' : 'hover:text-accent'
+                          pathname === item.link ? 'text-accent' : 'hover:text-accent'
                         }`}
                       >
-                        {i.title}
-                        {pathname === i.link && (
+                        {item.title}
+                        {pathname === item.link && (
                           <motion.span
                             layoutId="nav-underline"
-                            className="bg-accent absolute right-0 left-0 h-1"
-                            style={{ top: 'calc(100% + 16px)' }}
+                            className="bg-accent absolute top-[calc(100%+16px)] right-0 left-0 h-1"
                             initial={prevHadUnderline ? false : { clipPath: 'inset(0 100% 0 0)' }}
                             animate={{ clipPath: 'inset(0 0% 0 0)' }}
                             transition={{
@@ -151,7 +147,7 @@ const Header = () => {
                     </motion.div>
                   )
                 )}
-              </div>
+              </nav>
             </div>
 
             <motion.button
@@ -167,9 +163,8 @@ const Header = () => {
 
             <div className="hidden items-center gap-7 md:flex">
               <motion.div {...slideIn(0.8)}>
-                <div className="text-(--color-accent)">RU</div>
+                <span className="text-(--color-accent)">RU</span>
               </motion.div>
-
               <motion.div {...slideIn(0.92)}>
                 <Button text="Забронировать" />
               </motion.div>
@@ -210,7 +205,7 @@ const Header = () => {
         </header>
       </motion.div>
 
-      <MobileMenu isOpen={isMenuOpen} navItems={nav_menu} onClose={() => setIsMenuOpen(false)} />
+      <MobileMenu isOpen={isMenuOpen} navItems={navMenu} onClose={() => setIsMenuOpen(false)} />
     </>
   )
 }
