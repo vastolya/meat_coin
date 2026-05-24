@@ -16,7 +16,7 @@ const Footer = () => {
   const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
 
   const pathname = usePathname()
-  const isHome = pathname === '/'
+  const isHome = pathname === '/' || pathname === '/loyalty'
 
   return (
     <footer className="mx-auto max-w-360 overflow-hidden px-4 py-12 md:px-20 md:py-11">
