@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { LOCATIONS } from '../../consts/locations'
 import { RESTAURANTS } from '../../consts/restaurants'
 import { COPYRIGHT_TEXT } from '../../consts/site'
 import MailIcon from '../icons/MailIcon'
@@ -23,100 +24,39 @@ const Footer = () => {
       {isHome && (
         <>
           <div className="hidden grid-cols-12 gap-7 md:grid">
-            <div className="col-span-4 flex h-full flex-col justify-between gap-4">
-              <div className="gap7 flex flex-col gap-7">
-                <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
-                  Санкт-Петербург
-                </h3>
+            {LOCATIONS.map((location) => (
+              <div key={location.name} className="col-span-4 flex h-full flex-col justify-between gap-4">
+                <div className="flex flex-col gap-7">
+                  <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
+                    {location.city}
+                  </h3>
+                  <div className="flex flex-col gap-2">
+                    <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
+                      Адрес
+                    </p>
+                    <p className="text-base leading-[148%] font-medium tracking-[1%]">
+                      {location.address}
+                    </p>
+                  </div>
+                </div>
                 <div className="flex flex-col gap-2">
                   <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
-                    Адрес
+                    Контакты
                   </p>
-                  <p className="text-base leading-[148%] font-medium tracking-[1%]">
-                    ул. Рубинштейна • 4
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <a href={location.phone} className="text-accent">
+                      {location.phoneLabel}
+                    </a>
+                    <a href="" target="_blank" className="px-4 py-2">
+                      <MailIcon width={24} height={24} />
+                    </a>
+                    <a href={location.telegram} target="_blank" className="px-4 py-2">
+                      <Telegram width={24} height={24} />
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
-                  Контакты
-                </p>
-                <div className="flex items-center gap-2">
-                  <a href="tel:84992831911" className="text-accent">
-                    +7 (499) 283-19-11
-                  </a>
-                  <a href="" target="_blank" className="px-4 py-2">
-                    <MailIcon width={24} height={24} />
-                  </a>
-                  <a href="" target="_blank" className="px-4 py-2">
-                    <Telegram width={24} height={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-span-4 flex h-full flex-col justify-between gap-4">
-              <div className="gap7 flex flex-col gap-7">
-                <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
-                  Москва
-                </h3>
-                <div className="flex flex-col gap-2">
-                  <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
-                    Адрес
-                  </p>
-                  <p className="text-base leading-[148%] font-medium tracking-[1%]">
-                    Смоленская площадь • 5 &quot;БЦ Смоленский пассаж <br /> 2&quot; • 4 этаж •
-                    (отдельный вход со стороны Николощеповского переулка)
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
-                  Контакты
-                </p>
-                <div className="flex items-center gap-2">
-                  <a href="tel:84992831911" className="text-accent">
-                    +7 (499) 283-19-11
-                  </a>
-                  <a href="" target="_blank" className="px-4 py-2">
-                    <MailIcon width={24} height={24} />
-                  </a>
-                  <a href="" target="_blank" className="px-4 py-2">
-                    <Telegram width={24} height={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-span-4 flex h-full flex-col justify-between gap-4">
-              <div className="gap7 flex flex-col gap-7">
-                <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
-                  Комарово
-                </h3>
-                <div className="flex flex-col gap-2">
-                  <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
-                    Адрес
-                  </p>
-                  <p className="text-base leading-[148%] font-medium tracking-[1%]">
-                    Ленинградская область • пос. Комарово • Приморское шоссе • 466
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm leading-[148%] font-medium tracking-[1%] text-(--color-gray)">
-                  Контакты
-                </p>
-                <div className="flex items-center gap-2">
-                  <a href="tel:84992831911" className="text-accent">
-                    +7 (499) 283-19-11
-                  </a>
-                  <a href="" target="_blank" className="px-4 py-2">
-                    <MailIcon width={24} height={24} />
-                  </a>
-                  <a href="" target="_blank" className="px-4 py-2">
-                    <Telegram width={24} height={24} />
-                  </a>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="bg-devider mt-7 mb-11 hidden h-[1.5px] w-full md:flex" />
         </>

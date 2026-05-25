@@ -11,86 +11,22 @@ import H2Title from './ui/H2Title'
 import H3Title from './ui/H3Title'
 import Paragraph from './ui/Paragraph'
 
-const CONTACT_LINKS = [
-  { href: '', icon: MailIcon, label: 'Email' },
-  { href: '', icon: Telegram, label: 'Telegram' },
-] as const
+import { LOCATIONS, type Location } from '@/consts/locations'
 
-interface LocationAddress {
-  text: string
-  className: string
-}
-
-interface LocationSchedule {
-  label: string
-  time: string
-}
-
-interface Location {
-  name: string
-  city: string
-  note: string
-  address: LocationAddress[]
-  schedule: LocationSchedule[]
-  mapUrl: string
-  mapPreview: string
-  wrapperClassName: string
-  mapClassName: string
-}
-
-const LOCATIONS: Location[] = [
-  {
-    name: 'Steak & Terrace',
-    city: 'Москва',
-    note: 'Бесплатный крытый паркинг для гостей',
-    address: [
-      { text: 'Смоленская площадь • 5', className: 'text-sm' },
-      {
-        text: '(отдельный вход со стороны Николощеповского переулка)',
-        className: 'text-gray text-sm',
-      },
-    ],
-    schedule: [{ label: 'Ежедневно', time: '12:00 - 00:00' }],
-    mapUrl:
-      'https://yandex.ru/map-widget/v1/?um=constructor%3A8fa274675addcb7c5913109f940af88d15084baefad65478edc23090113f6f82&source=constructor',
-    mapPreview: '/map_msc.webp',
+const LAYOUT: Record<string, { wrapperClassName: string; mapClassName: string }> = {
+  'Steak & Terrace': {
     wrapperClassName: 'col-span-5 md:col-span-12 md:grid md:grid-cols-12',
     mapClassName: 'md:col-span-2',
   },
-  {
-    name: 'Country Club',
-    city: 'Комарово',
-    note: 'Парковка 2 часа',
-    address: [
-      {
-        text: 'Ленинградская область • пос. Комарово • Приморское шоссе • 466',
-        className: 'text-sm',
-      },
-    ],
-    schedule: [
-      { label: 'ПН-ЧТ', time: '12:00 - 23:00' },
-      { label: 'ПТ', time: '12:00 - 01:00' },
-      { label: 'СБ-ВС', time: '11:00 - 01:00' },
-    ],
-    mapUrl:
-      'https://yandex.ru/map-widget/v1/?um=constructor%3Ae6ea5694b4a72a3a6ae86566661606e092d9645a8e9e5d9d68ec41cc4d4f7baf&source=constructor',
-    mapPreview: '/map_kmr.webp',
+  'Country Club': {
     wrapperClassName: 'col-span-5 md:col-span-12 md:grid md:grid-cols-12',
     mapClassName: 'md:col-span-2',
   },
-  {
-    name: 'Butcher&Grill',
-    city: 'Санкт Петербург',
-    note: 'С видом на Садовое кольцо, у открытой кухни',
-    address: [{ text: 'ул. Рубинштейна • 4', className: 'text-sm' }],
-    schedule: [{ label: 'Ежедневно', time: '12:00 - 00:00' }],
-    mapUrl:
-      'https://yandex.ru/map-widget/v1/?um=constructor%3Ac8b46d347eec8cfb176c2c54e53bc8873db449d1f71a3a283cf40d17b197b4f6&source=constructor',
-    mapPreview: '/map_spb.webp',
+  'Butcher&Grill': {
     wrapperClassName: 'grid grid-cols-12 md:col-span-12',
     mapClassName: 'col-span-2',
   },
-]
+}
 
 interface MobileLocationCardProps {
   location: Location
@@ -126,11 +62,10 @@ function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCa
 
       <div className="flex flex-col gap-2">
         <Paragraph className="text-gray">Адрес</Paragraph>
-        {location.address.map(({ text, className }) => (
-          <Paragraph key={text} className={className}>
-            {text}
-          </Paragraph>
-        ))}
+        <Paragraph className="text-sm">{location.address}</Paragraph>
+        {location.addressNote && (
+          <Paragraph className="text-gray text-sm">{location.addressNote}</Paragraph>
+        )}
       </div>
 
       <div className="flex flex-col gap-2 md:gap-1">
@@ -148,16 +83,17 @@ function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCa
       </div>
 
       <div className="flex flex-col gap-2 md:gap-4">
-        <Button text="Оставить заявку" className="w-full" />
+        <Button text="Забронировать" className="w-full" />
         <div className="flex items-center justify-between gap-4">
-          <a href="tel:84992831911" className="text-accent">
-            +7 (499) 283-19-11
+          <a href={location.phone} className="text-accent">
+            {location.phoneLabel}
           </a>
-          {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
-            <a key={label} href={href} target="_blank" className="py-2">
-              <Icon width={24} height={24} color="white" />
-            </a>
-          ))}
+          <a href="" target="_blank" className="py-2">
+            <MailIcon width={24} height={24} color="white" />
+          </a>
+          <a href={location.telegram} target="_blank" className="py-2">
+            <Telegram width={24} height={24} color="white" />
+          </a>
         </div>
       </div>
 
@@ -174,8 +110,9 @@ function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCa
 }
 
 function DesktopLocationCard({ location, onMapOpen }: DesktopLocationCardProps) {
+  const { wrapperClassName, mapClassName } = LAYOUT[location.name]
   return (
-    <div className={`group ${location.wrapperClassName}`}>
+    <div className={`group ${wrapperClassName}`}>
       <div className="flex flex-col justify-between py-7 md:col-span-4 md:py-11">
         <div className="flex flex-col gap-2">
           <H3Title className="text-2xl leading-[116%] font-extrabold tracking-normal">
@@ -189,11 +126,10 @@ function DesktopLocationCard({ location, onMapOpen }: DesktopLocationCardProps) 
       <div className="flex flex-col gap-7 py-11 md:col-span-6">
         <div className="flex flex-col">
           <Paragraph className="text-gray pb-1 text-sm">Адрес</Paragraph>
-          {location.address.map(({ text, className }) => (
-            <Paragraph key={text} className={className}>
-              {text}
-            </Paragraph>
-          ))}
+          <Paragraph className="text-sm">{location.address}</Paragraph>
+          {location.addressNote && (
+            <Paragraph className="text-gray text-sm">{location.addressNote}</Paragraph>
+          )}
         </div>
 
         <div className="flex flex-col gap-1">
@@ -211,22 +147,23 @@ function DesktopLocationCard({ location, onMapOpen }: DesktopLocationCardProps) 
         </div>
 
         <div className="flex gap-4">
-          <Button text="Оставить заявку" />
+          <Button text="Забронировать" />
           <div className="flex items-center gap-4">
-            <a href="tel:84992831911" className="text-accent">
-              +7 (499) 283-19-11
+            <a href={location.phone} className="text-accent">
+              {location.phoneLabel}
             </a>
-            {CONTACT_LINKS.map(({ href, icon: Icon, label }) => (
-              <a key={label} href={href} target="_blank" className="px-4 py-2">
-                <Icon width={24} height={24} color="white" />
-              </a>
-            ))}
+            <a href="" target="_blank" className="px-4 py-2">
+              <MailIcon width={24} height={24} color="white" />
+            </a>
+            <a href={location.telegram} target="_blank" className="px-4 py-2">
+              <Telegram width={24} height={24} color="white" />
+            </a>
           </div>
         </div>
       </div>
 
       <div
-        className={`relative my-11 cursor-pointer overflow-hidden rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${location.mapClassName}`}
+        className={`relative my-11 cursor-pointer overflow-hidden rounded-lg transition-opacity duration-300 ${mapClassName}`}
         onClick={onMapOpen}
       >
         <div
