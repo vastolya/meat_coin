@@ -35,11 +35,11 @@ export default function ContactsPage() {
                 <button
                   type="button"
                   onClick={() => setExpanded(location.name)}
-                  className="w-full pt-11 pb-0 text-left"
+                  className={`w-full pt-11 pb-0 text-left ${!isOpen ? 'group cursor-pointer' : ''}`}
                 >
                   <div className={`flex justify-between ${isOpen ? 'pb-11' : 'pb-4'}`}>
                     <div className="flex flex-col gap-2">
-                      <H3Title>{location.name}</H3Title>
+                      <H3Title className="transition-colors duration-200 group-hover:text-accent">{location.name}</H3Title>
                       <Tag text={location.city} variant="white" />
                     </div>
                     {isOpen && (
