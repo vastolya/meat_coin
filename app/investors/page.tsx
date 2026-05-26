@@ -4,6 +4,7 @@ import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Ornament from '@/components/ui/Ornament'
 import Paragraph from '@/components/ui/Paragraph'
+import InvestorsSlider from '@/components/InvestorsSlider'
 import Image from 'next/image'
 
 const Investors = () => {
@@ -49,37 +50,66 @@ const Investors = () => {
           </Paragraph>
         </div>
 
-        <div className="col-span-4">
-          <Image
-            src="/investors_02.webp"
-            alt="Butcher & Grill"
-            width={400}
-            height={420}
-            className="mb-4 w-full object-cover md:h-105"
-          />
-          <H3Title>Butcher & Grill</H3Title>
-        </div>
+        <div className="col-span-12 flex gap-7">
+          <div className="w-105">
+            <div className="relative mb-4 w-full object-cover md:h-105">
+              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
+                Санкт-Петербург
+              </Paragraph>
+              <Image src="/investors_02.webp" alt="Steak & Terrace" fill className="z-10" />
+            </div>
+            <H3Title>Butcher & Grill</H3Title>
+          </div>
 
-        <div className="col-span-4">
-          <Image
-            src="/investors_03.webp"
-            alt="Country Club"
-            width={400}
-            height={420}
-            className="mb-4 w-full object-cover md:h-105"
-          />
-          <H3Title>Country Club</H3Title>
-        </div>
+          <div className="w-105">
+            <div className="relative mb-4 w-full object-cover md:h-105">
+              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
+                Комарово
+              </Paragraph>
+              <Image src="/investors_03.webp" alt="Steak & Terrace" fill className="z-10" />
+            </div>
+            <H3Title>Country Club</H3Title>
+          </div>
 
-        <div className="col-span-4">
-          <Image
-            src="/investors_04.webp"
-            alt="Steak & Terrace"
-            width={400}
-            height={420}
-            className="mb-4 w-full object-cover md:h-105"
-          />
-          <H3Title>Steak & Terrace</H3Title>
+          <div className="w-105">
+            <div className="relative mb-4 w-full object-cover md:h-105">
+              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
+                Москва
+              </Paragraph>
+              <Image src="/investors_04.webp" alt="Steak & Terrace" fill className="z-10" />
+            </div>
+            <H3Title>Steak & Terrace</H3Title>
+          </div>
+
+          <div className="w-105">
+            <div className="relative mb-4 w-full object-cover md:h-105">
+              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
+                Рублевка
+              </Paragraph>
+              <Image src="/investors_05.webp" alt="Steak & Terrace" fill className="z-10" />
+            </div>
+            <H3Title>Butcher & Grill</H3Title>
+          </div>
+
+          <div className="w-105">
+            <div className="relative mb-4 w-full object-cover md:h-105">
+              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
+                Газетный переулок
+              </Paragraph>
+              <Image src="/investors_06.webp" alt="Steak & Terrace" fill className="z-10" />
+            </div>
+            <H3Title>Country Club</H3Title>
+          </div>
+
+          <div className="w-105">
+            <div className="relative mb-4 w-full object-cover md:h-105">
+              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
+                Санкт-Петербург
+              </Paragraph>
+              <Image src="/investors_07.webp" alt="Steak & Terrace" fill className="z-10" />
+            </div>
+            <H3Title>Steak & Terrace</H3Title>
+          </div>
         </div>
       </GridSection>
     </main>
