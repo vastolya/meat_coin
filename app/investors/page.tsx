@@ -4,7 +4,7 @@ import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Ornament from '@/components/ui/Ornament'
 import Paragraph from '@/components/ui/Paragraph'
-import InvestorsSlider from '@/components/InvestorsSlider'
+import InvestorsScaleSection from '@/components/InvestorsScaleSection'
 import Image from 'next/image'
 
 const Investors = () => {
@@ -13,7 +13,7 @@ const Investors = () => {
       <div className="bg-beige text-dark">
         <GridSection className="pt-18">
           <H1Title className="col-span-9">
-            <span className="text-accent">Meat_Coin Инвестиции</span> в премиальный гастрономический
+            <span className="text-accent">Meat_Coin Инвестиции</span> в премиальный гастрономический
             опыт
           </H1Title>
           <div className="relative col-span-12 h-105 w-full rounded-sm">
@@ -27,91 +27,19 @@ const Investors = () => {
           <div className="col-span-4 col-start-5">
             <H2Title className="text-accent pb-18">Meat_Coin</H2Title>
             <Paragraph className="pb-2">
-              Премиальные мясные рестораны, куда политики, знаменитости и предприниматели
-              возвращаются ради авторского подхода к мясу и театрализованной подачи блюд с открытым
+              Премиальные мясные рестораны, куда политики, знаменитости и предприниматели
+              возвращаются ради авторского подхода к мясу и театрализованной подачи блюд с открытым
               огнем
             </Paragraph>
             <H3Title className="text-accent">
-              Учениками самого Нусрета Гекче, он же Salt Bae
+              Учениками самого Нусрета Гекче, он же Salt Bae
             </H3Title>
           </div>
           <Ornament className="col-span-1! col-start-12!" color="var(--color-accent)" />
         </GridSection>
       </div>
 
-      <GridSection className="py-30">
-        <div className="col-span-5 col-start-5 flex flex-col">
-          <H2Title className="pb-18">Масштабы компании</H2Title>
-          <H3Title className="pb-2">За 8 лет</H3Title>
-          <Paragraph>
-            Компания выросла из одного ресторана на улице Рубинштейна в Санкт-Петербурге до целой
-            группы ресторанов под управлением АО «Гигарест» и с локациями в Москве, Санкт-Петербурге
-            и Ленинградской области
-          </Paragraph>
-        </div>
-
-        <div className="col-span-12 flex gap-7">
-          <div className="w-105">
-            <div className="relative mb-4 w-full object-cover md:h-105">
-              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
-                Санкт-Петербург
-              </Paragraph>
-              <Image src="/investors_02.webp" alt="Steak & Terrace" fill className="z-10" />
-            </div>
-            <H3Title>Butcher & Grill</H3Title>
-          </div>
-
-          <div className="w-105">
-            <div className="relative mb-4 w-full object-cover md:h-105">
-              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
-                Комарово
-              </Paragraph>
-              <Image src="/investors_03.webp" alt="Steak & Terrace" fill className="z-10" />
-            </div>
-            <H3Title>Country Club</H3Title>
-          </div>
-
-          <div className="w-105">
-            <div className="relative mb-4 w-full object-cover md:h-105">
-              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
-                Москва
-              </Paragraph>
-              <Image src="/investors_04.webp" alt="Steak & Terrace" fill className="z-10" />
-            </div>
-            <H3Title>Steak & Terrace</H3Title>
-          </div>
-
-          <div className="w-105">
-            <div className="relative mb-4 w-full object-cover md:h-105">
-              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
-                Рублевка
-              </Paragraph>
-              <Image src="/investors_05.webp" alt="Steak & Terrace" fill className="z-10" />
-            </div>
-            <H3Title>Butcher & Grill</H3Title>
-          </div>
-
-          <div className="w-105">
-            <div className="relative mb-4 w-full object-cover md:h-105">
-              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
-                Газетный переулок
-              </Paragraph>
-              <Image src="/investors_06.webp" alt="Steak & Terrace" fill className="z-10" />
-            </div>
-            <H3Title>Country Club</H3Title>
-          </div>
-
-          <div className="w-105">
-            <div className="relative mb-4 w-full object-cover md:h-105">
-              <Paragraph className="bg-dark absolute top-2 left-2 z-20 rounded-sm px-2 py-1">
-                Санкт-Петербург
-              </Paragraph>
-              <Image src="/investors_07.webp" alt="Steak & Terrace" fill className="z-10" />
-            </div>
-            <H3Title>Steak & Terrace</H3Title>
-          </div>
-        </div>
-      </GridSection>
+      <InvestorsScaleSection />
     </main>
   )
 }
