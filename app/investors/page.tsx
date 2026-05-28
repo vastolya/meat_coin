@@ -40,6 +40,56 @@ const Investors = () => {
       </div>
 
       <InvestorsScaleSection />
+
+      <GridSection className="pt-30">
+        <Image
+          src={'/investors_08.webp'}
+          alt="Статистика ресторанов"
+          width={408}
+          height={300}
+          className="rounded-t-125 col-span-4 h-75 w-full"
+        />
+        <div className="col-span-4 flex flex-col justify-between py-7">
+          <div className="flex flex-col gap-2">
+            <H2Title>8 лет</H2Title>
+            <Paragraph className="text-gray">На рынке</Paragraph>
+          </div>
+          <div className="flex flex-col gap-2">
+            <H2Title>34%</H2Title>
+            <Paragraph className="text-gray">Рост выручки в 2024 • 2025 году</Paragraph>
+          </div>
+        </div>
+        <div className="col-span-4 flex flex-col justify-between py-7">
+          <div className="flex flex-col gap-2">
+            <H2Title>6</H2Title>
+            <Paragraph className="text-gray">Действующих ресторанов</Paragraph>
+          </div>
+          <div className="flex flex-col gap-2">
+            <H2Title>755 млн ₽</H2Title>
+            <Paragraph className="text-gray">Выручка за 2025</Paragraph>
+          </div>
+        </div>
+      </GridSection>
+
+      <GridSection className="pt-30">
+        <div className="col-span-3 flex flex-col gap-2">
+          <Paragraph className="">Meat_Coin</Paragraph>
+          <Paragraph className="text-gray">
+            Это репутация, которая подтверждена независимыми экспертами рынка
+          </Paragraph>
+        </div>
+
+        <div className="col-span-8 col-start-5">
+          <div className="flex w-full gap-7">
+            <div className="flex w-1/2 flex-col gap-2">
+              <H3Title>Ultima Guide</H3Title>
+              <Paragraph className="text-gray w-1/2">2026 (третий год подряд)</Paragraph>
+            </div>
+
+            <Paragraph className="text-gray">Топ-50 лучших ресторанов Санкт-Петербурга</Paragraph>
+          </div>
+        </div>
+      </GridSection>
     </main>
   )
 }
