@@ -25,7 +25,10 @@ const Footer = () => {
         <>
           <div className="hidden grid-cols-12 gap-7 md:grid">
             {LOCATIONS.map((location) => (
-              <div key={location.name} className="col-span-4 flex h-full flex-col justify-between gap-4">
+              <div
+                key={location.name}
+                className="col-span-4 flex h-full flex-col justify-between gap-4"
+              >
                 <div className="flex flex-col gap-7">
                   <h3 className="text-accent pb-2 text-2xl leading-[116%] font-extrabold tracking-normal underline">
                     {location.city}
@@ -69,10 +72,10 @@ const Footer = () => {
               title: 'Навигация',
               header: { label: 'Рестораны', dropdown: true },
               links: [
-                { label: 'Меню', href: '/' },
-                { label: 'Шефы', href: '/' },
+                { label: 'Меню', href: '/menu' },
+                { label: 'Шефы', href: '/chefs' },
                 { label: 'События', href: '/' },
-                { label: 'Программа лояльности', href: '/' },
+                { label: 'Программа лояльности', href: '/loyalty' },
               ],
             },
             {
@@ -80,7 +83,7 @@ const Footer = () => {
               links: [
                 { label: 'О нас', href: '/about' },
                 { label: 'Пресса о нас', href: '/' },
-                { label: 'Инвесторам', href: '/' },
+                { label: 'Инвесторам', href: '/investors' },
                 { label: 'Вакансии', href: '/' },
               ],
             },
@@ -89,7 +92,7 @@ const Footer = () => {
               links: [
                 { label: 'Доставка', href: '/' },
                 { label: 'Подарочные карты', href: '/' },
-                { label: 'Контакты', href: '/' },
+                { label: 'Контакты', href: '/contacts' },
                 { label: 'Отзывы', href: '/' },
               ],
             },

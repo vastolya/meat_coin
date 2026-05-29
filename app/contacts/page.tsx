@@ -18,12 +18,12 @@ export default function ContactsPage() {
   return (
     <main className="bg-beige text-dark">
       <GridSection className="gap-y-0! pt-11 pb-30">
-        <div className="col-span-12 flex flex-col gap-2 pb-18">
+        <div className="col-span-5 flex flex-col gap-2 pb-18 md:col-span-12">
           <H1Title>Контакты</H1Title>
           <Paragraph className="text-gray">Наших ресторанов</Paragraph>
         </div>
 
-        <div className="col-span-6">
+        <div className="col-span-5 md:col-span-6">
           {LOCATIONS.map((location) => {
             const isOpen = expanded === location.name
             return (
@@ -39,7 +39,9 @@ export default function ContactsPage() {
                 >
                   <div className={`flex justify-between ${isOpen ? 'pb-11' : 'pb-4'}`}>
                     <div className="flex flex-col gap-2">
-                      <H3Title className="transition-colors duration-200 group-hover:text-accent">{location.name}</H3Title>
+                      <H3Title className="group-hover:text-accent transition-colors duration-200">
+                        {location.name}
+                      </H3Title>
                       <Tag text={location.city} variant="white" />
                     </div>
                     {isOpen && (
@@ -98,7 +100,7 @@ export default function ContactsPage() {
           })}
         </div>
 
-        <div className="col-span-6">
+        <div className="col-span-5 md:col-span-6">
           <div className="relative h-[58vh] w-full overflow-hidden rounded-xl">
             {LOCATIONS.map((location) => (
               <div
