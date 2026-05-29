@@ -65,7 +65,7 @@ const Footer = () => {
         </>
       )}
 
-      <div className="flex flex-col gap-6 py-11 md:grid md:grid-cols-12 md:gap-7">
+      <div className="flex flex-col gap-6 md:py-11 md:grid md:grid-cols-12 md:gap-7">
         {(
           [
             {

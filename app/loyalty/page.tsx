@@ -230,11 +230,14 @@ export default function LoyaltyPage() {
           <span className="text-accent">Meat Coin Club</span> Преимущества программы
         </H2Title>
 
-        <AnimatedDiv delay={0.2} className="hidden flex-col justify-end md:col-span-4 md:flex">
+        <AnimatedDiv
+          delay={{ mobile: 0.6, desktop: 0.2 }}
+          className="hidden flex-col justify-end md:col-span-4 md:flex"
+        >
           <Image src="/loyalty.svg" alt="Программа лояльности" width={299} height={236} />
         </AnimatedDiv>
 
-        <AnimatedDiv delay={0.4} className="col-span-5 md:col-span-8">
+        <AnimatedDiv delay={{ mobile: 0.4, desktop: 0.4 }} className="col-span-5 md:col-span-8">
           {loyaltyBenefits.map(({ title, contentGapClassName, paragraphGapClassName, items }) => (
             <div
               key={title}
@@ -259,7 +262,10 @@ export default function LoyaltyPage() {
           ))}
         </AnimatedDiv>
 
-        <AnimatedDiv delay={0.4} className="col-span-5 mt-7 md:col-span-8 md:col-start-5 md:mt-11">
+        <AnimatedDiv
+          delay={{ mobile: 1, desktop: 0.4 }}
+          className="col-span-5 mt-7 md:col-span-8 md:col-start-5 md:mt-11"
+        >
           <Button
             variant="secondary"
             text="Приобрести подарочную карту"
@@ -268,27 +274,37 @@ export default function LoyaltyPage() {
         </AnimatedDiv>
       </GridSection>
 
-      <GridSection className="pt-30">
-        <>
-          <Paragraph className="text-gray col-span-4">
-            Подарочный сертификат — универсальный статусный подарок
-          </Paragraph>
-          <H2Title className="col-span-8">Как использовать миткоины</H2Title>
-        </>
-        <>
-          <div className="col-span-4 flex h-full flex-col justify-center pt-26">
-            <div>
-              <Image src={'/loyalty_cards.webp'} alt="Карты лояльности" width={336} height={280} />
-            </div>
-          </div>
+      <GridSection className="pt-12 md:pt-30">
+        <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
+          Подарочный сертификат — универсальный статусный подарок
+        </Paragraph>
 
-          <div className="col-span-6 pt-26">
-            <div className="bg-dark-black w-fit rounded-sm p-4">
-              <H3Title>1 миткоин = 1 рубль</H3Title>
-            </div>
-            <H3Title className="pt-11 pb-4">
-              Накопленные бонусы можно использовать для оплаты до 50% от суммы чека
-            </H3Title>
+        <H2Title delay={0.4} className="col-span-5 md:col-span-8">
+          Как использовать миткоины
+        </H2Title>
+
+        <AnimatedDiv
+          delay={0.2}
+          className="col-span-4 hidden h-full flex-col justify-center pt-26 md:flex"
+        >
+          <Image src={'/loyalty_cards.webp'} alt="Карты лояльности" width={336} height={280} />
+        </AnimatedDiv>
+
+        <div className="col-span-6 pt-7 md:pt-19">
+          <AnimatedDiv
+            delay={0.6}
+            className="bg-dark-black w-full rounded-sm p-4 text-center md:w-fit"
+          >
+            <Paragraph className="font-medium md:text-2xl md:font-bold">
+              1 миткоин = 1 рубль
+            </Paragraph>
+          </AnimatedDiv>
+
+          <H3Title delay={0.8} className="pt-9 pb-4 md:pt-11">
+            Накопленные бонусы можно использовать для оплаты до 50% от суммы чека
+          </H3Title>
+
+          <AnimatedDiv delay={1}>
             <ul className="flex list-disc flex-col gap-2 pb-7 pl-5 text-base leading-[148%] font-medium tracking-[1%]">
               <li>
                 Бонусы поступают на карту в течение 3 рабочих дней с момента совершения оплаты
@@ -297,24 +313,32 @@ export default function LoyaltyPage() {
               <li>На счета, оплаченные бонусами, бонусы не начисляются</li>
               <li>Если сумма покупок за год меньше 200 000 ₽, бонусы обнуляются</li>
             </ul>
-            <Paragraph className="text-gray pb-2">Удобно использовать</Paragraph>
-            <Paragraph>
-              Используйте бонусы через номер телефона, виртуальную карту <br /> или в приложении
-              «Wallet»
-            </Paragraph>
-          </div>
-        </>
+          </AnimatedDiv>
+
+          <Paragraph delay={1.2} className="text-gray pb-2">
+            Удобно использовать
+          </Paragraph>
+
+          <Paragraph delay={1.2}>
+            Используйте бонусы через номер телефона, виртуальную карту <br /> или в приложении
+            «Wallet»
+          </Paragraph>
+        </div>
       </GridSection>
 
-      <GridSection className="gap-y-11! py-30">
-        <H2Title className="col-span-12 text-center">
+      <GridSection className="gap-y-9 py-12 md:gap-y-11! md:py-30">
+        <H2Title delay={0.2} className="col-span-5 md:col-span-12 md:text-center">
           Условия бонусной программы meat_coin доступны по ссылкам
         </H2Title>
-        <div className="col-span-12 flex w-full gap-2">
+
+        <AnimatedDiv
+          delay={0.4}
+          className="col-span-5 flex w-full flex-col gap-2 md:col-span-12 md:flex-row"
+        >
           <Button text="Санкт-Петербург" className="w-full text-white" variant="secondary" />
           <Button text="Москва" className="w-full text-white" variant="secondary" />
           <Button text="Комарово" className="w-full text-white" variant="secondary" />
-        </div>
+        </AnimatedDiv>
       </GridSection>
     </>
   )
