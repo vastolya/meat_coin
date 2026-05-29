@@ -15,7 +15,7 @@ const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
 }
 
 const Button = ({ text, variant = 'primary', className = '', href }: ButtonProps) => {
-  const combinedClassName = `${className} ${baseStyles} ${variantStyles[variant]} `
+  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`
 
   if (href) {
     return (

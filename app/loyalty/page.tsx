@@ -5,6 +5,7 @@ import H1Title from '@/components/ui/H1Title'
 import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Paragraph from '@/components/ui/Paragraph'
+import ScrollFixedButton from '@/components/ui/ScrollFixedButton'
 import Image from 'next/image'
 
 const loyaltyMobileSteps = [
@@ -107,18 +108,27 @@ const loyaltyBenefits = [
 
 export default function LoyaltyPage() {
   return (
-    <>
+    <main className="relative">
+      <ScrollFixedButton text="Оформить карту" />
       <GridSection className="bg-beige pt-6 pb-12 md:pt-11 md:pb-30">
-        <H1Title className="col-span-5 mb-2 text-black md:col-span-8 md:col-start-5 md:mb-0">
+        <H1Title
+          delay={0.2}
+          className="col-span-5 mb-2 text-black md:col-span-8 md:col-start-5 md:mb-0"
+        >
           Программа лояльности <span className="text-accent">meat_coin</span>
         </H1Title>
-        <div className="relative col-span-5 h-51 w-full rounded-lg md:col-span-12 md:h-105">
+
+        <AnimatedDiv
+          delay={0.4}
+          className="relative col-span-5 h-51 w-full rounded-lg md:col-span-12 md:h-105"
+        >
           <Image src="/loyalty_01.webp" alt="Программа лояльности" fill sizes="auto" />
-        </div>
+        </AnimatedDiv>
 
-        <Button text="Оформить карту" className="col-span-5 mt-2 w-full md:hidden" />
+        <AnimatedDiv delay={0.6} className="col-span-5 mt-2 md:hidden">
+          <Button text="Оформить карту" className="w-full" />
+        </AnimatedDiv>
       </GridSection>
-
       <GridSection className="py-12 md:py-30">
         <Paragraph
           className="text-gray col-span-5 md:col-span-4"
@@ -220,7 +230,6 @@ export default function LoyaltyPage() {
           </div>
         </AnimatedDiv>
       </GridSection>
-
       <GridSection className="md:pt-30">
         <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
           Станьте частью закрытого круга
@@ -273,7 +282,6 @@ export default function LoyaltyPage() {
           />
         </AnimatedDiv>
       </GridSection>
-
       <GridSection className="pt-12 md:pt-30">
         <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
           Подарочный сертификат — универсальный статусный подарок
@@ -325,7 +333,6 @@ export default function LoyaltyPage() {
           </Paragraph>
         </div>
       </GridSection>
-
       <GridSection className="gap-y-9 py-12 md:gap-y-11! md:py-30">
         <H2Title delay={0.2} className="col-span-5 md:col-span-12 md:text-center">
           Условия бонусной программы meat_coin доступны по ссылкам
@@ -340,6 +347,6 @@ export default function LoyaltyPage() {
           <Button text="Комарово" className="w-full text-white" variant="secondary" />
         </AnimatedDiv>
       </GridSection>
-    </>
+    </main>
   )
 }
