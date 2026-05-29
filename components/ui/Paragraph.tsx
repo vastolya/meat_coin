@@ -1,11 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { AnimationDelay, useResolvedDelay } from '../hooks/useResolvedDelay'
 
 interface ParagraphProps {
   children: React.ReactNode
   className?: string
-  delay?: number
+  delay?: AnimationDelay
   animate?: import('framer-motion').TargetAndTransition
   disableAnimation?: boolean
 }
@@ -17,6 +18,8 @@ const Paragraph = ({
   animate: animateProp,
   disableAnimation = false,
 }: ParagraphProps) => {
+  const resolvedDelay = useResolvedDelay(delay)
+
   return (
     <motion.p
       initial={disableAnimation ? false : { x: 40, opacity: 0 }}
@@ -29,9 +32,9 @@ const Paragraph = ({
         type: 'spring',
         stiffness: 80,
         damping: 15,
-        delay,
+        delay: resolvedDelay,
       }}
-      className={`text-base leading-[148%] font-medium tracking-[1%] ${className}`}
+      className={`text-base leading-[148%] font-medium tracking-[0%] md:tracking-[1%] ${className}`}
     >
       {children}
     </motion.p>

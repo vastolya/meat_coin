@@ -1,14 +1,17 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { AnimationDelay, useResolvedDelay } from '../hooks/useResolvedDelay'
 
 type H2TitleProps = {
   children: React.ReactNode
-  delay?: number
+  delay?: AnimationDelay
   className?: string
 }
 
 const H2Title = ({ children, className = '', delay = 0 }: H2TitleProps) => {
+  const resolvedDelay = useResolvedDelay(delay)
+
   return (
     <motion.h2
       initial={{ x: 40, opacity: 0 }}
@@ -18,7 +21,7 @@ const H2Title = ({ children, className = '', delay = 0 }: H2TitleProps) => {
         type: 'spring',
         stiffness: 80,
         damping: 15,
-        delay,
+        delay: resolvedDelay,
       }}
       className={`${className} font-albertus text-[1.75rem] leading-[120%] font-normal tracking-[-1%] uppercase md:text-[2.5rem]`}
     >

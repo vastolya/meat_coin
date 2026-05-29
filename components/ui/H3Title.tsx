@@ -1,15 +1,18 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { AnimationDelay, useResolvedDelay } from '../hooks/useResolvedDelay'
 
 type H3TitleProps = {
   children: React.ReactNode
-  delay?: number
+  delay?: AnimationDelay
   className?: string
   animate?: import('framer-motion').TargetAndTransition
 }
 
 const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: H3TitleProps) => {
+  const resolvedDelay = useResolvedDelay(delay)
+
   return (
     <motion.h3
       initial={{ x: 40, opacity: 0 }}
@@ -20,7 +23,7 @@ const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: 
         type: 'spring',
         stiffness: 80,
         damping: 15,
-        delay,
+        delay: resolvedDelay,
       }}
       className={`text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal ${className}`}
     >

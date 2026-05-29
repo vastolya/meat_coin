@@ -38,6 +38,73 @@ const loyaltyMobileSteps = [
   },
 ]
 
+const loyaltyBenefits = [
+  {
+    title: 'Копите миткоины',
+    contentGapClassName: 'gap-1',
+    paragraphGapClassName: 'gap-1',
+    items: [
+      [
+        {
+          text: 'За каждую покупку в ресторанах сети вы получаете бонусные баллы — миткоины',
+          isGray: true,
+        },
+        {
+          text: 'Их можно использовать для оплаты заказа после достижении уровня Золотая карта.',
+        },
+      ],
+    ],
+  },
+  {
+    title: 'Выгодные условия',
+    contentGapClassName: 'gap-4',
+    paragraphGapClassName: 'gap-1',
+    items: [
+      [
+        { text: 'Белая карта (0–300 000 ₽)', isGray: true },
+        {
+          text: '5% бонусов от суммы чека. Бонусы становятся доступны к списанию после присвоения статуса «Золотая карта»',
+        },
+      ],
+      [
+        { text: 'Золотая карта (300 000–800 000 ₽)', isGray: true },
+        { text: '10% бонусов от суммы чека' },
+      ],
+      [
+        { text: 'Черная карта (от 800 000 ₽)', isGray: true },
+        { text: '15% бонусов от суммы чека' },
+      ],
+    ],
+  },
+  {
+    title: 'Дополнительные бонусы',
+    contentGapClassName: 'gap-2',
+    paragraphGapClassName: 'gap-1',
+    items: [
+      [
+        {
+          text: 'Получайте дополнительные 10% бонусов за 3 дня до и 3 дня после дня рождения',
+          isGray: true,
+        },
+        {
+          text: 'Достигнув уровня «Черная карта» и суммы заказов от 1 300 000 ₽, получите именной нож meat_coin',
+        },
+      ],
+    ],
+  },
+  {
+    title: 'Простое использование',
+    contentGapClassName: 'gap-2',
+    paragraphGapClassName: 'gap-1',
+    items: [
+      [
+        { text: 'Виртуальная карта всегда под рукой', isGray: true },
+        { text: 'Просто покажите её сотруднику ресторана перед оплатой' },
+      ],
+    ],
+  },
+]
+
 export default function LoyaltyPage() {
   return (
     <>
@@ -53,17 +120,23 @@ export default function LoyaltyPage() {
       </GridSection>
 
       <GridSection className="py-12 md:py-30">
-        <Paragraph className="text-gray col-span-5 md:col-span-4" delay={0.2}>
+        <Paragraph
+          className="text-gray col-span-5 md:col-span-4"
+          delay={{ mobile: 0.2, desktop: 0.2 }}
+        >
           Получайте уникальные предложения от наших ресторанов!
         </Paragraph>
 
-        <H2Title className="col-span-5 pb-7 md:col-span-8 md:pb-11" delay={0.4}>
+        <H2Title
+          className="col-span-5 pb-7 md:col-span-8 md:pb-11"
+          delay={{ mobile: 0.4, desktop: 0.4 }}
+        >
           Cтаньте участником программы лояльности
         </H2Title>
 
         <H3Title
           className="text-gray col-span-5 pb-4 md:col-span-4 md:col-start-5 md:pb-3"
-          delay={0.6}
+          delay={{ mobile: 0.6, desktop: 0.4 }}
         >
           Чтобы перейти к регистрации в программе лояльности
         </H3Title>
@@ -84,7 +157,10 @@ export default function LoyaltyPage() {
           ))}
         </div>
 
-        <div className="col-span-5 -mx-4 flex gap-2 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
+        <AnimatedDiv
+          delay={1.2}
+          className="col-span-5 -mx-4 flex gap-2 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden"
+        >
           <Image
             src="/card_5.webp"
             alt="Карта лояльности 5%"
@@ -106,9 +182,9 @@ export default function LoyaltyPage() {
             height={125}
             className="w-50.5"
           />
-        </div>
+        </AnimatedDiv>
 
-        <div className="col-span-4 col-start-1 hidden md:block">
+        <AnimatedDiv delay={0.2} className="col-span-4 col-start-1 hidden md:block">
           <H3Title className="bg-dark-black mb-74.5 w-full rounded-sm py-4 text-center">
             1 шаг
           </H3Title>
@@ -118,9 +194,9 @@ export default function LoyaltyPage() {
           </H3Title>
 
           <H3Title className="bg-dark-black w-full rounded-sm py-4 text-center">3 шаг</H3Title>
-        </div>
+        </AnimatedDiv>
 
-        <div className="relative col-span-8 hidden pl-7 md:block">
+        <AnimatedDiv delay={0.4} className="relative col-span-8 hidden pl-7 md:block">
           <div className="absolute -left-2 flex flex-col items-center gap-2">
             <div className="bg-border h-2.5 w-0.5 rounded-sm" />
             <div className="bg-border h-4 w-4 rounded-full" />
@@ -142,86 +218,54 @@ export default function LoyaltyPage() {
             <Image src={'/card_10.webp'} alt="Карта лояльности 10%" width={202} height={125} />
             <Image src={'/card_15.webp'} alt="Карта лояльности 15%" width={202} height={125} />
           </div>
-        </div>
+        </AnimatedDiv>
       </GridSection>
 
-      <GridSection className="pt-30">
-        <>
-          <Paragraph className="text-gray col-span-4">Станьте частью закрытого круга</Paragraph>
-          <H2Title className="col-span-8">
-            <span className="text-accent">Meat Coin Club</span> Преимущества программы
-          </H2Title>
-        </>
+      <GridSection className="md:pt-30">
+        <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
+          Станьте частью закрытого круга
+        </Paragraph>
 
-        <>
-          <div className="hidden flex-col justify-end md:col-span-4 md:flex">
-            <Image src="/loyalty.svg" alt="Программа лояльности" width={299} height={236} />
-          </div>
+        <H2Title delay={0.4} className="col-span-5 md:col-span-8">
+          <span className="text-accent">Meat Coin Club</span> Преимущества программы
+        </H2Title>
 
-          <div className="col-span-8">
-            <div className="border-border flex w-full border-b py-11">
-              <H3Title className="w-1/2">Копите миткоины</H3Title>
-              <div className="flex w-1/2 flex-col gap-2">
-                <Paragraph className="text-gray">
-                  За каждую покупку в ресторанах сети вы получаете бонусные баллы — миткоины
-                </Paragraph>
-                <Paragraph>
-                  Их можно использовать для оплаты заказа после достижении уровня Золотая карта.
-                </Paragraph>
+        <AnimatedDiv delay={0.2} className="hidden flex-col justify-end md:col-span-4 md:flex">
+          <Image src="/loyalty.svg" alt="Программа лояльности" width={299} height={236} />
+        </AnimatedDiv>
+
+        <AnimatedDiv delay={0.4} className="col-span-5 md:col-span-8">
+          {loyaltyBenefits.map(({ title, contentGapClassName, paragraphGapClassName, items }) => (
+            <div
+              key={title}
+              className="border-devider -mx-4 flex w-auto flex-col gap-4 border-b px-4 py-7 md:mx-0 md:w-full md:flex-row md:gap-0 md:px-0 md:py-11"
+            >
+              <H3Title className="w-full md:w-1/2">{title}</H3Title>
+              <div className={`flex w-full flex-col ${contentGapClassName} md:w-1/2`}>
+                {items.map((group, groupIndex) => (
+                  <div
+                    key={`${title}-${groupIndex}`}
+                    className={`flex flex-col ${paragraphGapClassName}`}
+                  >
+                    {group.map(({ text, isGray }) => (
+                      <Paragraph key={text} className={isGray ? 'text-gray' : undefined}>
+                        {text}
+                      </Paragraph>
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
+          ))}
+        </AnimatedDiv>
 
-            <div className="border-border flex w-full border-b py-11">
-              <H3Title className="w-1/2">Выгодные условия</H3Title>
-              <div className="flex w-1/2 flex-col gap-4">
-                <div className="flex flex-col gap-2">
-                  <Paragraph className="text-gray">Белая карта (0–300 000 ₽)</Paragraph>
-                  <Paragraph>
-                    5% бонусов от суммы чека. Бонусы становятся доступны к списанию после присвоения
-                    статуса «Золотая карта»
-                  </Paragraph>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <Paragraph className="text-gray">Золотая карта (300 000–800 000 ₽)</Paragraph>
-                  <Paragraph>10% бонусов от суммы чека</Paragraph>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <Paragraph className="text-gray">Черная карта (от 800 000 ₽)</Paragraph>
-                  <Paragraph>15% бонусов от суммы чека</Paragraph>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-border flex w-full border-b py-11">
-              <H3Title className="w-1/2">Дополнительные бонусы</H3Title>
-              <div className="flex w-1/2 flex-col gap-2">
-                <Paragraph className="text-gray">
-                  Получайте дополнительные 10% бонусов за 3 дня до и 3 дня после дня рождения
-                </Paragraph>
-                <Paragraph>
-                  Достигнув уровня «Черная карта» и суммы заказов от 1 300 000 ₽, получите именной
-                  нож meat_coin
-                </Paragraph>
-              </div>
-            </div>
-
-            <div className="border-border flex w-full border-b py-11">
-              <H3Title className="w-1/2">Простое использование</H3Title>
-              <div className="flex w-1/2 flex-col gap-2">
-                <Paragraph className="text-gray">Виртуальная карта всегда под рукой</Paragraph>
-                <Paragraph>Просто покажите её сотруднику ресторана перед оплатой</Paragraph>
-              </div>
-            </div>
-          </div>
-        </>
-
-        <Button
-          variant="secondary"
-          text="Приобрести подарочную карту"
-          className="col-span-8 col-start-5 mt-18 w-full text-white"
-        />
+        <AnimatedDiv delay={0.4} className="col-span-5 mt-7 md:col-span-8 md:col-start-5 md:mt-11">
+          <Button
+            variant="secondary"
+            text="Приобрести подарочную карту"
+            className="w-full text-white"
+          />
+        </AnimatedDiv>
       </GridSection>
 
       <GridSection className="pt-30">
