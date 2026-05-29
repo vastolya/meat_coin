@@ -1,3 +1,4 @@
+import AnimatedDiv from '@/components/ui/AnimatedDiv'
 import Button from '@/components/ui/Button'
 import GridSection from '@/components/ui/GridSection'
 import H1Title from '@/components/ui/H1Title'
@@ -6,29 +7,108 @@ import H3Title from '@/components/ui/H3Title'
 import Paragraph from '@/components/ui/Paragraph'
 import Image from 'next/image'
 
+const loyaltyMobileSteps = [
+  {
+    step: '1 шаг',
+    className: 'pb-9',
+    text: (
+      <>
+        <span className="text-gray">Отсканируйте QR-код</span>
+        <br /> или нажмите на кнопку <br /> «Оформить карту»
+      </>
+    ),
+  },
+  {
+    step: '2 шаг',
+    className: 'pb-15',
+    text: (
+      <>
+        Заполните анкету, <br /> указав свои данные
+      </>
+    ),
+  },
+  {
+    step: '3 шаг',
+    className: 'pb-6',
+    text: (
+      <>
+        Получите виртуальную карту лояльности meat_coin <br /> и добавьте её в «Wallet»
+      </>
+    ),
+  },
+]
+
 export default function LoyaltyPage() {
   return (
     <>
-      <div className="bg-beige">
-        <GridSection className="pt-11 pb-30">
-          <H1Title className="text-accent col-span-8 col-start-5">
-            Программа лояльности meat_coin
-          </H1Title>
-          <div className="relative col-span-12 h-105 w-full rounded-lg">
-            <Image src={'/loyalty_01.webp'} alt="Программа лояльности" fill sizes="auto" />
-          </div>
-        </GridSection>
-      </div>
+      <GridSection className="bg-beige pt-6 pb-12 md:pt-11 md:pb-30">
+        <H1Title className="col-span-5 mb-2 text-black md:col-span-8 md:col-start-5 md:mb-0">
+          Программа лояльности <span className="text-accent">meat_coin</span>
+        </H1Title>
+        <div className="relative col-span-5 h-51 w-full rounded-lg md:col-span-12 md:h-105">
+          <Image src="/loyalty_01.webp" alt="Программа лояльности" fill sizes="auto" />
+        </div>
 
-      <GridSection className="py-30">
-        <Paragraph className="text-gray col-span-4">
+        <Button text="Оформить карту" className="col-span-5 mt-2 w-full md:hidden" />
+      </GridSection>
+
+      <GridSection className="py-12 md:py-30">
+        <Paragraph className="text-gray col-span-5 md:col-span-4" delay={0.2}>
           Получайте уникальные предложения от наших ресторанов!
         </Paragraph>
-        <H2Title className="col-span-8 pb-11">Cтаньте участником программы лояльности</H2Title>
-        <H3Title className="text-gray col-span-4 col-start-5 pb-3">
+
+        <H2Title className="col-span-5 pb-7 md:col-span-8 md:pb-11" delay={0.4}>
+          Cтаньте участником программы лояльности
+        </H2Title>
+
+        <H3Title
+          className="text-gray col-span-5 pb-4 md:col-span-4 md:col-start-5 md:pb-3"
+          delay={0.6}
+        >
           Чтобы перейти к регистрации в программе лояльности
         </H3Title>
-        <div className="col-span-4 col-start-1">
+
+        <div className="relative col-span-5 md:hidden">
+          <AnimatedDiv className="bg-devider absolute top-12 bottom-18 left-9 w-0.75" delay={0.8} />
+
+          {loyaltyMobileSteps.map(({ step, className, text }) => (
+            <div key={step} className={`relative flex items-start gap-2 ${className}`}>
+              <Paragraph
+                className="bg-dark-black flex min-w-17.5 items-center justify-center rounded-sm p-3"
+                delay={0.8}
+              >
+                {step}
+              </Paragraph>
+              <Paragraph delay={1}>{text}</Paragraph>
+            </div>
+          ))}
+        </div>
+
+        <div className="col-span-5 -mx-4 flex gap-2 overflow-x-auto px-4 [-ms-overflow-style:none] [scrollbar-width:none] md:hidden [&::-webkit-scrollbar]:hidden">
+          <Image
+            src="/card_5.webp"
+            alt="Карта лояльности 5%"
+            width={202}
+            height={125}
+            className="w-50.5"
+          />
+          <Image
+            src="/card_10.webp"
+            alt="Карта лояльности 10%"
+            width={202}
+            height={125}
+            className="w-50.5"
+          />
+          <Image
+            src="/card_15.webp"
+            alt="Карта лояльности 15%"
+            width={202}
+            height={125}
+            className="w-50.5"
+          />
+        </div>
+
+        <div className="col-span-4 col-start-1 hidden md:block">
           <H3Title className="bg-dark-black mb-74.5 w-full rounded-sm py-4 text-center">
             1 шаг
           </H3Title>
@@ -40,7 +120,7 @@ export default function LoyaltyPage() {
           <H3Title className="bg-dark-black w-full rounded-sm py-4 text-center">3 шаг</H3Title>
         </div>
 
-        <div className="relative col-span-8 pl-7">
+        <div className="relative col-span-8 hidden pl-7 md:block">
           <div className="absolute -left-2 flex flex-col items-center gap-2">
             <div className="bg-border h-2.5 w-0.5 rounded-sm" />
             <div className="bg-border h-4 w-4 rounded-full" />
