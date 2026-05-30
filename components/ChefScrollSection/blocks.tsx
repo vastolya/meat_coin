@@ -1,18 +1,28 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import AnimatedImage from '@/components/ui/AnimatedImage'
 import GridSection from '@/components/ui/GridSection'
 import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Paragraph from '@/components/ui/Paragraph'
+import Tag from '@/components/ui/Tag'
+import type { ComponentType } from 'react'
 
-const transition = { duration: 0.45, ease: 'easeInOut' as const }
+export const CountryClubProfile = () => (
+  <GridSection className="gap-y-6 md:grid-rows-[auto_1fr] md:gap-y-18!">
+    <AnimatedImage
+      src="/chef_01.webp"
+      alt="Ариф Найджи"
+      className="order-2 col-span-5 h-160 rounded-t-[220px] rounded-b-lg md:order-1 md:col-span-4 md:row-span-2 md:h-199 md:rounded-t-[500px]"
+    >
+      <Tag
+        text="Комарово"
+        variant="white"
+        className="absolute bottom-2 left-2 px-2! py-1! md:hidden"
+      />
+    </AnimatedImage>
 
-const Chef1 = () => (
-  <GridSection className="grid-rows-[auto_1fr] gap-y-18!">
-    <div className="col-span-4 row-span-2 h-199 rounded-t-[500px] rounded-b-lg bg-[url('/chef_01.webp')] bg-cover bg-center bg-no-repeat" />
-    <div className="col-span-8 flex flex-col gap-2">
+    <div className="order-1 col-span-5 mb-2 flex flex-col gap-2 md:order-2 md:col-span-8 md:mb-0">
       <H2Title>Ариф Найджи</H2Title>
       <div className="text-accent flex items-end gap-1">
         <Paragraph>Meat_Coin</Paragraph>
@@ -20,7 +30,8 @@ const Chef1 = () => (
       </div>
       <Paragraph>Бренд-шеф Meat_Coin</Paragraph>
     </div>
-    <div className="col-span-5 flex flex-col justify-between">
+
+    <div className="order-3 col-span-5 flex flex-col gap-2 md:order-3 md:justify-between md:gap-6">
       <div className="flex flex-col gap-2">
         <Paragraph>
           Ариф Найджи — ещё один яркий представитель плеяды турецких мастеров, ученик Нусрета
@@ -37,16 +48,23 @@ const Chef1 = () => (
         чувствуется и мощь турецких корней, и лёгкость загородного отдыха
       </Paragraph>
     </div>
-    <div className="col-span-3">
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_01_01.webp')] bg-cover bg-no-repeat" />
-    </div>
+
+    <AnimatedImage
+      src="/chef_01_01.webp"
+      alt="Деталь приготовления блюда Арифом Найджи"
+      className="order-4 col-span-5 h-75 w-full rounded-lg md:order-4 md:col-span-3 md:h-75"
+    />
   </GridSection>
 )
 
-const Chef2 = () => (
-  <GridSection className="grid-rows-[auto_1fr] gap-y-18!">
-    <div className="col-span-4 row-span-2 h-199 rounded-t-[500px] rounded-b-lg bg-[url('/chef_02.webp')] bg-cover bg-center bg-no-repeat" />
-    <div className="col-span-8 flex flex-col gap-2">
+export const MoscowWorkshop = () => (
+  <GridSection className="gap-y-6 md:grid-rows-[auto_1fr] md:gap-y-18!">
+    <AnimatedImage
+      src="/chef_02.webp"
+      alt="Ариф Найджи"
+      className="order-2 col-span-5 h-165.5 rounded-t-[220px] rounded-b-lg md:order-1 md:col-span-4 md:row-span-2 md:h-199 md:rounded-t-[500px]"
+    />
+    <div className="order-1 col-span-5 hidden flex-col gap-2 md:order-2 md:col-span-8 md:flex">
       <H2Title>Ариф Найджи</H2Title>
       <div className="text-accent flex items-end gap-1">
         <Paragraph>Meat_Coin</Paragraph>
@@ -54,7 +72,7 @@ const Chef2 = () => (
       </div>
       <Paragraph>Бренд-шеф Meat_Coin</Paragraph>
     </div>
-    <div className="col-span-5 flex flex-col justify-between">
+    <div className="order-3 col-span-5 flex flex-col gap-4 md:order-3 md:justify-between md:gap-6">
       <H3Title>Кулинарные мастер-классы в ресторанах от Кемаля</H3Title>
       <div className="flex flex-col gap-2">
         <Paragraph>
@@ -68,17 +86,25 @@ const Chef2 = () => (
         </Paragraph>
       </div>
     </div>
-    <div className="col-span-3 flex flex-col gap-2">
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_02_01.webp')] bg-cover bg-no-repeat" />
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_02_02.webp')] bg-cover bg-no-repeat" />
+    <div className="order-4 col-span-5 gap-2 md:order-4 md:col-span-3 flex flex-col">
+      <AnimatedImage
+        src="/chef_02_01.webp"
+        alt="Мастер-класс в ресторане Meat Coin"
+        className="h-86 w-full rounded-lg md:h-75"
+      />
+      <AnimatedImage
+        src="/chef_02_02.webp"
+        alt="Подача блюда на мастер-классе Meat Coin"
+        className="h-86 w-full rounded-lg md:h-75"
+      />
     </div>
   </GridSection>
 )
 
-const Chef3 = () => (
-  <GridSection className="grid-rows-[auto_1fr] gap-y-18!">
-    <div className="bg-gray col-span-4 row-span-2 h-199 rounded-t-[500px] rounded-b-lg bg-cover bg-no-repeat" />
-    <div className="col-span-8 flex flex-col gap-2">
+export const ButcherGrillProfile = () => (
+  <GridSection className="gap-y-6 md:grid-rows-[auto_1fr] md:gap-y-18!">
+    <div className="bg-gray order-2 col-span-5 h-105 rounded-t-[220px] rounded-b-lg bg-cover bg-no-repeat md:order-1 md:col-span-4 md:row-span-2 md:h-199 md:rounded-t-[500px]" />
+    <div className="order-1 col-span-5 flex flex-col gap-2 md:order-2 md:col-span-8">
       <H2Title>Толга Мюрекепчи</H2Title>
       <div className="text-accent flex items-end gap-1">
         <Paragraph>Meat_Coin</Paragraph>
@@ -86,7 +112,7 @@ const Chef3 = () => (
       </div>
       <Paragraph>Шеф-повар и мастер гастрономического шоу</Paragraph>
     </div>
-    <div className="col-span-5 flex flex-col justify-between">
+    <div className="order-3 col-span-5 flex flex-col gap-4 md:order-3 md:justify-between md:gap-6">
       <div className="flex flex-col gap-2">
         <Paragraph>
           Толга Мюрекепчи родился в Турции — стране с богатыми мясными традициями
@@ -103,16 +129,20 @@ const Chef3 = () => (
         кухни и современные концепции, чтобы каждый ужин запоминался надолго
       </Paragraph>
     </div>
-    <div className="col-span-3">
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_03_01.webp')] bg-cover bg-no-repeat" />
+    <div className="order-4 col-span-5 md:order-4 md:col-span-3">
+      <AnimatedImage
+        src="/chef_03_01.webp"
+        alt="Гастрономическое шоу Толги Мюрекепчи"
+        className="h-56 w-full rounded-lg md:h-75"
+      />
     </div>
   </GridSection>
 )
 
-const Chef4 = () => (
-  <GridSection className="grid-rows-[auto_1fr] gap-y-18!">
-    <div className="bg-gray col-span-4 row-span-2 h-199 rounded-t-[500px] rounded-b-lg bg-cover bg-no-repeat" />
-    <div className="col-span-8 flex flex-col gap-2">
+export const ButcherGrillWorkshop = () => (
+  <GridSection className="gap-y-6 md:grid-rows-[auto_1fr] md:gap-y-18!">
+    <div className="bg-gray order-2 col-span-5 h-165.5 rounded-t-[220px] rounded-b-lg bg-cover bg-no-repeat md:order-1 md:col-span-4 md:row-span-2 md:h-199 md:rounded-t-[500px]" />
+    <div className="order-1 col-span-5 flex flex-col gap-2 md:order-2 md:col-span-8">
       <H2Title>Толга Мюрекепчи</H2Title>
       <div className="text-accent flex items-end gap-1">
         <Paragraph>Meat_Coin</Paragraph>
@@ -120,7 +150,7 @@ const Chef4 = () => (
       </div>
       <Paragraph>Шеф-повар и мастер гастрономического шоу</Paragraph>
     </div>
-    <div className="col-span-5 flex flex-col justify-between">
+    <div className="order-3 col-span-5 flex flex-col md:order-3 md:justify-between md:gap-6">
       <H3Title>Мастер-класс по жарке стейков и авторские мезе</H3Title>
       <div className="flex flex-col gap-2">
         <Paragraph>
@@ -134,17 +164,29 @@ const Chef4 = () => (
         </Paragraph>
       </div>
     </div>
-    <div className="col-span-3 flex flex-col gap-2">
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_03_02.webp')] bg-cover bg-no-repeat" />
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_03_03.webp')] bg-cover bg-no-repeat" />
+    <div className="order-4 col-span-5 gap-2 md:order-4 md:col-span-3 flex flex-col">
+      <AnimatedImage
+        src="/chef_03_02.webp"
+        alt="Мастер-класс Толги Мюрекепчи по жарке стейков"
+        className="h-86 w-full rounded-lg md:h-75"
+      />
+      <AnimatedImage
+        src="/chef_03_03.webp"
+        alt="Авторские мезе от Толги Мюрекепчи"
+        className="h-86 w-full rounded-lg md:h-75"
+      />
     </div>
   </GridSection>
 )
 
-const Chef5 = () => (
-  <GridSection className="grid-rows-[auto_1fr] gap-y-18!">
-    <div className="col-span-4 row-span-2 h-199 rounded-t-[500px] rounded-b-lg bg-[url('/chef_05.webp')] bg-cover bg-no-repeat" />
-    <div className="col-span-8 flex flex-col gap-2">
+export const SteakTerraceProfile = () => (
+  <GridSection className="gap-y-6 md:grid-rows-[auto_1fr] md:gap-y-18!">
+    <AnimatedImage
+      src="/chef_05.webp"
+      alt="Мехмет Найджи"
+      className="order-2 col-span-5 h-165.5 rounded-t-[220px] rounded-b-lg md:order-1 md:col-span-4 md:row-span-2 md:h-199 md:rounded-t-[500px]"
+    />
+    <div className="order-1 col-span-5 flex flex-col gap-2 md:order-2 md:col-span-8">
       <H2Title>Мехмет Найджи</H2Title>
       <div className="text-accent flex items-end gap-1">
         <Paragraph>Meat_Coin</Paragraph>
@@ -152,7 +194,7 @@ const Chef5 = () => (
       </div>
       <Paragraph>Шеф-повар и мастер гастрономического шоу</Paragraph>
     </div>
-    <div className="col-span-5 flex flex-col justify-between">
+    <div className="order-3 col-span-5 flex flex-col gap-4 md:order-3 md:justify-between md:gap-6">
       <div className="flex flex-col gap-2">
         <Paragraph>
           Мехмет Чалышкан родился в Адыямане — регионе, славящемся своими мясными традициями
@@ -168,16 +210,25 @@ const Chef5 = () => (
         Сегодня Мехмет — концепт-шеф московского ресторана Meat_Coin Steak&Terrace
       </Paragraph>
     </div>
-    <div className="col-span-3">
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_05_01.webp')] bg-cover bg-no-repeat" />
+    <div className="order-4 col-span-5 md:order-4 md:col-span-3">
+      <AnimatedImage
+        src="/chef_05_01.webp"
+        alt="Фирменная подача Meat Coin от Мехмета Найджи"
+        className="h-56 w-full rounded-lg md:h-75"
+      />
     </div>
   </GridSection>
 )
 
-const Chef6 = () => (
-  <GridSection className="grid-rows-[auto_1fr] gap-y-18!">
-    <div className="col-span-4 row-span-2 h-199 rounded-t-[500px] rounded-b-lg bg-[url('/chef_06.webp')] bg-cover bg-no-repeat" />
-    <div className="col-span-8 flex flex-col gap-2">
+export const SteakTerraceWorkshop = () => (
+  <GridSection className="gap-y-6 md:grid-rows-[auto_1fr] md:gap-y-18!">
+    <AnimatedImage
+      src="/chef_06.webp"
+      alt="Мехмет Найджи"
+      className="order-2 col-span-5 h-165.5 rounded-t-[220px] rounded-b-lg md:order-1 md:col-span-4 md:row-span-2 md:h-199 md:rounded-t-[500px]"
+    />
+
+    <div className="order-1 col-span-5 flex flex-col gap-2 md:order-2 md:col-span-8">
       <H2Title>Мехмет Найджи</H2Title>
       <div className="text-accent flex items-end gap-1">
         <Paragraph>Meat_Coin</Paragraph>
@@ -185,7 +236,8 @@ const Chef6 = () => (
       </div>
       <Paragraph>Шеф-повар и мастер гастрономического шоу</Paragraph>
     </div>
-    <div className="col-span-5 flex flex-col justify-between">
+
+    <div className="order-3 col-span-5 flex flex-col gap-4 md:order-3 md:justify-between md:gap-6">
       <H3Title>Мастер-класс по приготовлению стейков от Мехмета</H3Title>
       <div className="flex flex-col gap-2">
         <Paragraph>
@@ -198,118 +250,27 @@ const Chef6 = () => (
         </Paragraph>
       </div>
     </div>
-    <div className="col-span-3 flex flex-col gap-2">
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_06_01.webp')] bg-cover bg-no-repeat" />
-      <div className="h-75 w-full rounded-lg bg-[url('/chef_06_02.webp')] bg-cover bg-no-repeat" />
+
+    <div className="order-4 col-span-5 gap-2 md:order-4 md:col-span-3 flex flex-col">
+      <AnimatedImage
+        src="/chef_06_01.webp"
+        alt="Мастер-класс Мехмета Найджи по приготовлению стейков"
+        className="h-86 w-full rounded-lg md:h-75"
+      />
+      <AnimatedImage
+        src="/chef_06_02.webp"
+        alt="Стейки на мастер-классе Meat Coin"
+        className="h-86 w-full rounded-lg md:h-75"
+      />
     </div>
   </GridSection>
 )
 
-const BLOCKS = [Chef1, Chef2, Chef3, Chef4, Chef5, Chef6]
-
-// Направления для каждого перехода (индекс = блок, в который входим)
-const TRANSITIONS: Array<{
-  enter: { x?: number; y?: number }
-  exit: { x?: number; y?: number }
-} | null> = [
-  null,
-  { enter: { x: 120 }, exit: { x: -120 } }, // 0→1: входит слева
-  { enter: { y: 60 }, exit: { y: -60 } }, // 1→2: входит снизу
-  { enter: { x: 120 }, exit: { x: -120 } }, // 2→3: входит слева
-  { enter: { y: 60 }, exit: { y: -60 } }, // 3→4: входит снизу
-  { enter: { x: 120 }, exit: { x: -120 } }, // 4→5: входит слева
+export const CHEF_BLOCKS: ComponentType[] = [
+  CountryClubProfile,
+  MoscowWorkshop,
+  ButcherGrillProfile,
+  ButcherGrillWorkshop,
+  SteakTerraceProfile,
+  SteakTerraceWorkshop,
 ]
-
-type AnimState = { x?: number; y?: number; opacity: number; filter: string }
-
-const VISIBLE: AnimState = { x: 0, y: 0, opacity: 1, filter: 'blur(0px)' }
-
-function getAnims(current: number, next: number): { entry: AnimState; exit: AnimState } {
-  const forward = next > current
-  const t = TRANSITIONS[forward ? next : current]
-
-  if (!t) {
-    return {
-      entry: { y: 60, opacity: 0, filter: 'blur(6px)' },
-      exit: { y: -60, opacity: 0, filter: 'blur(6px)' },
-    }
-  }
-
-  // Прямо: вход в одну сторону, выход в другую
-  // Назад: направления зеркалятся
-  return forward
-    ? {
-        entry: { ...t.enter, opacity: 0, filter: 'blur(6px)' },
-        exit: { ...t.exit, opacity: 0, filter: 'blur(6px)' },
-      }
-    : {
-        entry: { ...t.exit, opacity: 0, filter: 'blur(6px)' },
-        exit: { ...t.enter, opacity: 0, filter: 'blur(6px)' },
-      }
-}
-
-const ChefScrollSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [prevIndex, setPrevIndex] = useState<number | null>(null)
-  const [entryAnim, setEntryAnim] = useState<AnimState>(VISIBLE)
-  const [exitAnim, setExitAnim] = useState<AnimState>({ y: -60, opacity: 0, filter: 'blur(6px)' })
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  })
-
-  useMotionValueEvent(scrollYProgress, 'change', (v) => {
-    const next = Math.min(Math.floor(v * BLOCKS.length), BLOCKS.length - 1)
-    if (next !== activeIndex) {
-      const { entry, exit } = getAnims(activeIndex, next)
-      setEntryAnim(entry)
-      setExitAnim(exit)
-      setPrevIndex(activeIndex)
-      setActiveIndex(next)
-    }
-  })
-
-  const ActiveBlock = BLOCKS[activeIndex]
-  const PrevBlock = prevIndex !== null ? BLOCKS[prevIndex] : null
-
-  return (
-    <div ref={containerRef} className="h-[250vh]">
-      <div className="bg-beige sticky top-0 flex h-screen items-center">
-        <div className="relative w-full">
-          {/* Плейсхолдер для стабильной высоты — всегда самый высокий блок (h-199) */}
-          <div className="pointer-events-none invisible" aria-hidden>
-            <Chef2 />
-          </div>
-
-          {/* Уходящий блок */}
-          {PrevBlock && (
-            <motion.div
-              key={`prev-${prevIndex}-${activeIndex}`}
-              initial={VISIBLE}
-              animate={exitAnim}
-              transition={transition}
-              className="absolute top-0 right-0 left-0"
-            >
-              <PrevBlock />
-            </motion.div>
-          )}
-
-          {/* Входящий блок — key меняется при смене activeIndex, форсируя remount с нужным initial */}
-          <motion.div
-            key={`active-${activeIndex}`}
-            initial={entryAnim}
-            animate={VISIBLE}
-            transition={transition}
-            className="absolute top-0 right-0 left-0"
-          >
-            <ActiveBlock />
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-export default ChefScrollSection

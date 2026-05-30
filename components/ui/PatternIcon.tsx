@@ -8,7 +8,7 @@ const PatternIcon = ({ size = 77, color = '#FAF7F2', className }: PatternIconPro
   return (
     <svg
       width={size}
-      height={(size * 96) / 77}
+      height={size}
       viewBox="0 0 77 96"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

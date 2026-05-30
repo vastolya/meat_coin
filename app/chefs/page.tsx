@@ -17,15 +17,15 @@ const Chefs = () => {
     <div className="bg-beige text-dark">
       <ChefsHero />
 
-      <GridSection className="py-81.5">
-        <div className="col-span-1 col-start-1">
+      <GridSection className="gap-y-12 px-6 pt-24 pb-12 md:gap-y-2 md:px-20 md:py-81.5">
+        <div className="col-span-5 flex justify-center gap-6 md:col-span-1 md:block md:gap-0">
           <PatternIcon size={76} color="var(--color-border)" />
           <PatternIcon size={76} color="var(--color-border)" />
           <PatternIcon size={76} color="var(--color-border)" />
         </div>
 
-        <div className="col-span-5 col-start-5 flex flex-col justify-center">
-          <H3Title className="pb-7" delay={0.2}>
+        <div className="col-span-5 flex flex-col justify-center md:col-start-5">
+          <H3Title className="pb-6 md:pb-7" delay={0.2}>
             История бренда Meat Coin началась с путешествия основателей в Турцию — страну, где мясо
             возведено в культ
           </H3Title>
@@ -36,11 +36,11 @@ const Chefs = () => {
           </Paragraph>
 
           <H3Title className="text-border" delay={0.6}>
-            Учеников самого Нусрета Гекче, <br /> он же Salt Bae{' '}
+            Учеников самого Нусрета Гекче, <br className='hidden md:block' /> он же Salt Bae
           </H3Title>
         </div>
 
-        <div className="col-span-1 col-start-12">
+        <div className="col-span-5 flex justify-center gap-6 md:col-span-1 md:col-start-12 md:block md:gap-0">
           <PatternIcon size={76} color="var(--color-border)" />
           <PatternIcon size={76} color="var(--color-border)" />
           <PatternIcon size={76} color="var(--color-border)" />
