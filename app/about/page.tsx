@@ -147,12 +147,12 @@ const About = () => {
         </div>
       </GridSection>
 
-      <GridSection className="text-dark gap-y-0! bg-white">
+      <GridSection className="text-dark mx-0! w-full max-w-none! gap-y-0! bg-white md:max-w-none!">
         <AnimatedImage
           src="/about_06.webp"
           alt="Первый ресторан Meat_Coin на Рубинштейна"
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-255 md:w-122"
+          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-225 md:w-122"
         />
 
         <div className="col-span-5 flex h-full flex-col justify-between py-12 md:col-span-8 md:py-30">
@@ -189,7 +189,7 @@ const About = () => {
           src="/about_07.webp"
           alt="Meat_Coin Steak&Terrace на Смоленской"
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-255 md:w-122"
+          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-225 md:w-122"
         />
 
         <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
@@ -229,7 +229,7 @@ const About = () => {
           src="/about_08.webp"
           alt="Meat_Coin Country Club у Финского залива"
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:-ml-20 md:h-255 md:w-122"
+          className="col-span-5 -mx-4 h-98 md:col-span-4 md:-ml-20 md:h-225 md:w-122"
         />
 
         <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
@@ -290,7 +290,7 @@ const About = () => {
         </div>
       </GridSection>
 
-      <GridSection className="bg-dark py-12 md:py-30">
+      <GridSection className="bg-dark mx-0! w-full max-w-none! py-12 md:py-30">
         <Paragraph className="text-gray col-span-5 md:col-span-4" delay={0.2}>
           Философия и стандарты качества
         </Paragraph>
@@ -314,11 +314,11 @@ const About = () => {
           src="/about_05.webp"
           alt="Блюда авторской кухни Meat_Coin"
           sizes="100vw"
-          className="col-span-5 -mx-4 md:my-4 h-119 rounded-sm md:col-span-12 md:mx-0"
+          className="col-span-5 -mx-4 h-119 rounded-sm md:col-span-12 md:mx-0 md:my-4"
           imgClsx="scale-100 object-cover object-[50%_15%] md:object-[50%_43%] md:scale-100"
         />
 
-        <div className="col-span-5 md:col-start-5 mt-4 md:mt-0">
+        <div className="col-span-5 mt-4 md:col-start-5 md:mt-0">
           <H3Title className="pb-2 md:pb-4" delay={1}>
             Три локации — одна история
           </H3Title>
@@ -333,9 +333,7 @@ const About = () => {
         </div>
       </GridSection>
 
-      <div className="bg-dark">
         <BookingSection />
-      </div>
     </div>
   )
 }
