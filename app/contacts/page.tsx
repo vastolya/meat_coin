@@ -21,8 +21,8 @@ export default function ContactsPage() {
   return (
     <GridSection className="bg-beige text-dark gap-y-0! pt-7 pb-7 md:pt-11 md:pb-30">
       <div className="col-span-5 flex flex-col gap-2 pb-14 md:col-span-12 md:pb-18">
-        <H1Title>Контакты</H1Title>
-        <Paragraph className="text-gray">Наших ресторанов</Paragraph>
+        <H1Title delay={0.2}>Контакты</H1Title>
+        <Paragraph delay={0.2} className="text-gray">Наших ресторанов</Paragraph>
       </div>
 
       <AnimatedDiv
@@ -91,7 +91,7 @@ export default function ContactsPage() {
         {LOCATIONS.map((location) => {
           const isOpen = expanded === location.name
           return (
-            <div key={location.name} className="relative">
+            <AnimatedDiv delay={0.2} key={location.name} className="relative">
               {isOpen && (
                 <div className="bg-border absolute top-0 -left-4 h-full w-0.5 rounded-sm" />
               )}
@@ -157,12 +157,12 @@ export default function ContactsPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedDiv>
           )
         })}
       </div>
 
-      <AnimatedDiv delay={1} className="col-span-5 md:col-span-6">
+      <AnimatedDiv delay={{mobile: 1, desktop: 0.4}} className="col-span-5 md:col-span-6">
         <div className="relative h-[116vw] max-h-105 min-h-90 w-full overflow-hidden rounded-sm md:h-[58vh] md:max-h-none md:min-h-0 md:rounded-xl">
           {LOCATIONS.map((location) => (
             <div
