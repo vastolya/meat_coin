@@ -5,7 +5,6 @@ import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Paragraph from '@/components/ui/Paragraph'
 import Tag from '@/components/ui/Tag'
-import React from 'react'
 
 const About = () => {
   return (
