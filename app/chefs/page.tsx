@@ -36,7 +36,7 @@ const Chefs = () => {
           </Paragraph>
 
           <H3Title className="text-border" delay={0.6}>
-            Учеников самого Нусрета Гекче, <br className='hidden md:block' /> он же Salt Bae
+            Учеников самого Нусрета Гекче, <br className="hidden md:block" /> он же Salt Bae
           </H3Title>
         </div>
 
@@ -49,14 +49,18 @@ const Chefs = () => {
 
       <ChefScrollSection />
 
-      <GridSection className="pb-30">
-        <Paragraph delay={0.2} className="text-accent col-span-4">
+      <GridSection className="pb-12 md:pb-30">
+        <Paragraph delay={0.2} className="text-accent col-span-5 md:col-span-4">
           Искусство, которое можно увидеть
         </Paragraph>
-        <H2Title delay={0.4} className="col-span-8">
-          мастер-классы <br /> и гастрономические шоу
+
+        <H2Title delay={0.4} className="col-span-5 md:col-span-8">
+          мастер-классы <br /> и гастрономичес
+          <br className="md:hidden" />
+          кие шоу
         </H2Title>
-        <div className="relative col-span-4 h-151">
+
+        <div className="relative col-span-5 h-151 md:col-span-4">
           <Image src={'/mk_01.webp'} alt="" width={300} height={300} className="absolute right-0" />
           <Image src={'/mk_02.webp'} alt="" width={300} height={300} className="absolute top-41" />
           <Image
@@ -67,16 +71,18 @@ const Chefs = () => {
             className="absolute top-78.5 right-0"
           />
         </div>
+
         <div className="col-span-5">
-          <H3Title delay={0.6} className="py-32">
+          <H3Title delay={0.6} className="py-6 md:py-32">
             Рестораны Meat_Coin — это не только место для изысканной трапезы, но и пространство, где
             гастрономия становится искусством
           </H3Title>
-          <H3Title delay={0.8} className="text-accent pb-4">
+
+          <H3Title delay={0.8} className="text-border pb-4">
             Регулярно в
           </H3Title>
 
-          <AnimatedDiv className="flex gap-2 pb-4" delay={1}>
+          <AnimatedDiv className="flex flex-wrap gap-2 pb-4" delay={1}>
             <Tag text="Москве" variant="white" />
             <Tag text="Санкт-Петербурге" variant="white" />
             <Tag text="Комарово" variant="white" />
