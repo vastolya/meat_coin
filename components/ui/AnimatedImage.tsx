@@ -8,6 +8,7 @@ type Props = {
   src: string
   alt: string
   className?: string
+  imgClsx?: string
   sizes?: string
   delay?: number
   children?: ReactNode
@@ -17,12 +18,13 @@ const AnimatedImage = ({
   src,
   alt,
   className,
+  imgClsx,
   sizes = '(min-width: 768px) 25vw, 100vw',
   delay = 0,
   children,
 }: Props) => (
   <AnimatedDiv delay={delay} className={`relative overflow-hidden ${className}`}>
-    <Image fill src={src} alt={alt} sizes={sizes} className="object-cover" />
+    <Image fill src={src} alt={alt} sizes={sizes} className={imgClsx ?? 'object-cover'} />
     {children}
   </AnimatedDiv>
 )

@@ -40,7 +40,7 @@ const About = () => {
           src="/about.webp"
           alt="Интерьер ресторана Meat_Coin"
           sizes="100vw"
-          className="col-span-5 h-51 rounded-lg md:col-span-12 md:h-105"
+          className="col-span-5 h-51 rounded-sm md:col-span-12 md:h-105"
         />
       </GridSection>
 
@@ -107,7 +107,7 @@ const About = () => {
             <AnimatedImage
               src="/about_02.webp"
               alt="Ресторан Meat_Coin в Санкт-Петербурге"
-              className="flex h-102 items-center justify-center rounded-lg"
+              className="flex h-102 items-center justify-center rounded-sm"
             >
               <p className="relative z-10 w-fit rounded-sm bg-white/10 p-3 text-2xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
                 Рубинштейна
@@ -119,7 +119,7 @@ const About = () => {
             <AnimatedImage
               src="/about_03.webp"
               alt="Ресторан Meat_Coin в Москве"
-              className="flex h-102 items-center justify-center rounded-lg"
+              className="flex h-102 items-center justify-center rounded-sm"
             >
               <p className="relative z-10 w-fit rounded-sm bg-white/10 p-3 text-2xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
                 В центре Москвы
@@ -137,7 +137,7 @@ const About = () => {
             <AnimatedImage
               src="/about_04.webp"
               alt="Загородный ресторан Meat_Coin в Комарово"
-              className="flex h-95 items-center justify-center rounded-lg"
+              className="flex h-95 items-center justify-center rounded-sm"
             >
               <p className="relative z-10 w-fit rounded-sm bg-white/10 p-3 text-2xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
                 Комарово
@@ -152,7 +152,7 @@ const About = () => {
           src="/about_06.webp"
           alt="Первый ресторан Meat_Coin на Рубинштейна"
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:h-255"
+          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-255 md:w-122"
         />
 
         <div className="col-span-5 flex h-full flex-col justify-between py-12 md:col-span-8 md:py-30">
@@ -189,7 +189,7 @@ const About = () => {
           src="/about_07.webp"
           alt="Meat_Coin Steak&Terrace на Смоленской"
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:h-255"
+          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-255 md:w-122"
         />
 
         <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
@@ -229,7 +229,7 @@ const About = () => {
           src="/about_08.webp"
           alt="Meat_Coin Country Club у Финского залива"
           sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 h-98 md:col-span-4 md:h-255"
+          className="col-span-5 -mx-4 h-98 md:col-span-4 md:-ml-20 md:h-255 md:w-122"
         />
 
         <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
@@ -267,8 +267,7 @@ const About = () => {
               Просторный зал с камином, панорамные окна и терраса, выходящая к воде,
               <br className="hidden md:block" /> создают атмосферу безмятежной роскоши. Здесь
               предусмотрено
-              <br className="hidden md:block" />{' '}
-              всё для семейного отдыха
+              <br className="hidden md:block" /> всё для семейного отдыха
             </Paragraph>
 
             <div className="flex gap-2">
@@ -291,49 +290,48 @@ const About = () => {
         </div>
       </GridSection>
 
-      <div className="bg-dark">
-        <GridSection className="py-30">
-          <Paragraph className="text-gray col-span-4" delay={0.2}>
-            Философия и стандарты качества
+      <GridSection className="bg-dark py-12 md:py-30">
+        <Paragraph className="text-gray col-span-5 md:col-span-4" delay={0.2}>
+          Философия и стандарты качества
+        </Paragraph>
+
+        <div className="col-span-5 mb-4 md:col-span-8 md:mb-0">
+          <H2Title className="text-accent pb-9 md:pb-18" delay={0.4}>
+            Meat_Coin сегодня сеть <br className="hidden md:block" /> ресторанов с авторской кухней
+          </H2Title>
+
+          <H3Title className="pb-2" delay={0.6}>
+            В нашем меню соседствуют простота <br className="hidden md:block" /> и изысканность
+          </H3Title>
+          <Paragraph delay={0.8}>
+            От стейков в чистом виде, позволяющих ощутить подлинный{' '}
+            <br className="hidden md:block" /> вкус мраморной говядины, до сложных, многослойных{' '}
+            <br className="hidden md:block" /> сочетаний, рожденных фантазией шефов
           </Paragraph>
+        </div>
 
-          <div className="col-span-8">
-            <H2Title className="pb-18" delay={0.4}>
-              <span className="text-accent">Meat_Coin сегодня</span> сеть <br /> ресторанов с
-              авторской кухней
-            </H2Title>
+        <AnimatedImage
+          src="/about_05.webp"
+          alt="Блюда авторской кухни Meat_Coin"
+          sizes="100vw"
+          className="col-span-5 -mx-4 md:my-4 h-119 rounded-sm md:col-span-12 md:mx-0"
+          imgClsx="scale-100 object-cover object-[50%_15%] md:object-[50%_43%] md:scale-100"
+        />
 
-            <H3Title className="pb-2" delay={0.6}>
-              В нашем меню соседствуют простота <br /> и изысканность
-            </H3Title>
-            <Paragraph delay={0.8}>
-              От стейков в чистом виде, позволяющих ощутить подлинный <br /> вкус мраморной
-              говядины, до сложных, многослойных <br /> сочетаний, рожденных фантазией шефов
-            </Paragraph>
-          </div>
-
-          <AnimatedImage
-            src="/about_05.webp"
-            alt="Блюда авторской кухни Meat_Coin"
-            sizes="100vw"
-            className="col-span-12 h-105 rounded-lg"
-          />
-
-          <div className="col-span-5 col-start-5">
-            <H3Title className="pb-4" delay={1}>
-              Три локации — одна история
-            </H3Title>
-            <Paragraph className="pb-2" delay={1.2}>
-              Каждый из трёх ресторанов живёт своей жизнью, но все они — главы одной книги. Книги
-              о страсти, преданности делу и бесконечном поиске совершенства
-            </Paragraph>
-            <Paragraph delay={1.4}>
-              Путь от первого ресторана на Рубинштейна до загородного клуба в Комарово — это история
-              роста, дерзости и любви к своему делу
-            </Paragraph>
-          </div>
-        </GridSection>
-      </div>
+        <div className="col-span-5 md:col-start-5 mt-4 md:mt-0">
+          <H3Title className="pb-2 md:pb-4" delay={1}>
+            Три локации — одна история
+          </H3Title>
+          <Paragraph className="pb-2" delay={1.2}>
+            Каждый из трёх ресторанов живёт своей жизнью, но все они — главы одной книги. Книги
+            о страсти, преданности делу и бесконечном поиске совершенства
+          </Paragraph>
+          <Paragraph delay={1.4}>
+            Путь от первого ресторана на Рубинштейна до загородного клуба в Комарово — это история
+            роста, дерзости и любви к своему делу
+          </Paragraph>
+        </div>
+      </GridSection>
 
       <div className="bg-dark">
         <BookingSection />

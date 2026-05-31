@@ -190,7 +190,7 @@ export default function BookingSection() {
 
   return (
     <>
-      <GridSection className="pt-12 pb-9 md:py-30">
+      <GridSection className="pt-12 pb-9 md:py-30 bg-dark">
         <div className="col-span-5 mb-9 flex flex-col gap-2 md:col-span-8 md:col-start-5 md:mb-0">
           <H2Title>Забронировать стол</H2Title>
 
