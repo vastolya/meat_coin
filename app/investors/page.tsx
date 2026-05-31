@@ -8,8 +8,9 @@ import InvestorsScaleSection from '@/components/InvestorsScaleSection'
 import InvestorsAwardsSection from '@/components/InvestorsAwardsSection'
 import InvestorsGrowthSection from '@/components/InvestorsGrowthSection'
 import InvestorsRoadmapSection from '@/components/InvestorsRoadmapSection'
+import InvestorsCapitalSection from '@/components/InvestorsCapitalSection'
 import Image from 'next/image'
-import Tag from '@/components/ui/Tag'
+import DownloadIcon from '@/components/ui/DownloadIcon'
 
 const Investors = () => {
   return (
@@ -81,40 +82,63 @@ const Investors = () => {
 
       <InvestorsRoadmapSection />
 
-      <div className="bg-dark-black">
-        <GridSection className="py-30">
-          <div className="text-gray col-span-4 flex flex-col gap-2">
-            <Paragraph>
-              Основатели группы АО «Гигарест» удерживают контрольный пакет акций в каждом ресторане
-            </Paragraph>
-            <Paragraph>Остальные акции распределены между миноритарными акционерами</Paragraph>
-          </div>
-          <H2Title className="col-span-8 pb-11">Структура акционерного капитала</H2Title>
+      <InvestorsCapitalSection />
 
-          <div className="relative col-span-12 h-84">
-            <div className="absolute top-0 left-136.5 flex w-fit flex-col gap-2 text-center">
-              <H3Title>61%</H3Title>
-              <Tag text="Butcher&Grill" variant="gray" />
-            </div>
-
-            <div className="absolute top-35 left-82 flex w-fit flex-col gap-2 text-center">
-              <H3Title>65%</H3Title>
-              <Tag text="Country Club" variant="gray" />
-            </div>
-
-            <div className="absolute top-67 left-82 flex w-fit flex-col gap-2 text-center">
-              <Tag text="Steak&Terrace" variant="gray" />
-              <H3Title>75%</H3Title>
-            </div>
-
-            <div className="absolute top-45.5 left-206 flex w-fit flex-col gap-2 text-center">
-              <Tag text="Jidai" variant="gray" />
-              <Tag text="Meat_Coin Жуковка" variant="gray" />
-              <H3Title>75%</H3Title>
+      <GridSection className="py-30">
+        <H2Title className="col-span-4">Корпоративные документы</H2Title>
+        <div className="col-span-8">
+          <Paragraph className="text-gray pb-4">Общие документы</Paragraph>
+          <div className="border-devider mb-2 flex cursor-pointer gap-2 rounded-sm border p-4">
+            <DownloadIcon height={24} width={24} />{' '}
+            <div className="flex w-full justify-between">
+              <Paragraph className="leading-[150%]! font-black! uppercase">
+                Устав АО «Гигарест»
+              </Paragraph>
+              <Paragraph className="text-gray">22.05.2025</Paragraph>
             </div>
           </div>
-        </GridSection>
-      </div>
+
+          <div className="border-devider mb-8 flex cursor-pointer gap-2 rounded-sm border p-4">
+            <DownloadIcon height={24} width={24} />{' '}
+            <div className="flex w-full justify-between">
+              <Paragraph className="leading-[150%]! font-black! uppercase">
+                Бухгалтерская отчётность (РСБУ)
+              </Paragraph>
+              <Paragraph className="text-gray">22.05.2026</Paragraph>
+            </div>
+          </div>
+
+          <Paragraph className="text-gray pb-4">Документы по раунду инвестиций 2025 года</Paragraph>
+
+          <div className="border-devider mb-2 flex cursor-pointer gap-2 rounded-sm border p-4">
+            <DownloadIcon height={24} width={24} />{' '}
+            <div className="flex w-full justify-between">
+              <Paragraph className="leading-[150%]! font-black! uppercase">Пут-опцион от</Paragraph>
+              <Paragraph className="text-gray">14.07.2025</Paragraph>
+            </div>
+          </div>
+
+          <div className="border-devider mb-2 flex cursor-pointer gap-2 rounded-sm border p-4">
+            <DownloadIcon height={24} width={24} />{' '}
+            <div className="flex w-full justify-between">
+              <Paragraph className="leading-[150%]! font-black! uppercase">
+                ДСУР (документ, содержащий условия размещения)
+              </Paragraph>
+              <Paragraph className="text-gray">30.06.2025</Paragraph>
+            </div>
+          </div>
+
+          <div className="border-devider flex cursor-pointer gap-2 rounded-sm border p-4">
+            <DownloadIcon height={24} width={24} />{' '}
+            <div className="flex w-full justify-between">
+              <Paragraph className="leading-[150%]! font-black! uppercase">
+                Дивидендная политика
+              </Paragraph>
+              <Paragraph className="text-gray">10.07.2025</Paragraph>
+            </div>
+          </div>
+        </div>
+      </GridSection>
     </main>
   )
 }
