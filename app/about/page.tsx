@@ -1,54 +1,119 @@
 import BookingSection from '@/components/BookingSection'
+import AnimatedDiv from '@/components/ui/AnimatedDiv'
+import AnimatedImage from '@/components/ui/AnimatedImage'
 import GridSection from '@/components/ui/GridSection'
 import H1Title from '@/components/ui/H1Title'
 import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Paragraph from '@/components/ui/Paragraph'
+import PatternIcon from '@/components/ui/PatternIcon'
 import Tag from '@/components/ui/Tag'
 
 const About = () => {
   return (
     <div className="bg-beige">
       <GridSection className="pt-11">
-        <div className="text-gray col-span-4 flex flex-col justify-between">
+        <div className="text-gray col-span-5 flex flex-col justify-between md:col-span-4">
           <Paragraph>
             Три ресторана, каждый со своим характером, объединены общей философией
           </Paragraph>
-          <Paragraph>Познать идеальный вкус мяса и подарить этот опыт своим гостям</Paragraph>
+          <Paragraph className="hidden md:block">
+            Познать идеальный вкус мяса и подарить этот опыт своим гостям
+          </Paragraph>
         </div>
 
-        <div className="col-span-8 flex flex-col gap-2">
+        <div className="col-span-5 flex flex-col gap-2 md:col-span-8">
           <H1Title className="text-accent">
-            Meat_Coin от первого ресторана на Рубинштейна{' '}
-            <span className="text-dark"> до сети стейк-хаусов </span>
+            Meat_Coin от первого ресторана на Рубинште
+            <br className="md:hidden" />
+            йна <span className="text-dark"> до сети стейк-хаусов </span>
           </H1Title>
-          <div className="flex gap-2">
+          <div className="mb-5 flex flex-wrap gap-2 md:mb-0">
             <Tag text="Санкт-Петербург" variant="white" /> <Tag text="Москва" variant="white" />{' '}
             <Tag text="Комарово" variant="white" />
           </div>
         </div>
 
-        <div className='col-span-12 h-105 rounded-lg bg-[url("/about.webp")] bg-cover' />
+        <AnimatedImage
+          src="/about.webp"
+          alt="Интерьер ресторана Meat_Coin"
+          sizes="100vw"
+          className="col-span-5 h-51 rounded-lg md:col-span-12 md:h-105"
+        />
       </GridSection>
 
-      <GridSection className="py-30">
-        <div className="group col-span-4 flex cursor-pointer flex-col gap-4">
-          <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
-            Аутентичный в сердце Санкт-Петербурга
-          </H3Title>
-          <div className='flex h-102 items-center justify-center rounded-lg bg-[url("/about_02.webp")] bg-cover'>
-            <p className="w-fit rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
-              Санкт-Петербург
-            </p>
+      <GridSection className="py-12 md:items-center md:py-30">
+        <AnimatedDiv delay={0.2} className="col-span-5 mb-12 md:mb-0 flex justify-center gap-6 md:col-span-1 md:block md:gap-0">
+          <PatternIcon size={76} color="var(--color-border)" />
+          <PatternIcon size={76} color="var(--color-border)" />
+          <PatternIcon size={76} color="var(--color-border)" />
+        </AnimatedDiv>
+
+        <div className="text-devider col-span-5 flex flex-col md:col-start-5">
+          <div className="flex flex-col gap-9 md:gap-7">
+            <H2Title delay={0.4}>
+              Путь длинною
+              <br />в десятилетие
+            </H2Title>
+
+            <AnimatedDiv delay={0.6} className="flex flex-col gap-2">
+              <Paragraph>
+                История бренда Meat_Coin началась с путешествия основателей в Турцию — страну с
+                богатыми традициями обращения с мясом
+              </Paragraph>
+              <Paragraph>
+                Там была собрана команда из опытных шефов-мясников, ставших ключевыми фигурами в
+                создании аутентичного мясного меню
+              </Paragraph>
+            </AnimatedDiv>
+          </div>
+
+          <div className="mt-6 md:mt-18 flex flex-col gap-2">
+            <H3Title delay={0.8}>
+              Сегодня Meat_Coin — это бренд, объединивший три культовых мясных ресторана
+            </H3Title>
+
+            <Paragraph delay={1}>
+              Мы используем только мраморную говядину высших категорий и камеры сухого вызревания,
+              чтобы раскрыть глубину вкуса. Каждое блюдо отражает наше стремление к идеалу и дарит
+              гостям подлинное гастрономическое путешествие
+            </Paragraph>
           </div>
         </div>
 
+        <AnimatedDiv delay={0.2} className="col-span-5 mt-12 md:mt-0 flex justify-center gap-6 md:col-span-1 md:col-start-12 md:block md:gap-0">
+          <PatternIcon size={76} color="var(--color-border)" />
+          <PatternIcon size={76} color="var(--color-border)" />
+          <PatternIcon size={76} color="var(--color-border)" />
+        </AnimatedDiv>
+      </GridSection>
+
+      <GridSection className="py-30">
+        <div className="group col-span-5 flex cursor-pointer flex-col gap-4 md:col-span-4">
+          <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
+            Аутентичный в сердце Санкт-Петербурга
+          </H3Title>
+          <AnimatedImage
+            src="/about_02.webp"
+            alt="Ресторан Meat_Coin в Санкт-Петербурге"
+            className="flex h-102 items-center justify-center rounded-lg"
+          >
+            <p className="relative z-10 w-fit rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
+              Санкт-Петербург
+            </p>
+          </AnimatedImage>
+        </div>
+
         <div className="group col-span-4 flex cursor-pointer flex-col gap-4">
-          <div className='flex h-102 items-center justify-center rounded-lg bg-[url("/about_03.webp")] bg-cover'>
-            <p className="w-fit rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
+          <AnimatedImage
+            src="/about_03.webp"
+            alt="Ресторан Meat_Coin в Москве"
+            className="flex h-102 items-center justify-center rounded-lg"
+          >
+            <p className="relative z-10 w-fit rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
               Москва
             </p>
-          </div>
+          </AnimatedImage>
           <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
             Ресторан с панорамным видом на Садовое кольцо
           </H3Title>
@@ -58,18 +123,27 @@ const About = () => {
           <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
             Флагманский загородный ресторан на берегу Финского залива
           </H3Title>
-          <div className='flex h-95 items-center justify-center rounded-lg bg-[url("/about_04.webp")] bg-cover'>
-            <p className="w-fit rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
+          <AnimatedImage
+            src="/about_04.webp"
+            alt="Загородный ресторан Meat_Coin в Комарово"
+            className="flex h-95 items-center justify-center rounded-lg"
+          >
+            <p className="relative z-10 w-fit rounded-sm bg-white/10 p-3 text-xl leading-[116%] font-extrabold tracking-[0%] text-white opacity-0 backdrop-blur-sm transition-all duration-300 ease-in-out group-hover:opacity-100">
               Комарово
             </p>
-          </div>
+          </AnimatedImage>
         </div>
       </GridSection>
 
       <div className="text-dark bg-white">
         <GridSection className="gap-y-0!">
           <>
-            <div className="col-span-4 h-255 bg-[url('/about_06.webp')] bg-cover bg-center bg-no-repeat" />
+            <AnimatedImage
+              src="/about_06.webp"
+              alt="Первый ресторан Meat_Coin на Рубинштейна"
+              sizes="(min-width: 768px) 33vw, 100vw"
+              className="col-span-4 h-255"
+            />
             <div className="col-span-8 flex h-full flex-col justify-between py-30">
               <div className="flex flex-col gap-18">
                 <H2Title>
@@ -101,7 +175,12 @@ const About = () => {
             </div>
           </>
           <>
-            <div className="col-span-4 h-255 bg-[url('/about_07.webp')] bg-cover bg-center bg-no-repeat" />
+            <AnimatedImage
+              src="/about_07.webp"
+              alt="Meat_Coin Steak&Terrace на Смоленской"
+              sizes="(min-width: 768px) 33vw, 100vw"
+              className="col-span-4 h-255"
+            />
             <div className="col-span-8 flex h-full flex-col justify-between py-30">
               <div className="flex flex-col gap-18">
                 <H2Title>
@@ -134,7 +213,12 @@ const About = () => {
             </div>
           </>
           <>
-            <div className="col-span-4 h-255 bg-[url('/about_08.webp')] bg-cover bg-center bg-no-repeat" />
+            <AnimatedImage
+              src="/about_08.webp"
+              alt="Meat_Coin Country Club у Финского залива"
+              sizes="(min-width: 768px) 33vw, 100vw"
+              className="col-span-4 h-255"
+            />
             <div className="col-span-8 flex h-full flex-col justify-between py-30">
               <div className="flex flex-col gap-18">
                 <H2Title>
@@ -218,7 +302,12 @@ const About = () => {
             </Paragraph>
           </div>
 
-          <div className='col-span-12 h-105 rounded-lg bg-[url("/about_05.webp")] bg-cover' />
+          <AnimatedImage
+            src="/about_05.webp"
+            alt="Блюда авторской кухни Meat_Coin"
+            sizes="100vw"
+            className="col-span-12 h-105 rounded-lg"
+          />
 
           <div className="col-span-5 col-start-5">
             <H3Title className="pb-4" delay={1}>
