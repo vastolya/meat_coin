@@ -10,7 +10,7 @@ const baseStyles =
 const variantStyles: Record<NonNullable<TagProps['variant']>, string> = {
   black: 'bg-(--color-dark-black)',
   gray: 'bg-(--color-devider) text-white',
-  white: 'bg-white text-accent',
+  white: 'bg-beige text-accent',
 }
 
 const Tag = ({ text, variant = 'black', className = '' }: TagProps) => {

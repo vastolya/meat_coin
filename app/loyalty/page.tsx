@@ -110,6 +110,7 @@ export default function LoyaltyPage() {
   return (
     <main className="relative">
       <ScrollFixedButton text="Оформить карту" />
+
       <GridSection className="bg-beige pt-6 pb-12 md:pt-11 md:pb-30">
         <H1Title
           delay={0.2}
@@ -129,6 +130,7 @@ export default function LoyaltyPage() {
           <Button text="Оформить карту" className="w-full" />
         </AnimatedDiv>
       </GridSection>
+
       <GridSection className="py-12 md:py-30">
         <Paragraph
           className="text-gray col-span-5 md:col-span-4"
@@ -230,6 +232,7 @@ export default function LoyaltyPage() {
           </div>
         </AnimatedDiv>
       </GridSection>
+
       <GridSection className="md:pt-30">
         <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
           Станьте частью закрытого круга
@@ -282,6 +285,7 @@ export default function LoyaltyPage() {
           />
         </AnimatedDiv>
       </GridSection>
+
       <GridSection className="pt-12 md:pt-30">
         <Paragraph delay={0.2} className="text-gray col-span-5 md:col-span-4">
           Подарочный сертификат — универсальный статусный подарок
@@ -333,6 +337,7 @@ export default function LoyaltyPage() {
           </Paragraph>
         </div>
       </GridSection>
+
       <GridSection className="gap-y-9 py-12 md:gap-y-11! md:py-30">
         <H2Title delay={0.2} className="col-span-5 md:col-span-12 md:text-center">
           Условия бонусной программы meat_coin доступны по ссылкам
