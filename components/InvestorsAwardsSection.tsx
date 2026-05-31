@@ -13,7 +13,7 @@ const InvestorsAwardsSection = () => {
         </Paragraph>
       </div>
 
-      <div className="col-span-8 col-start-5">
+      <div className="col-span-8 col-start-5 pb-4">
         <div className="border-border group relative flex w-full gap-7 border-b py-11">
           <div className="absolute top-1/2 -translate-x-[calc(100%+28px)] -translate-y-1/2 opacity-0 transition-all duration-300 group-hover:opacity-100">
             <Image
@@ -148,6 +148,14 @@ const InvestorsAwardsSection = () => {
           <Paragraph className="text-gray">«Лучшие заведения Санкт-Петербурга»</Paragraph>
         </div>
       </div>
+
+      <Image
+        src={'/investors_09.webp'}
+        alt=""
+        width={1280}
+        height={420}
+        className="col-span-12 h-105 w-full rounded-sm"
+      />
     </GridSection>
   )
 }

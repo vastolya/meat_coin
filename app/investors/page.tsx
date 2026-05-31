@@ -6,7 +6,10 @@ import Ornament from '@/components/ui/Ornament'
 import Paragraph from '@/components/ui/Paragraph'
 import InvestorsScaleSection from '@/components/InvestorsScaleSection'
 import InvestorsAwardsSection from '@/components/InvestorsAwardsSection'
+import InvestorsGrowthSection from '@/components/InvestorsGrowthSection'
+import InvestorsRoadmapSection from '@/components/InvestorsRoadmapSection'
 import Image from 'next/image'
+import Tag from '@/components/ui/Tag'
 
 const Investors = () => {
   return (
@@ -73,6 +76,45 @@ const Investors = () => {
       </GridSection>
 
       <InvestorsAwardsSection />
+
+      <InvestorsGrowthSection />
+
+      <InvestorsRoadmapSection />
+
+      <div className="bg-dark-black">
+        <GridSection className="py-30">
+          <div className="text-gray col-span-4 flex flex-col gap-2">
+            <Paragraph>
+              Основатели группы АО «Гигарест» удерживают контрольный пакет акций в каждом ресторане
+            </Paragraph>
+            <Paragraph>Остальные акции распределены между миноритарными акционерами</Paragraph>
+          </div>
+          <H2Title className="col-span-8 pb-11">Структура акционерного капитала</H2Title>
+
+          <div className="relative col-span-12 h-84">
+            <div className="absolute top-0 left-136.5 flex w-fit flex-col gap-2 text-center">
+              <H3Title>61%</H3Title>
+              <Tag text="Butcher&Grill" variant="gray" />
+            </div>
+
+            <div className="absolute top-35 left-82 flex w-fit flex-col gap-2 text-center">
+              <H3Title>65%</H3Title>
+              <Tag text="Country Club" variant="gray" />
+            </div>
+
+            <div className="absolute top-67 left-82 flex w-fit flex-col gap-2 text-center">
+              <Tag text="Steak&Terrace" variant="gray" />
+              <H3Title>75%</H3Title>
+            </div>
+
+            <div className="absolute top-45.5 left-206 flex w-fit flex-col gap-2 text-center">
+              <Tag text="Jidai" variant="gray" />
+              <Tag text="Meat_Coin Жуковка" variant="gray" />
+              <H3Title>75%</H3Title>
+            </div>
+          </div>
+        </GridSection>
+      </div>
     </main>
   )
 }
