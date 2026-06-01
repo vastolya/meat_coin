@@ -8,10 +8,22 @@ type H3TitleProps = {
   delay?: AnimationDelay
   className?: string
   animate?: import('framer-motion').TargetAndTransition
+  disableAnimation?: boolean
 }
 
-const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: H3TitleProps) => {
+const H3Title = ({
+  children,
+  delay = 0,
+  className = '',
+  animate: animateProp,
+  disableAnimation = false,
+}: H3TitleProps) => {
   const resolvedDelay = useResolvedDelay(delay)
+  const titleClassName = `text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal ${className}`
+
+  if (disableAnimation) {
+    return <h3 className={titleClassName}>{children}</h3>
+  }
 
   return (
     <motion.h3
@@ -25,7 +37,7 @@ const H3Title = ({ children, delay = 0, className = '', animate: animateProp }: 
         damping: 15,
         delay: resolvedDelay,
       }}
-      className={`text-xl leading-[118%] font-bold tracking-normal md:text-2xl md:leading-[116%] md:font-extrabold md:tracking-normal ${className}`}
+      className={titleClassName}
     >
       {children}
     </motion.h3>

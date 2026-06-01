@@ -14,26 +14,32 @@ const About = () => {
   return (
     <div className="bg-beige">
       <GridSection className="pt-11">
-        <div className="text-gray col-span-5 flex flex-col justify-between md:col-span-4">
+        <AnimatedDiv
+          delay={0.2}
+          className="text-gray col-span-5 flex flex-col justify-between md:col-span-4"
+        >
           <Paragraph>
             Три ресторана, каждый со своим характером, объединены общей философией
           </Paragraph>
           <Paragraph className="hidden md:block">
             Познать идеальный вкус мяса и подарить этот опыт своим гостям
           </Paragraph>
-        </div>
+        </AnimatedDiv>
 
         <div className="col-span-5 flex flex-col gap-2 md:col-span-8">
-          <H1Title className="text-accent">
+          <H1Title delay={0.4} className="text-accent">
             Meat_Coin от первого ресторана на Рубинште
             <br className="md:hidden" />
             йна <span className="text-dark"> до сети стейк-хаусов </span>
           </H1Title>
-          <div className="mb-5 flex flex-wrap gap-2 md:mb-0">
+          <AnimatedDiv
+            delay={{ mobile: 0.6, desktop: 0.4 }}
+            className="mb-5 flex flex-wrap gap-2 md:mb-0"
+          >
             <Tag text="Санкт-Петербург" variant="white" />
             <Tag text="Москва" variant="white" />
             <Tag text="Комарово" variant="white" />
-          </div>
+          </AnimatedDiv>
         </div>
 
         <AnimatedImage
@@ -41,6 +47,7 @@ const About = () => {
           alt="Интерьер ресторана Meat_Coin"
           sizes="100vw"
           className="col-span-5 h-51 rounded-sm md:col-span-12 md:h-105"
+          delay={1}
         />
       </GridSection>
 
@@ -100,11 +107,17 @@ const About = () => {
         <AboutLocationsMobile />
 
         <div className="hidden md:contents">
-          <div className="group col-span-4 flex cursor-pointer flex-col gap-4">
-            <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
+          <AnimatedDiv
+            className="group col-span-4 flex cursor-pointer flex-col gap-4"
+          >
+            <H3Title
+              disableAnimation
+              className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out"
+            >
               Аутентичный в сердце <br /> Санкт-Петербурга
             </H3Title>
             <AnimatedImage
+              disableAnimation
               src="/about_02.webp"
               alt="Ресторан Meat_Coin в Санкт-Петербурге"
               className="flex h-102 items-center justify-center rounded-sm"
@@ -113,10 +126,13 @@ const About = () => {
                 Рубинштейна
               </p>
             </AnimatedImage>
-          </div>
+          </AnimatedDiv>
 
-          <div className="group col-span-4 flex cursor-pointer flex-col gap-4">
+          <AnimatedDiv
+            className="group col-span-4 flex cursor-pointer flex-col gap-4"
+          >
             <AnimatedImage
+              disableAnimation
               src="/about_03.webp"
               alt="Ресторан Meat_Coin в Москве"
               className="flex h-102 items-center justify-center rounded-sm"
@@ -125,16 +141,25 @@ const About = () => {
                 В центре Москвы
               </p>
             </AnimatedImage>
-            <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
+            <H3Title
+              disableAnimation
+              className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out"
+            >
               Ресторан с панорамным видом на Садовое кольцо
             </H3Title>
-          </div>
+          </AnimatedDiv>
 
-          <div className="group col-span-4 flex cursor-pointer flex-col gap-4">
-            <H3Title className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out">
+          <AnimatedDiv
+            className="group col-span-4 flex cursor-pointer flex-col gap-4"
+          >
+            <H3Title
+              disableAnimation
+              className="text-dark group-hover:text-accent transition-all duration-300 ease-in-out"
+            >
               Флагманский загородный ресторан на берегу Финского залива
             </H3Title>
             <AnimatedImage
+              disableAnimation
               src="/about_04.webp"
               alt="Загородный ресторан Meat_Coin в Комарово"
               className="flex h-95 items-center justify-center rounded-sm"
@@ -143,7 +168,7 @@ const About = () => {
                 Комарово
               </p>
             </AnimatedImage>
-          </div>
+          </AnimatedDiv>
         </div>
       </GridSection>
 
@@ -333,7 +358,7 @@ const About = () => {
         </div>
       </GridSection>
 
-        <BookingSection />
+      <BookingSection />
     </div>
   )
 }

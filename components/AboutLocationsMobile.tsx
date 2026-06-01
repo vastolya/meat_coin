@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import AnimatedImage from './ui/AnimatedImage'
 import H3Title from './ui/H3Title'
+import AnimatedDiv from './ui/AnimatedDiv'
 
 const cards = [
   {
@@ -60,7 +61,7 @@ const AboutLocationsMobile = () => {
   }
 
   return (
-    <div className="col-span-5 md:hidden">
+    <AnimatedDiv delay={0.2} className="col-span-5 md:hidden">
       <div
         ref={scrollerRef}
         onScroll={updateActiveIndex}
@@ -105,7 +106,7 @@ const AboutLocationsMobile = () => {
           />
         ))}
       </div>
-    </div>
+    </AnimatedDiv>
   )
 }
 
