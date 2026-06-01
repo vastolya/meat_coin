@@ -111,25 +111,27 @@ export default function LoyaltyPage() {
     <main className="relative">
       <ScrollFixedButton text="Оформить карту" />
 
-      <GridSection className="bg-beige pt-6 pb-12 md:pt-11 md:pb-30">
-        <H1Title
-          delay={0.2}
-          className="col-span-5 mb-2 text-black md:col-span-8 md:col-start-5 md:mb-0"
-        >
-          Программа лояльности <span className="text-accent">meat_coin</span>
-        </H1Title>
+      <div className="bg-beige">
+        <GridSection className="pt-6 pb-12 md:pt-11 md:pb-30">
+          <H1Title
+            delay={0.2}
+            className="col-span-5 mb-2 text-black md:col-span-8 md:col-start-5 md:mb-0"
+          >
+            Программа лояльности <span className="text-accent">meat_coin</span>
+          </H1Title>
 
-        <AnimatedDiv
-          delay={0.4}
-          className="relative col-span-5 h-51 w-full rounded-lg md:col-span-12 md:h-105"
-        >
-          <Image src="/loyalty_01.webp" alt="Программа лояльности" fill sizes="auto" />
-        </AnimatedDiv>
+          <AnimatedDiv
+            delay={0.4}
+            className="relative col-span-5 h-51 w-full rounded-lg md:col-span-12 md:h-105"
+          >
+            <Image src="/loyalty_01.webp" alt="Программа лояльности" fill sizes="auto" />
+          </AnimatedDiv>
 
-        <AnimatedDiv delay={0.6} className="col-span-5 mt-2 md:hidden">
-          <Button text="Оформить карту" className="w-full" />
-        </AnimatedDiv>
-      </GridSection>
+          <AnimatedDiv delay={0.6} className="col-span-5 mt-2 md:hidden">
+            <Button text="Оформить карту" className="w-full" />
+          </AnimatedDiv>
+        </GridSection>
+      </div>
 
       <GridSection className="py-12 md:py-30">
         <Paragraph

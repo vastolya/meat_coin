@@ -4,13 +4,13 @@ import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Ornament from '@/components/ui/Ornament'
 import Paragraph from '@/components/ui/Paragraph'
-import InvestorsScaleSection from '@/components/InvestorsScaleSection'
-import InvestorsAwardsSection from '@/components/InvestorsAwardsSection'
-import InvestorsGrowthSection from '@/components/InvestorsGrowthSection'
-import InvestorsRoadmapSection from '@/components/InvestorsRoadmapSection'
-import InvestorsCapitalSection from '@/components/InvestorsCapitalSection'
+import InvestorsScaleSection from '@/app/investors/InvestorsScaleSection'
+import InvestorsAwardsSection from '@/app/investors/InvestorsAwardsSection'
+import InvestorsGrowthSection from '@/app/investors/InvestorsGrowthSection'
+import InvestorsRoadmapSection from '@/app/investors/InvestorsRoadmapSection'
+import InvestorsCapitalSection from '@/app/investors/InvestorsCapitalSection'
 import Image from 'next/image'
-import DownloadIcon from '@/components/ui/DownloadIcon'
+import CorporateDocuments from './CorporateDocuments'
 
 const Investors = () => {
   return (
@@ -87,56 +87,7 @@ const Investors = () => {
       <GridSection className="py-30">
         <H2Title className="col-span-4">Корпоративные документы</H2Title>
         <div className="col-span-8">
-          <Paragraph className="text-gray pb-4">Общие документы</Paragraph>
-          <div className="border-devider mb-2 flex cursor-pointer gap-2 rounded-sm border p-4">
-            <DownloadIcon height={24} width={24} />{' '}
-            <div className="flex w-full justify-between">
-              <Paragraph className="leading-[150%]! font-black! uppercase">
-                Устав АО «Гигарест»
-              </Paragraph>
-              <Paragraph className="text-gray">22.05.2025</Paragraph>
-            </div>
-          </div>
-
-          <div className="border-devider mb-8 flex cursor-pointer gap-2 rounded-sm border p-4">
-            <DownloadIcon height={24} width={24} />{' '}
-            <div className="flex w-full justify-between">
-              <Paragraph className="leading-[150%]! font-black! uppercase">
-                Бухгалтерская отчётность (РСБУ)
-              </Paragraph>
-              <Paragraph className="text-gray">22.05.2026</Paragraph>
-            </div>
-          </div>
-
-          <Paragraph className="text-gray pb-4">Документы по раунду инвестиций 2025 года</Paragraph>
-
-          <div className="border-devider mb-2 flex cursor-pointer gap-2 rounded-sm border p-4">
-            <DownloadIcon height={24} width={24} />{' '}
-            <div className="flex w-full justify-between">
-              <Paragraph className="leading-[150%]! font-black! uppercase">Пут-опцион от</Paragraph>
-              <Paragraph className="text-gray">14.07.2025</Paragraph>
-            </div>
-          </div>
-
-          <div className="border-devider mb-2 flex cursor-pointer gap-2 rounded-sm border p-4">
-            <DownloadIcon height={24} width={24} />{' '}
-            <div className="flex w-full justify-between">
-              <Paragraph className="leading-[150%]! font-black! uppercase">
-                ДСУР (документ, содержащий условия размещения)
-              </Paragraph>
-              <Paragraph className="text-gray">30.06.2025</Paragraph>
-            </div>
-          </div>
-
-          <div className="border-devider flex cursor-pointer gap-2 rounded-sm border p-4">
-            <DownloadIcon height={24} width={24} />{' '}
-            <div className="flex w-full justify-between">
-              <Paragraph className="leading-[150%]! font-black! uppercase">
-                Дивидендная политика
-              </Paragraph>
-              <Paragraph className="text-gray">10.07.2025</Paragraph>
-            </div>
-          </div>
+          <CorporateDocuments />
         </div>
       </GridSection>
     </main>

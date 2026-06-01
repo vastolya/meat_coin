@@ -60,7 +60,7 @@ export default function LoyaltySection() {
         <motion.div
           initial="rest"
           whileHover="hovered"
-          className="flex cursor-pointer gap-2 text-white transition-colors duration-300 hover:text-accent"
+          className="hover:text-accent flex cursor-pointer gap-2 text-white transition-colors duration-300"
         >
           <Paragraph className="col-span-5 md:col-span-4">О программе лояльности</Paragraph>
           <motion.span
