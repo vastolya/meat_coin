@@ -3,7 +3,7 @@ import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
 import Paragraph from '@/components/ui/Paragraph'
 import Button from '@/components/ui/Button'
-import InvestorsSlider from '@/components/InvestorsSlider'
+import InvestorsSlider from '@/app/investors/InvestorsSlider'
 
 export default function InvestorsScaleSection() {
   return (

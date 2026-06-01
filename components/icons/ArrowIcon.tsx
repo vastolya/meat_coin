@@ -1,9 +1,10 @@
 interface ArrowProps {
   width?: number
   height?: number
+  color?: string
 }
 
-export default function ArrowIcon({ width = 24, height = 24 }: ArrowProps) {
+export default function ArrowIcon({ width = 24, height = 24, color = 'currentColor' }: ArrowProps) {
   return (
     <svg
       width={width}
@@ -14,7 +15,7 @@ export default function ArrowIcon({ width = 24, height = 24 }: ArrowProps) {
     >
       <path
         d="M5 12H19M19 12L13.75 7M19 12L13.75 17"
-        stroke="currentColor"
+        stroke={color}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"

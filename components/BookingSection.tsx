@@ -15,15 +15,15 @@ import { LOCATIONS, type Location } from '@/consts/locations'
 
 const LAYOUT: Record<string, { wrapperClassName: string; mapClassName: string }> = {
   'Steak & Terrace': {
-    wrapperClassName: 'col-span-5 md:col-span-12 md:grid md:grid-cols-12',
+    wrapperClassName: 'col-span-5 md:col-span-12 md:grid md:grid-cols-12  gap-x-7 gap-y-0',
     mapClassName: 'md:col-span-2',
   },
   'Country Club': {
-    wrapperClassName: 'col-span-5 md:col-span-12 md:grid md:grid-cols-12',
+    wrapperClassName: 'col-span-5 md:col-span-12 md:grid md:grid-cols-12 gap-x-7 gap-y-0',
     mapClassName: 'md:col-span-2',
   },
   'Butcher&Grill': {
-    wrapperClassName: 'grid grid-cols-12 md:col-span-12',
+    wrapperClassName: 'grid grid-cols-12 md:col-span-12 md:grid-cols-12 gap-x-7 gap-y-0',
     mapClassName: 'col-span-2',
   },
 }
@@ -190,8 +190,8 @@ export default function BookingSection() {
 
   return (
     <>
-      <GridSection className="pt-0 pb-9 md:pt-0 bg-dark mx-0! w-full max-w-none!">
-        <div className="col-span-5 mb-9 flex flex-col gap-2 md:col-span-6 md:col-start-5 md:mb-0">
+      <GridSection className="bg-dark w-full gap-y-0! pt-12 pb-9 md:gap-y-7 md:pt-30 md:pb-30">
+        <div className="col-span-5 mb-9 flex flex-col gap-2 md:col-span-6 md:col-start-5 md:mb-7">
           <H2Title>Забронировать стол</H2Title>
 
           <Paragraph>

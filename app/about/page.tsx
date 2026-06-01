@@ -172,193 +172,201 @@ const About = () => {
         </div>
       </GridSection>
 
-      <GridSection className="text-dark mx-0! w-full max-w-none! gap-y-0! bg-white md:max-w-none!">
-        <AnimatedImage
-          src="/about_06.webp"
-          alt="Первый ресторан Meat_Coin на Рубинштейна"
-          sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-225 md:w-122"
-        />
+      <div className="bg-white">
+        <GridSection className="text-dark w-full gap-y-0!">
+          <AnimatedImage
+            src="/about_06.webp"
+            alt="Первый ресторан Meat_Coin на Рубинштейна"
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-225 md:w-122"
+          />
 
-        <div className="col-span-5 flex h-full flex-col justify-between py-12 md:col-span-8 md:py-30">
-          <div className="mb-4 flex flex-col gap-9 md:mb-0 md:gap-18">
-            <H2Title>
-              Как открывался мясной ресторан{' '}
-              <span className="text-accent">в сердце культурной столицы</span>
-            </H2Title>
+          <div className="col-span-5 flex h-full flex-col justify-between py-12 md:col-span-8 md:py-30">
+            <div className="mb-4 flex flex-col gap-9 md:mb-0 md:gap-18">
+              <H2Title>
+                Как открывался мясной ресторан{' '}
+                <span className="text-accent">в сердце культурной столицы</span>
+              </H2Title>
 
-            <H3Title>
-              В 2017 году на Рубинштейна, 4, открыл <br className="hidden md:block" /> свои двери
-              первый ресторан Meat_Coin 
-              <br className="hidden md:block" />
-              Butcher&Grill
-            </H3Title>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <Paragraph>
-              Именно здесь впервые в России турецкие мастера <br className="hidden md:block" />
-              представили искусство выбора, разделки и приготовления{' '}
-              <br className="hidden md:block" />
-              мяса как высокую культуру
-            </Paragraph>
-            <Paragraph>
-              Сегодня традиции хранит шеф Серкан Йигит, продолжая дело,{' '}
-              <br className="hidden md:block" />
-              начатое у истоков
-            </Paragraph>
-          </div>
-        </div>
-
-        <AnimatedImage
-          src="/about_07.webp"
-          alt="Meat_Coin Steak&Terrace на Смоленской"
-          sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-225 md:w-122"
-        />
-
-        <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
-          <div className="flex flex-col gap-9 md:gap-18">
-            <H2Title>
-              мясной-ресторан <span className="text-accent">в Москве</span>  на Смоленской
-            </H2Title>
-
-            <H3Title className="mb-4 md:mb-0">
-              Вдохновлённые успехом, основатели
-              <br className="hidden md:block" />
-              решили расширяться,&nbsp;
-              <span className="md:text-accent">
-                так появился —
+              <H3Title>
+                В 2017 году на Рубинштейна, 4, открыл <br className="hidden md:block" /> свои двери
+                первый ресторан Meat_Coin 
                 <br className="hidden md:block" />
-                Meat_Coin Steak&Terrace в Москве
-              </span>
-            </H3Title>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <Paragraph>
-              Ресторан расположился на четвёртом этаже «Смоленского{' '}
-              <br className="hidden md:block" />
-              Пассажа» с отдельным входом и видом на Садовое кольцо{' '}
-              <br className="hidden md:block" />
-              и монументальное здание МИД
-            </Paragraph>
-            <Paragraph>
-              Панорамная терраса стала местом притяжения для тех, <br className="hidden md:block" />
-              кто ценит красоту столицы с высоты
-            </Paragraph>
-          </div>
-        </div>
-
-        <AnimatedImage
-          src="/about_08.webp"
-          alt="Meat_Coin Country Club у Финского залива"
-          sizes="(min-width: 768px) 33vw, 100vw"
-          className="col-span-5 -mx-4 h-98 md:col-span-4 md:-ml-20 md:h-225 md:w-122"
-        />
-
-        <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
-          <div className="flex flex-col gap-9 md:gap-18">
-            <H2Title>
-              загородный мясной-ресторан <span className="text-accent">у Финского залива</span>
-            </H2Title>
-
-            <div className="mb-4 flex flex-col gap-2 md:mb-0">
-              <H3Title className="md:text-accent">
-                Новый формат семейный отдых
-                <br className="hidden md:block" />
-                и завтраки на природе
+                Butcher&Grill
               </H3Title>
+            </div>
+
+            <div className="flex flex-col gap-2">
               <Paragraph>
-                Meat_Coin Country Club в Комарово стал ответом на желание создать место,
+                Именно здесь впервые в России турецкие мастера <br className="hidden md:block" />
+                представили искусство выбора, разделки и приготовления{' '}
                 <br className="hidden md:block" />
-                где гастрономия встречается с природой
+                мяса как высокую культуру
+              </Paragraph>
+              <Paragraph>
+                Сегодня традиции хранит шеф Серкан Йигит, продолжая дело,{' '}
+                <br className="hidden md:block" />
+                начатое у истоков
               </Paragraph>
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <Paragraph className="text-gray">
-              Ленинградская область • пос.. Комарово • Приморское шоссе • 466
-            </Paragraph>
-            <Paragraph>
-              Расположенный на Приморском шоссе, 466, в окружении вековых сосен
-              <br className="hidden md:block" />
-              и с видом на Финский залив, этот ресторан — убежище для тех, кто ищет
-              <br className="hidden md:block" />
-              уединения и гармонии
-            </Paragraph>
-            <Paragraph>
-              Просторный зал с камином, панорамные окна и терраса, выходящая к воде,
-              <br className="hidden md:block" /> создают атмосферу безмятежной роскоши. Здесь
-              предусмотрено
-              <br className="hidden md:block" /> всё для семейного отдыха
-            </Paragraph>
+          <AnimatedImage
+            src="/about_07.webp"
+            alt="Meat_Coin Steak&Terrace на Смоленской"
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="col-span-5 -mx-4 h-98 md:col-span-4 md:mx-0 md:-ml-20 md:h-225 md:w-122"
+          />
 
-            <div className="flex gap-2">
-              <div className="bg-beige w-fit rounded-sm px-2 py-1">
-                <Paragraph className="text-accent">Детская комната</Paragraph>
-              </div>
-              <div className="bg-beige w-fit rounded-sm px-2 py-1">
-                <Paragraph className="text-accent">Уединенные беседки</Paragraph>
+          <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
+            <div className="flex flex-col gap-9 md:gap-18">
+              <H2Title>
+                мясной-ресторан <span className="text-accent">в Москве</span>  на Смоленской
+              </H2Title>
+
+              <H3Title className="mb-4 md:mb-0">
+                Вдохновлённые успехом, основатели
+                <br className="hidden md:block" />
+                решили расширяться,&nbsp;
+                <span className="md:text-accent">
+                  так появился —
+                  <br className="hidden md:block" />
+                  Meat_Coin Steak&Terrace в Москве
+                </span>
+              </H3Title>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Paragraph>
+                Ресторан расположился на четвёртом этаже «Смоленского{' '}
+                <br className="hidden md:block" />
+                Пассажа» с отдельным входом и видом на Садовое кольцо{' '}
+                <br className="hidden md:block" />
+                и монументальное здание МИД
+              </Paragraph>
+              <Paragraph>
+                Панорамная терраса стала местом притяжения для тех,{' '}
+                <br className="hidden md:block" />
+                кто ценит красоту столицы с высоты
+              </Paragraph>
+            </div>
+          </div>
+
+          <AnimatedImage
+            src="/about_08.webp"
+            alt="Meat_Coin Country Club у Финского залива"
+            sizes="(min-width: 768px) 33vw, 100vw"
+            className="col-span-5 -mx-4 h-98 md:col-span-4 md:-ml-20 md:h-225 md:w-122"
+          />
+
+          <div className="col-span-5 flex h-full flex-col justify-between pt-12 pb-9 md:col-span-8 md:py-30">
+            <div className="flex flex-col gap-9 md:gap-18">
+              <H2Title>
+                загородный мясной-ресторан <span className="text-accent">у Финского залива</span>
+              </H2Title>
+
+              <div className="mb-4 flex flex-col gap-2 md:mb-0">
+                <H3Title className="md:text-accent">
+                  Новый формат семейный отдых
+                  <br className="hidden md:block" />
+                  и завтраки на природе
+                </H3Title>
+                <Paragraph>
+                  Meat_Coin Country Club в Комарово стал ответом на желание создать место,
+                  <br className="hidden md:block" />
+                  где гастрономия встречается с природой
+                </Paragraph>
               </div>
             </div>
-            <div className="flex flex-wrap gap-2">
-              <div className="bg-beige w-fit rounded-sm px-2 py-1">
-                <Paragraph className="text-accent">Вип-гостиная с собственным камином</Paragraph>
+
+            <div className="flex flex-col gap-2">
+              <Paragraph className="text-gray">
+                Ленинградская область • пос.. Комарово • Приморское шоссе • 466
+              </Paragraph>
+              <Paragraph>
+                Расположенный на Приморском шоссе, 466, в окружении вековых сосен
+                <br className="hidden md:block" />
+                и с видом на Финский залив, этот ресторан — убежище для тех, кто ищет
+                <br className="hidden md:block" />
+                уединения и гармонии
+              </Paragraph>
+              <Paragraph>
+                Просторный зал с камином, панорамные окна и терраса, выходящая к воде,
+                <br className="hidden md:block" /> создают атмосферу безмятежной роскоши. Здесь
+                предусмотрено
+                <br className="hidden md:block" /> всё для семейного отдыха
+              </Paragraph>
+
+              <div className="flex gap-2">
+                <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                  <Paragraph className="text-accent">Детская комната</Paragraph>
+                </div>
+                <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                  <Paragraph className="text-accent">Уединенные беседки</Paragraph>
+                </div>
               </div>
-              <div className="bg-beige w-fit rounded-sm px-2 py-1">
-                <Paragraph className="text-accent">Берег моря</Paragraph>
+              <div className="flex flex-wrap gap-2">
+                <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                  <Paragraph className="text-accent">Вип-гостиная с собственным камином</Paragraph>
+                </div>
+                <div className="bg-beige w-fit rounded-sm px-2 py-1">
+                  <Paragraph className="text-accent">Берег моря</Paragraph>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </GridSection>
+        </GridSection>
+      </div>
 
-      <GridSection className="bg-dark mx-0! w-full max-w-none! py-12 md:py-30">
-        <Paragraph className="text-gray col-span-5 md:col-span-4" delay={0.2}>
-          Философия и стандарты качества
-        </Paragraph>
-
-        <div className="col-span-5 mb-4 md:col-span-8 md:mb-0">
-          <H2Title className="text-accent pb-9 md:pb-18" delay={0.4}>
-            Meat_Coin сегодня сеть <br className="hidden md:block" /> ресторанов с авторской кухней
-          </H2Title>
-
-          <H3Title className="pb-2" delay={0.6}>
-            В нашем меню соседствуют простота <br className="hidden md:block" /> и изысканность
-          </H3Title>
-          <Paragraph delay={0.8}>
-            От стейков в чистом виде, позволяющих ощутить подлинный{' '}
-            <br className="hidden md:block" /> вкус мраморной говядины, до сложных, многослойных{' '}
-            <br className="hidden md:block" /> сочетаний, рожденных фантазией шефов
+      <div className="bg-dark">
+        <GridSection className="bg-dark w-full py-12 md:py-30">
+          <Paragraph className="text-gray col-span-5 md:col-span-4" delay={0.2}>
+            Философия и стандарты качества
           </Paragraph>
-        </div>
 
-        <AnimatedImage
-          src="/about_05.webp"
-          alt="Блюда авторской кухни Meat_Coin"
-          sizes="100vw"
-          className="col-span-5 -mx-4 h-119 rounded-sm md:col-span-12 md:mx-0 md:my-4"
-          imgClsx="scale-100 object-cover object-[50%_15%] md:object-[50%_43%] md:scale-100"
-        />
+          <div className="col-span-5 mb-4 md:col-span-8 md:mb-0">
+            <H2Title className="text-accent pb-9 md:pb-18" delay={0.4}>
+              Meat_Coin сегодня сеть <br className="hidden md:block" /> ресторанов с авторской
+              кухней
+            </H2Title>
 
-        <div className="col-span-5 mt-4 md:col-start-5 md:mt-0">
-          <H3Title className="pb-2 md:pb-4" delay={1}>
-            Три локации — одна история
-          </H3Title>
-          <Paragraph className="pb-2" delay={1.2}>
-            Каждый из трёх ресторанов живёт своей жизнью, но все они — главы одной книги. Книги
-            о страсти, преданности делу и бесконечном поиске совершенства
-          </Paragraph>
-          <Paragraph delay={1.4}>
-            Путь от первого ресторана на Рубинштейна до загородного клуба в Комарово — это история
-            роста, дерзости и любви к своему делу
-          </Paragraph>
-        </div>
-      </GridSection>
+            <H3Title className="pb-2" delay={0.6}>
+              В нашем меню соседствуют простота <br className="hidden md:block" /> и изысканность
+            </H3Title>
+            <Paragraph delay={0.8}>
+              От стейков в чистом виде, позволяющих ощутить подлинный{' '}
+              <br className="hidden md:block" /> вкус мраморной говядины, до сложных, многослойных{' '}
+              <br className="hidden md:block" /> сочетаний, рожденных фантазией шефов
+            </Paragraph>
+          </div>
 
-      <BookingSection />
+          <AnimatedImage
+            src="/about_05.webp"
+            alt="Блюда авторской кухни Meat_Coin"
+            sizes="100vw"
+            className="col-span-5 -mx-4 h-119 rounded-sm md:col-span-12 md:mx-0 md:my-4"
+            imgClsx="scale-100 object-cover object-[50%_15%] md:object-[50%_43%] md:scale-100"
+          />
+
+          <div className="col-span-5 mt-4 md:col-start-5 md:mt-0">
+            <H3Title className="pb-2 md:pb-4" delay={1}>
+              Три локации — одна история
+            </H3Title>
+            <Paragraph className="pb-2" delay={1.2}>
+              Каждый из трёх ресторанов живёт своей жизнью, но все они — главы одной книги. Книги
+              о страсти, преданности делу и бесконечном поиске совершенства
+            </Paragraph>
+            <Paragraph delay={1.4}>
+              Путь от первого ресторана на Рубинштейна до загородного клуба в Комарово — это история
+              роста, дерзости и любви к своему делу
+            </Paragraph>
+          </div>
+        </GridSection>
+      </div>
+
+      <div className="bg-dark">
+        <BookingSection />
+      </div>
     </div>
   )
 }
