@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import DownloadIcon from '@/components/ui/DownloadIcon'
 import Paragraph from '@/components/ui/Paragraph'
+import GridSection from '@/components/ui/GridSection'
+import H2Title from '@/components/ui/H2Title'
 
-export default function CorporateDocuments() {
+export default function InvestorsCorporateDocuments() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   const itemClass = (id: number, extra?: string) => {
@@ -26,7 +28,9 @@ export default function CorporateDocuments() {
   })
 
   return (
-    <>
+    <GridSection className="py-30">
+      <H2Title className="col-span-4">Корпоративные документы</H2Title>
+      <div className="col-span-8">
       <Paragraph className="text-gray pb-4">Общие документы</Paragraph>
 
       <div className={itemClass(0, 'mb-2')} {...bind(0)}>
@@ -78,6 +82,7 @@ export default function CorporateDocuments() {
           <Paragraph className="text-gray">10.07.2025</Paragraph>
         </div>
       </div>
-    </>
+      </div>
+    </GridSection>
   )
 }
