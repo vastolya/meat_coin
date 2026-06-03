@@ -18,7 +18,7 @@ const navMenu = [
   { title: 'Программа лояльности', link: '/loyalty' },
   { title: 'Event', link: '/event' },
   { title: 'О нас', link: '/about' },
-  { title: 'Медиа', link: '/media' },
+  { title: 'Медиа', link: '/blog' },
   { title: 'Контакты', link: '/contacts' },
 ]
 

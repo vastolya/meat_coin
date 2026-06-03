@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation'
+
 export default function MediaPage() {
-  return <main className="min-h-screen" />
+  redirect('/blog')
 }
