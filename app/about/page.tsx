@@ -95,7 +95,7 @@ const About = () => {
 
         <AnimatedDiv
           delay={0.2}
-          className="col-span-5 mt-12 flex justify-center gap-6 md:col-span-1 md:col-start-12 md:mt-0 md:block md:gap-0"
+          className="col-span-5 mt-10 flex justify-center gap-6 md:col-span-1 md:col-start-12 md:mt-0 md:block md:gap-0"
         >
           <PatternIcon size={76} color="var(--color-border)" />
           <PatternIcon size={76} color="var(--color-border)" />
