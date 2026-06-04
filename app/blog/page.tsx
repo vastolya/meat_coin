@@ -113,12 +113,12 @@ export default function BlogPage() {
       <GridSection className="pt-11 pb-12">
         <div className="col-span-12 mb-11 flex flex-col gap-2">
           <H1Title delay={0.2}>Блог Meat_Coin</H1Title>
-          <Paragraph delay={0.4} className="text-gray">
+          <Paragraph delay={0.2} className="text-gray">
             Будьте в курсе главных событий, новостей и специальных предложений MEAT_COIN{' '}
           </Paragraph>
         </div>
 
-        <AnimatedDiv delay={0.6} className="col-span-12 mb-4">
+        <AnimatedDiv delay={0.4} className="col-span-12 mb-4">
           <MediaTabs active="blog" />
         </AnimatedDiv>
 
@@ -126,31 +126,31 @@ export default function BlogPage() {
           src="/blog_1.webp"
           alt="Гид по организации свадьбы"
           sizes="(min-width: 768px) 66vw, 100vw"
-          delay={0.8}
+          delay={0.6}
           className="col-span-8 h-140.75 rounded-sm"
         />
 
-        <AnimatedDiv delay={1} className="col-span-4 flex flex-col justify-center">
-          <div className="flex flex-col gap-7">
-            <div className="flex flex-col gap-2">
-              <H2Title>Гид по организа ции свадьбы</H2Title>
-              <Paragraph>Пошаговый гид по организации свадьбы</Paragraph>
-            </div>
+        <AnimatedDiv delay={0.6} className="col-span-4 flex flex-col justify-center gap-7">
+          <div className="flex flex-col gap-2">
+            <H2Title>Гид по организа ции свадьбы</H2Title>
+            <Paragraph>Пошаговый гид по организации свадьбы</Paragraph>
+          </div>
 
-            <div className="flex items-center gap-4">
-              <Image
-                src="/avatar_blog.webp"
-                className="h-12 w-12 rounded-full object-cover"
-                alt="Автор статьи"
-                width={48}
-                height={48}
-              />
-              <div className="flex flex-col">
-                <Paragraph className="text-gray text-2xl leading-[120%]">Илья</Paragraph>
-                <Paragraph className="text-gray text-2xl leading-[120%]">
-                  11 Янв 2022&nbsp;&nbsp;•&nbsp;&nbsp;5 мин чтения
-                </Paragraph>
-              </div>
+          <div className="flex items-center gap-4">
+            <Image
+              src="/avatar_blog.webp"
+              className="h-12 w-12 rounded-full object-cover"
+              alt="Автор статьи"
+              width={48}
+              height={48}
+            />
+            <div className="flex flex-col">
+              <Paragraph disableAnimation className="text-gray text-2xl leading-[120%]">
+                Илья
+              </Paragraph>
+              <Paragraph disableAnimation className="text-gray text-2xl leading-[120%]">
+                11 Янв 2022&nbsp;&nbsp;•&nbsp;&nbsp;5 мин чтения
+              </Paragraph>
             </div>
           </div>
         </AnimatedDiv>
@@ -166,7 +166,7 @@ export default function BlogPage() {
             description={article.description}
             imageShape={article.imageShape}
             className={article.className}
-            delay={0.1 + index * 0.08}
+            delay={0.8 + index * 0.08}
           />
         ))}
       </GridSection>

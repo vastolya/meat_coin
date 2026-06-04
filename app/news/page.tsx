@@ -110,12 +110,12 @@ export default function NewsPage() {
       <GridSection className="pt-11 pb-12">
         <div className="col-span-12 mb-11 flex flex-col gap-2">
           <H1Title delay={0.2}>Новости</H1Title>
-          <Paragraph delay={0.4} className="text-gray">
+          <Paragraph delay={0.2} className="text-gray">
             Будьте в курсе главных событий, новостей и специальных предложений MEAT_COIN
           </Paragraph>
         </div>
 
-        <AnimatedDiv delay={0.6} className="col-span-12">
+        <AnimatedDiv delay={0.4} className="col-span-12">
           <MediaTabs active="news" />
         </AnimatedDiv>
       </GridSection>
@@ -130,7 +130,7 @@ export default function NewsPage() {
             description={article.description}
             imageShape={article.imageShape}
             className={article.className}
-            delay={0.1 + index * 0.08}
+            delay={0.6 + index * 0.08}
           />
         ))}
       </GridSection>

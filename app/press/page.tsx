@@ -95,12 +95,12 @@ export default function PressPage() {
       <GridSection className="pt-11 pb-12">
         <div className="col-span-12 mb-4 flex flex-col gap-2">
           <H1Title delay={0.2}>Что о нас говорят</H1Title>
-          <Paragraph delay={0.4} className="text-gray">
+          <Paragraph delay={0.2} className="text-gray">
             Будьте в курсе главных событий, новостей и специальных предложений MEAT_COIN
           </Paragraph>
         </div>
 
-        <AnimatedDiv delay={0.5} className="col-span-12 mb-11 grid grid-cols-12 items-center">
+        <AnimatedDiv delay={0.4} className="col-span-12 mb-11 grid grid-cols-12 items-center">
           <div className="col-span-1 col-start-2 flex justify-center">
             <Image src="/press_01.svg" alt="Хорошее место 2025" width={89} height={80} />
           </div>
@@ -133,7 +133,7 @@ export default function PressPage() {
             description={article.description}
             imageShape={article.imageShape}
             className={article.className}
-            delay={0.1 + index * 0.08}
+            delay={0.8 + index * 0.08}
           />
         ))}
       </GridSection>
