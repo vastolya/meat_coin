@@ -9,14 +9,8 @@ type BlogArticleCardProps = {
   tag: string
   title: string
   description: string
-  imageShape?: 'square' | 'wide'
   className?: string
   delay?: number
-}
-
-const imageShapeClassName: Record<NonNullable<BlogArticleCardProps['imageShape']>, string> = {
-  square: 'aspect-square',
-  wide: 'aspect-[2.05/1]',
 }
 
 export default function BlogArticleCard({
@@ -24,18 +18,17 @@ export default function BlogArticleCard({
   tag,
   title,
   description,
-  imageShape = 'square',
   className = '',
   delay = 0,
 }: BlogArticleCardProps) {
   return (
-    <AnimatedDiv delay={delay} className={`group flex flex-col gap-4 ${className}`}>
+    <AnimatedDiv delay={delay} className={`group flex flex-col gap-2 md:gap-4 ${className}`}>
       <AnimatedImage
         disableAnimation
         src={image}
         alt={title}
         sizes="(min-width: 768px) 50vw, 100vw"
-        className={`${imageShapeClassName[imageShape]} w-full rounded-sm bg-beige`}
+        className="h-105 w-full rounded-sm bg-beige"
       >
         <Tag
           text={tag}
@@ -44,7 +37,7 @@ export default function BlogArticleCard({
         />
       </AnimatedImage>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1 md:gap-2">
         <H3Title disableAnimation className="text-dark transition-colors group-hover:text-accent">
           {title}
         </H3Title>

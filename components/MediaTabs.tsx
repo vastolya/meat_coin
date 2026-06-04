@@ -5,9 +5,9 @@ type MediaTabsProps = {
 }
 
 const tabs = [
-  { text: 'Блог', href: '/blog', value: 'blog', className: 'w-35' },
-  { text: 'Новости', href: '/news', value: 'news', className: 'w-44' },
-  { text: 'Пресса о нас', href: '/press', value: 'press', className: 'w-63' },
+  { text: 'Блог', href: '/blog', value: 'blog' },
+  { text: 'Новости', href: '/news', value: 'news' },
+  { text: 'Пресса о нас', href: '/press', value: 'press' },
 ] as const
 
 export default function MediaTabs({ active }: MediaTabsProps) {
@@ -17,7 +17,7 @@ export default function MediaTabs({ active }: MediaTabsProps) {
         <Link
           key={tab.value}
           href={tab.href}
-          className={`flex w-fit px-6 py-2 h-10 items-center justify-center rounded-sm text-center leading-[148%] font-medium transition-colors ${tab.className} ${
+          className={`flex h-10 w-fit items-center justify-center rounded-sm px-4 py-2.5 md:px-6 md:py-2 text-center leading-[148%] font-medium transition-colors ${
             active === tab.value ? 'bg-accent text-white' : 'text-border hover:text-accent'
           }`}
         >

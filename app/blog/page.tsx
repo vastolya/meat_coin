@@ -14,111 +14,99 @@ const blogArticles = [
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'wide' as const,
-    className: 'col-span-8 mb-4',
+    className: 'col-span-5 md:col-span-8 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Butcher&Grill',
     description: 'Санкт-Петербург · ул. Рубинштейна, 4',
-    imageShape: 'wide' as const,
-    className: 'col-span-8',
+    className: 'col-span-5 md:col-span-8',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Butcher&Grill',
     description: 'Санкт-Петербург · ул. Рубинштейна, 4',
-    imageShape: 'square' as const,
-    className: 'col-span-4',
+    className: 'col-span-5 md:col-span-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Заголовок статьи',
     description: 'Описание',
-    imageShape: 'square' as const,
-    className: 'col-span-4 mb-4',
+    className: 'col-span-5 md:col-span-4 mb-6 md:mb-4',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Butcher&Grill',
     description: 'Санкт-Петербург · ул. Рубинштейна, 4',
-    imageShape: 'wide' as const,
-    className: 'col-span-8',
+    className: 'col-span-5 md:col-span-8',
   },
   {
     image: '/event_02.webp',
     tag: '22 мая 2022',
     title: 'Butcher&Grill',
     description: 'Санкт-Петербург · ул. Рубинштейна, 4',
-    imageShape: 'square' as const,
-    className: 'col-span-4',
+    className: 'col-span-5 md:col-span-4',
   },
 ]
 
 export default function BlogPage() {
   return (
     <main className="text-dark bg-white">
-      <GridSection className="pt-11 pb-12">
-        <div className="col-span-12 mb-11 flex flex-col gap-2">
+      <GridSection className="pt-6 pb-13 md:pt-11 md:pb-12">
+        <div className="col-span-5 md:col-span-12 mb-7 md:mb-11 flex flex-col gap-2">
           <H1Title delay={0.2}>Блог Meat_Coin</H1Title>
-          <Paragraph delay={0.2} className="text-gray">
+          <Paragraph delay={0.2} className="text-gray tracking-[1%]">
             Будьте в курсе главных событий, новостей и специальных предложений MEAT_COIN{' '}
           </Paragraph>
         </div>
 
-        <AnimatedDiv delay={0.4} className="col-span-12 mb-4">
+        <AnimatedDiv delay={0.4} className="col-span-5 md:col-span-12 mb-11 md:mb-4">
           <MediaTabs active="blog" />
         </AnimatedDiv>
 
@@ -127,16 +115,16 @@ export default function BlogPage() {
           alt="Гид по организации свадьбы"
           sizes="(min-width: 768px) 66vw, 100vw"
           delay={0.6}
-          className="col-span-8 h-140.75 rounded-sm"
+          className="col-span-5 md:col-span-8 h-120 md:h-140.75 rounded-sm"
         />
 
-        <AnimatedDiv delay={0.6} className="col-span-4 flex flex-col justify-center gap-7">
+        <AnimatedDiv delay={0.6} className="col-span-5 md:col-span-4 flex flex-col justify-center gap-4 md:gap-7">
           <div className="flex flex-col gap-2">
-            <H2Title>Гид по организа ции свадьбы</H2Title>
+            <H2Title>Гид по организа<br/>ции свадьбы</H2Title>
             <Paragraph>Пошаговый гид по организации свадьбы</Paragraph>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <Image
               src="/avatar_blog.webp"
               className="h-12 w-12 rounded-full object-cover"
@@ -164,7 +152,6 @@ export default function BlogPage() {
             tag={article.tag}
             title={article.title}
             description={article.description}
-            imageShape={article.imageShape}
             className={article.className}
             delay={0.8 + index * 0.08}
           />
