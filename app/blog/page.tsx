@@ -65,12 +65,52 @@ const blogArticles = [
     imageShape: 'square' as const,
     className: 'col-span-4',
   },
+  {
+    image: '/event_02.webp',
+    tag: '22 мая 2022',
+    title: 'Заголовок статьи',
+    description: 'Описание',
+    imageShape: 'square' as const,
+    className: 'col-span-4 mb-4',
+  },
+  {
+    image: '/event_02.webp',
+    tag: '22 мая 2022',
+    title: 'Заголовок статьи',
+    description: 'Описание',
+    imageShape: 'square' as const,
+    className: 'col-span-4 mb-4',
+  },
+  {
+    image: '/event_02.webp',
+    tag: '22 мая 2022',
+    title: 'Заголовок статьи',
+    description: 'Описание',
+    imageShape: 'square' as const,
+    className: 'col-span-4 mb-4',
+  },
+  {
+    image: '/event_02.webp',
+    tag: '22 мая 2022',
+    title: 'Butcher&Grill',
+    description: 'Санкт-Петербург · ул. Рубинштейна, 4',
+    imageShape: 'wide' as const,
+    className: 'col-span-8',
+  },
+  {
+    image: '/event_02.webp',
+    tag: '22 мая 2022',
+    title: 'Butcher&Grill',
+    description: 'Санкт-Петербург · ул. Рубинштейна, 4',
+    imageShape: 'square' as const,
+    className: 'col-span-4',
+  },
 ]
 
 export default function BlogPage() {
   return (
     <main className="text-dark bg-white">
-      <GridSection className="gap-y-14 pt-11 pb-12">
+      <GridSection className="pt-11 pb-12">
         <div className="col-span-12 mb-11 flex flex-col gap-2">
           <H1Title delay={0.2}>Блог Meat_Coin</H1Title>
           <Paragraph delay={0.4} className="text-gray">
@@ -116,7 +156,7 @@ export default function BlogPage() {
         </AnimatedDiv>
       </GridSection>
 
-      <GridSection className="gap-y-15 pb-30">
+      <GridSection className="pb-30">
         {blogArticles.map((article, index) => (
           <BlogArticleCard
             key={`${article.title}-${index}`}

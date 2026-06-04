@@ -17,7 +17,7 @@ export default function MediaTabs({ active }: MediaTabsProps) {
         <Link
           key={tab.value}
           href={tab.href}
-          className={`flex h-10 items-center justify-center rounded-sm text-center leading-[148%] font-medium transition-colors ${tab.className} ${
+          className={`flex w-fit px-6 py-2 h-10 items-center justify-center rounded-sm text-center leading-[148%] font-medium transition-colors ${tab.className} ${
             active === tab.value ? 'bg-accent text-white' : 'text-border hover:text-accent'
           }`}
         >
