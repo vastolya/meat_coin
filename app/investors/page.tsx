@@ -1,4 +1,4 @@
-import GridSection from '@/components/ui/GridSection'
+﻿import GridSection from '@/components/ui/GridSection'
 import H1Title from '@/components/ui/H1Title'
 import H2Title from '@/components/ui/H2Title'
 import H3Title from '@/components/ui/H3Title'
@@ -13,6 +13,11 @@ import Image from 'next/image'
 import InvestorsCorporateDocuments from './InvestorsCorporateDocuments'
 import InvestorsDividendsSection from './InvestorsDividendsSection'
 import Tag from '@/components/ui/Tag'
+import RubleIcon from '@/components/icons/RubleIcon'
+import Checkbox from '@/components/ui/Checkbox'
+import FormInput from '@/components/ui/FormInput'
+import FormTextarea from '@/components/ui/FormTextarea'
+import Button from '@/components/ui/Button'
 
 const Investors = () => {
   return (
@@ -91,7 +96,7 @@ const Investors = () => {
       <InvestorsDividendsSection />
 
       <div className="bg-white">
-        <div className="bg-dark rounded-t-[8rem]">
+        <div className="bg-dark-black rounded-t-[8rem]">
           <GridSection className="gap-y-18! py-30">
             <H2Title className="col-span-8 col-start-5">Инвестиционное предложение</H2Title>
             <div className="col-span-4 flex flex-col justify-between">
@@ -120,7 +125,7 @@ const Investors = () => {
                 </Paragraph>
               </div>
             </div>
-            <div className="border-border col-span-5 flex flex-col gap-7 rounded-sm border p-7">
+            <div className="border-devider col-span-5 flex flex-col gap-7 rounded-sm border p-7">
               <div className="flex flex-col gap-2">
                 <H3Title>Оставьте заявку</H3Title>
                 <Paragraph>
@@ -129,7 +134,40 @@ const Investors = () => {
                 </Paragraph>
               </div>
 
-              <div>asd</div>
+              <div className="flex flex-col gap-4">
+                <FormInput type="text" placeholder="Имя*" required />
+
+                <div className="flex gap-2">
+                  <FormInput type="number" placeholder="Телефон*" required />
+                  <FormInput type="email" placeholder="Email*" required />
+                </div>
+
+                <FormInput
+                  type="number"
+                  placeholder="Планируемая сумма инвестиций"
+                  rightSlot={<RubleIcon />}
+                />
+
+                <FormTextarea placeholder="Комментарий" className="min-h-30" />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Button text="Оставить заявку" variant="primary" className="w-full" />
+                <Checkbox
+                  label={
+                    <>
+                      Нажимая кнопку «Оставить заявку», я даю свое согласие на обработку моих
+                      персональных данных в соответствии с{' '}
+                      <a href="#" className="text-white underline">
+                        Федеральным законом от 27.07.2006 года № 152-ФЗ
+                      </a>{' '}
+                      <br />
+                      «О персональных данных», на условиях и для целей, определенных в Согласии на
+                      обработку персональных данных
+                    </>
+                  }
+                />
+              </div>
             </div>
           </GridSection>
         </div>
