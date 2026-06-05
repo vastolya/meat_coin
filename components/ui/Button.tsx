@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 
 const baseStyles =
-  'w-fit h-fit font-extrabold text-base leading-relaxed uppercase px-6 py-4 rounded-sm cursor-pointer transition-all duration-300'
+  'w-fit h-fit font-extrabold text-base leading-[150%] uppercase px-6 py-4 rounded-sm cursor-pointer transition-all duration-300'
 
 const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
   primary: 'text-white bg-(--color-accent)  hover:bg-(--color-dark)',

@@ -56,13 +56,13 @@ const ScrollFixedButton = ({ text, threshold = 497 }: ScrollFixedButtonProps) =>
             <Button
               text={text}
               variant="primary"
-              className="flex h-14 flex-1 items-center justify-center px-3 py-0 text-center"
+              className="flex flex-1 items-center justify-center px-3 py-0 text-center"
             />
             <button
               type="button"
               aria-label="Открыть QR-код"
               onClick={() => setIsQrOpen(true)}
-              className="border-accent flex h-14 w-18 items-center justify-center rounded-sm border-[1.5px] bg-[#1E1E1E]"
+              className="border-accent flex h-14 w-18 items-center justify-center rounded-sm border-[1.5px] bg-dark"
             >
               <svg
                 width="18"
