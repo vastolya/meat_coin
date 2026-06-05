@@ -219,9 +219,7 @@ export default function LoyaltyPage() {
           <Paragraph className="pb-4">
             Отсканируйте QR-код <br /> или нажмите на кнопку <br /> «Оформить карту»
           </Paragraph>
-          <div className="border-accent w-fit rounded-sm border-2 p-2">
-            <Image src='/qr-loyalty.webp' alt="QR-код" width={176} height={176} />
-          </div>
+          <Image src="/qr.webp" alt="QR-код" width={192} height={192} />
           <Paragraph className="pt-15 pb-4">Заполните анкету, указав свои данные</Paragraph>
           <Button text="Оформить карту" variant="primary" />
           <Paragraph className="pt-19.5 pb-4">

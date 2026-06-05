@@ -92,7 +92,7 @@ const ScrollFixedButton = ({ text, threshold = 497 }: ScrollFixedButtonProps) =>
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setIsQrOpen(false)}
-              className="fixed inset-0 z-[60] bg-black/45 md:hidden"
+              className="fixed inset-0 z-60 bg-black/45 md:hidden"
             />
             <motion.div
               role="dialog"
@@ -110,10 +110,10 @@ const ScrollFixedButton = ({ text, threshold = 497 }: ScrollFixedButtonProps) =>
                   setIsQrOpen(false)
                 }
               }}
-              className="fixed right-0 bottom-0 left-0 z-[61] rounded-t-3xl bg-[#F7F4EF] px-8 pt-1 pb-9 text-center text-[#1E1E1E] md:hidden"
+              className="fixed right-0 bottom-0 left-0 z-61 rounded-t-3xl bg-[#F7F4EF] px-8 pt-1 pb-9 text-center text-dark md:hidden"
             >
               <div className="mx-auto mb-2.25 h-1 w-20 rounded-full bg-[#BBB6AF]" />
-              <div className="border-accent mx-auto mb-4 w-fit rounded-sm border-[1.5px] p-1">
+              <div className="mx-auto mb-4 w-fit rounded-sm p-1">
                 <Image src="/qr-loyalty.webp" alt="QR-код" width={133} height={133} />
               </div>
               <p className="text-base leading-[132%] font-medium">
