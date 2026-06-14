@@ -5,17 +5,24 @@ import { useState } from 'react'
 interface CheckboxProps {
   label: React.ReactNode
   className?: string
+  checked?: boolean
+  onChange?: (checked: boolean) => void
 }
 
-export default function Checkbox({ label, className = '' }: CheckboxProps) {
-  const [checked, setChecked] = useState(false)
+export default function Checkbox({ label, className = '', checked: controlledChecked, onChange }: CheckboxProps) {
+  const [internalChecked, setInternalChecked] = useState(false)
+  const checked = controlledChecked !== undefined ? controlledChecked : internalChecked
+  const handleChange = () => {
+    if (onChange) onChange(!checked)
+    else setInternalChecked((v) => !v)
+  }
 
   return (
     <label className={`flex cursor-pointer items-start gap-4 ${className}`}>
       <input
         type="checkbox"
         checked={checked}
-        onChange={() => setChecked(!checked)}
+        onChange={handleChange}
         className="sr-only"
       />
       <span

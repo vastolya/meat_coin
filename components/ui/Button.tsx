@@ -3,6 +3,8 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary'
   className?: string
   href?: string
+  onClick?: () => void
+  disabled?: boolean
 }
 
 const baseStyles =
@@ -14,8 +16,8 @@ const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> = {
     'border-2 text-(--color-accent) hover:text-white border-(--color-accent) hover:bg-(--color-accent)',
 }
 
-const Button = ({ text, variant = 'primary', className = '', href }: ButtonProps) => {
-  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className}`
+const Button = ({ text, variant = 'primary', className = '', href, onClick, disabled }: ButtonProps) => {
+  const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${className} disabled:opacity-40 disabled:cursor-not-allowed`
 
   if (href) {
     return (
@@ -25,7 +27,7 @@ const Button = ({ text, variant = 'primary', className = '', href }: ButtonProps
     )
   }
 
-  return <button className={combinedClassName}>{text}</button>
+  return <button className={combinedClassName} onClick={onClick} disabled={disabled}>{text}</button>
 }
 
 export default Button

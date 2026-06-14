@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { RESTAURANTS } from '../../consts/restaurants'
 import Button from './Button'
+import { useBooking } from '@/contexts/BookingContext'
 import H3Title from './H3Title'
 import MobileMenu from './MobileMenu'
 import Paragraph from './Paragraph'
@@ -35,6 +36,7 @@ const dropdownIconStyle = {
 } as const
 
 const Header = () => {
+  const { openBooking } = useBooking()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
@@ -166,7 +168,7 @@ const Header = () => {
                 <span className="text-(--color-accent)">RU</span>
               </motion.div>
               <motion.div {...slideIn(0.92)}>
-                <Button text="Забронировать" />
+                <Button text="Забронировать" onClick={() => openBooking()} />
               </motion.div>
             </div>
           </div>

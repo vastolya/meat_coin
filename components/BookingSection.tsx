@@ -10,6 +10,7 @@ import GridSection from './ui/GridSection'
 import H2Title from './ui/H2Title'
 import H3Title from './ui/H3Title'
 import Paragraph from './ui/Paragraph'
+import { useBooking } from '@/contexts/BookingContext'
 
 import { LOCATIONS, type Location } from '@/consts/locations'
 
@@ -32,14 +33,16 @@ interface MobileLocationCardProps {
   location: Location
   isExpanded: boolean
   onToggle: () => void
+  onBook: () => void
 }
 
 interface DesktopLocationCardProps {
   location: Location
   onMapOpen: () => void
+  onBook: () => void
 }
 
-function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCardProps) {
+function MobileLocationCard({ location, isExpanded, onToggle, onBook }: MobileLocationCardProps) {
   return (
     <Dropdown
       isOpen={isExpanded}
@@ -83,7 +86,7 @@ function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCa
       </div>
 
       <div className="flex flex-col gap-2 md:gap-4">
-        <Button text="Забронировать" className="w-full" />
+        <Button text="Забронировать" className="w-full" onClick={onBook} />
         <div className="flex items-center justify-between gap-4">
           <a href={location.phone} className="text-accent">
             {location.phoneLabel}
@@ -97,19 +100,21 @@ function MobileLocationCard({ location, isExpanded, onToggle }: MobileLocationCa
         </div>
       </div>
 
-      <iframe
-        src={location.mapUrl}
-        width="100%"
-        height="100%"
-        className="h-105 rounded-sm border-0"
-        allowFullScreen
-        title="Yandex Map"
-      />
+      {isExpanded && (
+        <iframe
+          src={location.mapUrl}
+          width="100%"
+          height="100%"
+          className="h-105 rounded-sm border-0"
+          allowFullScreen
+          title="Yandex Map"
+        />
+      )}
     </Dropdown>
   )
 }
 
-function DesktopLocationCard({ location, onMapOpen }: DesktopLocationCardProps) {
+function DesktopLocationCard({ location, onMapOpen, onBook }: DesktopLocationCardProps) {
   const { wrapperClassName, mapClassName } = LAYOUT[location.name]
   return (
     <div className={`group ${wrapperClassName}`}>
@@ -147,7 +152,7 @@ function DesktopLocationCard({ location, onMapOpen }: DesktopLocationCardProps) 
         </div>
 
         <div className="flex gap-4">
-          <Button text="Забронировать" />
+          <Button text="Забронировать" onClick={onBook} />
           <div className="flex items-center gap-4">
             <a href={location.phone} className="text-accent">
               {location.phoneLabel}
@@ -178,6 +183,7 @@ function DesktopLocationCard({ location, onMapOpen }: DesktopLocationCardProps) 
 }
 
 export default function BookingSection() {
+  const { openBooking } = useBooking()
   const [activeMap, setActiveMap] = useState<string | null>(null)
   const [expandedLocation, setExpandedLocation] = useState<string | null>(null)
 
@@ -209,6 +215,7 @@ export default function BookingSection() {
               onToggle={() =>
                 setExpandedLocation((current) => (current === location.name ? null : location.name))
               }
+              onBook={() => openBooking(location)}
             />
           ))}
         </div>
@@ -219,6 +226,7 @@ export default function BookingSection() {
               key={location.name}
               location={location}
               onMapOpen={() => setActiveMap(location.mapUrl)}
+              onBook={() => openBooking(location)}
             />
           ))}
         </div>
@@ -247,6 +255,7 @@ export default function BookingSection() {
                 height="100%"
                 className="border-0"
                 allowFullScreen
+                sandbox="allow-scripts allow-same-origin allow-popups"
                 title="Yandex Map"
               />
             </div>

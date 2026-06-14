@@ -46,6 +46,12 @@ body {
   background: var(--color-dark);
   color: var(--color-white);
   overflow-x: clip;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .font-albertus {
