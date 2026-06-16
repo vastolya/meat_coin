@@ -1,6 +1,6 @@
 interface TagProps {
   text: string
-  variant?: 'black' | 'gray' | 'white'
+  variant?: 'black' | 'gray' | 'white' | 'beige'
   className?: string
 }
 
@@ -11,6 +11,7 @@ const variantStyles: Record<NonNullable<TagProps['variant']>, string> = {
   black: 'bg-(--color-dark-black)',
   gray: 'bg-(--color-devider) text-white',
   white: 'bg-white text-accent',
+  beige: 'bg-beige text-accent',
 }
 
 const Tag = ({ text, variant = 'black', className = '' }: TagProps) => {

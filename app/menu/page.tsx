@@ -12,7 +12,7 @@ import AnimatedImage from '@/components/ui/AnimatedImage'
 import LocationIcon from '@/components/icons/LocationIcon'
 import InfoIcon from '@/components/icons/InfoIcon'
 import H3Title from '@/components/ui/H3Title'
-import ArrowIcon from '@/components/icons/ArrowIcon'
+import ArrowTextLink from '@/components/ui/ArrowTextLink'
 import { DISHES, type Dish } from '@/consts/menu'
 
 const CATEGORIES = [
@@ -91,27 +91,6 @@ function LocationDropdown() {
         )}
       </AnimatePresence>
     </div>
-  )
-}
-
-function LoadMoreButton({ onClick }: { onClick: () => void }) {
-  return (
-    <motion.button
-      type="button"
-      initial="rest"
-      whileHover="hovered"
-      onClick={onClick}
-      className="hover:text-accent flex cursor-pointer items-center gap-2 transition-colors duration-300"
-    >
-      <Paragraph disableAnimation>Загрузить ещё</Paragraph>
-      <motion.span
-        className="inline-flex"
-        variants={{ rest: { x: 0 }, hovered: { x: 6 } }}
-        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-      >
-        <ArrowIcon width={24} height={24} />
-      </motion.span>
-    </motion.button>
   )
 }
 
@@ -214,7 +193,7 @@ function BarMenuContent({
 
       {hasMore && (
         <div className="col-span-5 flex justify-center md:col-span-12">
-          <LoadMoreButton onClick={onLoadMore} />
+          <ArrowTextLink onClick={onLoadMore}>Загрузить ещё</ArrowTextLink>
         </div>
       )}
     </>
@@ -288,7 +267,7 @@ export default function MenuPage() {
 
             {hasMore && (
               <div className="col-span-5 flex justify-center md:col-span-12">
-                <LoadMoreButton onClick={() => setVisibleCount((v) => v + 8)} />
+                <ArrowTextLink onClick={() => setVisibleCount((v) => v + 8)}>Загрузить ещё</ArrowTextLink>
               </div>
             )}
           </>

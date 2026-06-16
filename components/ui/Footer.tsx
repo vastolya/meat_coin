@@ -17,11 +17,12 @@ const Footer = () => {
   const [isRestaurantsOpen, setIsRestaurantsOpen] = useState(false)
 
   const pathname = usePathname()
-  const isHome = pathname === '/' || pathname === '/loyalty' || pathname === '/menu'
-  const isMenu = pathname === '/menu'
+  const isHome =
+    pathname === '/' || pathname === '/loyalty' || pathname === '/menu' || pathname === '/event'
+  const isBiege = pathname === '/menu' || pathname === '/event'
 
   return (
-    <div className={isMenu ? 'bg-(--color-beige) text-(--color-dark)' : ''}>
+    <div className={isBiege ? 'bg-(--color-beige) text-(--color-dark)' : ''}>
       <footer className="mx-auto max-w-360 overflow-hidden px-4 py-12 md:px-20 md:py-11">
         {isHome && (
           <>
