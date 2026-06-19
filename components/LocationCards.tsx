@@ -8,40 +8,14 @@ import Tag from '@/components/ui/Tag'
 import Paragraph from './ui/Paragraph'
 import H2Title from './ui/H2Title'
 import GridSection from './ui/GridSection'
+import { LOCATIONS } from '@/consts/locations'
 
 const MotionLink = motion(Link)
 
 // h-25 = 6.25rem = 100px — высота строки с тегом/названием
 const CARD_HEADER_H = 100
 
-const cards = [
-  {
-    city: 'СБП • Рубинштейна • Butcher&Grill',
-    name: 'Butcher&Grill',
-    description:
-      'История бренда началась именно здесь, на улице Рубинштейна. Здесь сформировался характер Meat_Coin. Аутентичное мясное меню, открытая кухня и одна из первых в городе камер сухого вызревания',
-    bgClass: "bg-[url('/butcher.webp')]",
-    href: '/locations/spb',
-  },
-  {
-    city: 'Москва',
-    name: 'Steak&Terrace',
-    description:
-      'Стейк-хаус с панорамной террасой в ТЦ «Смоленский Пассаж». Современная интерпретация классики и авторская подача в ритме столицы',
-    bgClass: "bg-[url('/steak.webp')]",
-    href: '/locations/moscow',
-  },
-  {
-    city: 'Комарово',
-    name: 'Country Club',
-    description:
-      'Загородный гриль-ресторан на берегу Финского залива. Идеальное место для семейного отдыха в окружении живописной природы. Уютный зал с камином, просторная терраса с видом на воду и детская комната',
-    bgClass: "bg-[url('/country.webp')]",
-    href: '/locations/komarovo',
-  },
-]
-
-function CardContent({ card }: { card: (typeof cards)[0] }) {
+function CardContent({ card }: { card: (typeof LOCATIONS)[0] }) {
   return (
     <>
       <MotionLink
@@ -127,7 +101,7 @@ export default function LocationCards() {
   const card2Y = useTransform(scrollYProgress, [0, 0.4], ['100vh', '0vh'])
   const card3Y = useTransform(scrollYProgress, [0.4, 0.8], ['100vh', '0vh'])
 
-  const assembledH = CARD_HEADER_H * (cards.length - 1) + cardH
+  const assembledH = CARD_HEADER_H * (LOCATIONS.length - 1) + cardH
 
   // На мобиле headerRef указывает на display:none элемент → offsetHeight=0
   // → карточки прилипают от top:0, заголовок прокручивается отдельно
@@ -154,21 +128,21 @@ export default function LocationCards() {
             className="absolute inset-x-0 z-1 bg-(--color-dark)"
             style={{ top: headerH }}
           >
-            <CardContent card={cards[0]} />
+            <CardContent card={LOCATIONS[0]} />
           </div>
 
           <motion.div
             className="absolute inset-x-0 z-2 bg-(--color-dark)"
             style={{ top: headerH + CARD_HEADER_H, y: card2Y }}
           >
-            <CardContent card={cards[1]} />
+            <CardContent card={LOCATIONS[1]} />
           </motion.div>
 
           <motion.div
             className="absolute inset-x-0 z-3 bg-(--color-dark)"
             style={{ top: headerH + CARD_HEADER_H * 2, y: card3Y }}
           >
-            <CardContent card={cards[2]} />
+            <CardContent card={LOCATIONS[2]} />
           </motion.div>
         </div>
       </div>
