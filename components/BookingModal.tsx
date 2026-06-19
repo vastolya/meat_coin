@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SlideModal from '@/components/ui/SlideModal'
 import Button from '@/components/ui/Button'
 import FormInput from '@/components/ui/FormInput'
@@ -54,6 +54,19 @@ export default function BookingModal({ location, onClose }: BookingModalProps) {
   const [phone, setPhone] = useState('')
   const [consent, setConsent] = useState(false)
 
+  useEffect(() => {
+    if (location) {
+      setSelectedLocation(location.name)
+      setGuests(2)
+      setName('')
+      setPhone('')
+      setConsent(false)
+      setSelectedDate(null)
+      setIsDatePickerOpen(false)
+      setIsDropdownOpen(false)
+    }
+  }, [location])
+
   const isValid = name.trim().length > 0 && phone.replace(/\D/g, '').length >= 10 && consent
 
   const activeLocation = LOCATIONS.find((l) => l.name === selectedLocation) ?? location
@@ -66,16 +79,16 @@ export default function BookingModal({ location, onClose }: BookingModalProps) {
       headerLeft={<Image src="/logo_dark.svg" alt="meat_coin" width={120} height={34} />}
     >
       {location && (
-        <div className="text-dark flex flex-col gap-18 pt-2">
+        <div className="text-dark flex flex-col gap-9 md:gap-18 md:pt-2">
           <div className="flex flex-col gap-2">
             <H2Title delay={0.2}>Забронировать стол</H2Title>
-            <Paragraph delay={0.4}>
+            <Paragraph delay={0.4} className="hidden md:block">
               Резерв стола происходит по телефону &nbsp;
               <a href={activeLocation?.phone} className="text-accent underline">
                 {activeLocation?.phoneLabel}
               </a>
             </Paragraph>
-            <Paragraph delay={0.6}>
+            <Paragraph delay={0.6} className="hidden md:block">
               Или заполните форму и наш менеджер свяжется с вами в ближайшее время
             </Paragraph>
           </div>
@@ -99,14 +112,9 @@ export default function BookingModal({ location, onClose }: BookingModalProps) {
                     buttonClassName="flex w-full items-center justify-between gap-2 text-left cursor-pointer"
                     contentClassName="flex flex-col gap-4 pt-4"
                     trigger={
-                      <div className="flex flex-col">
-                        <span className="text-base leading-[148%] font-medium">
-                          {activeLocation?.city}
-                        </span>
-                        <span className="text-gray text-sm leading-[148%]">
-                          {activeLocation?.address} • {activeLocation?.name}
-                        </span>
-                      </div>
+                      <span className="text-base leading-[148%] font-medium">
+                        {activeLocation?.cityAbbr} • {activeLocation?.shortAddress} • {activeLocation?.name}
+                      </span>
                     }
                   >
                     {LOCATIONS.filter((loc) => loc.name !== selectedLocation).map((loc) => (
@@ -117,15 +125,12 @@ export default function BookingModal({ location, onClose }: BookingModalProps) {
                           setSelectedLocation(loc.name)
                           setIsDropdownOpen(false)
                         }}
-                        className="group flex flex-col text-left"
+                        className="group text-left"
                       >
                         <span
                           className={`text-base leading-[148%] font-medium transition-colors ${loc.name === selectedLocation ? 'text-accent' : 'group-hover:text-accent'}`}
                         >
-                          {loc.city}
-                        </span>
-                        <span className="text-gray text-sm leading-[148%]">
-                          {loc.address} • {loc.name}
+                          {loc.cityAbbr} • {loc.shortAddress} • {loc.name}
                         </span>
                       </button>
                     ))}

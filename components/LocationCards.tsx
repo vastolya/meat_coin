@@ -16,7 +16,7 @@ const CARD_HEADER_H = 100
 
 const cards = [
   {
-    city: 'Санкт-Петербург',
+    city: 'СБП • Рубинштейна • Butcher&Grill',
     name: 'Butcher&Grill',
     description:
       'История бренда началась именно здесь, на улице Рубинштейна. Здесь сформировался характер Meat_Coin. Аутентичное мясное меню, открытая кухня и одна из первых в городе камер сухого вызревания',
@@ -46,7 +46,7 @@ function CardContent({ card }: { card: (typeof cards)[0] }) {
     <>
       <MotionLink
         href={card.href}
-        className="group col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 py-1 md:grid-cols-12 md:gap-7 md:px-20 md:py-0"
+        className="group col-cols-5 mx-auto grid h-25 w-full max-w-360 items-center gap-3 px-4 py-6 md:grid-cols-12 md:gap-7 md:px-20 md:py-1"
         whileHover="hovered"
         initial="rest"
       >

@@ -6,6 +6,8 @@ export interface LocationSchedule {
 export interface Location {
   name: string
   city: string
+  cityAbbr: string
+  shortAddress: string
   note: string
   address: string
   addressNote?: string
@@ -21,6 +23,8 @@ export const LOCATIONS: Location[] = [
   {
     name: 'Steak & Terrace',
     city: 'Москва',
+    cityAbbr: 'МСК',
+    shortAddress: 'Смоленская',
     note: 'Бесплатный крытый паркинг для гостей',
     address: 'Смоленская площадь • 5',
     addressNote: '(отдельный вход со стороны Николощеповского переулка)',
@@ -35,6 +39,8 @@ export const LOCATIONS: Location[] = [
   {
     name: 'Country Club',
     city: 'Комарово',
+    cityAbbr: 'КМР',
+    shortAddress: 'Приморское',
     note: 'Для гостей доступна бесплатная парковка',
     address: 'Ленинградская область • пос. Комарово • Приморское шоссе • 466',
     schedule: [
@@ -52,6 +58,8 @@ export const LOCATIONS: Location[] = [
   {
     name: 'Butcher&Grill',
     city: 'Санкт-Петербург',
+    cityAbbr: 'СПБ',
+    shortAddress: 'Рубинштейна',
     note: 'С видом на Садовое кольцо, у открытой кухни',
     address: 'ул. Рубинштейна • 4',
     schedule: [{ label: 'Ежедневно', time: '12:00–00:00' }],
