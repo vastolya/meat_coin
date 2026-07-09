@@ -80,7 +80,7 @@ const MobileMenu = ({ isOpen, navItems, onClose }: MobileMenuProps) => {
               RU
             </Paragraph>
             <div className="flex items-center gap-6">
-              <Image src="/yandex_mesto.svg" alt="" width={95} height={54} />
+              <Image src="/yandex_mesto.svg" alt="" width={71} height={40} />
               <Button
                 text="Оставить отзыв"
                 variant="secondary"

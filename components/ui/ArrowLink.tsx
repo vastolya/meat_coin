@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { motion } from 'motion/react'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 interface ArrowLinkProps {
   href?: string

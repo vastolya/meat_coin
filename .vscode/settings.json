@@ -1,5 +1,8 @@
 {
   "editor.formatOnSave": true,
+  "workbench.externalBrowser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "terminal.external.linuxExec": "google-chrome",
+  "terminal.external.windowsExec": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -7,4 +10,5 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
+  
 }

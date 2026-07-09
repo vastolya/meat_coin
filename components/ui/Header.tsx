@@ -98,7 +98,7 @@ const Header = () => {
           <div className="relative z-2 flex w-full items-center justify-between">
             <div className="flex items-center gap-7">
               <motion.div {...slideIn(0)} className="relative h-11 w-39.5">
-                <Link href="/">
+                <Link href="/" className="relative block h-full w-full">
                   <Image src="/logo.svg" alt="" fill sizes="auto" />
                 </Link>
               </motion.div>

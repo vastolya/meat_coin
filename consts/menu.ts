@@ -7,6 +7,21 @@ export interface Dish {
   category: string
 }
 
+export interface MenuCategory {
+  id: string
+  label: string
+}
+
+// TODO: удалить после подключения меню к CRM — категории (в т.ч. label) будут приходить с бэкенда
+export const MENU_CATEGORIES: MenuCategory[] = [
+  { id: 'breakfast', label: 'Завтраки' },
+  { id: 'lunch', label: 'Закуски' },
+  { id: 'dinner', label: 'Салаты' },
+  { id: 'steaks', label: 'Стейки' },
+  { id: 'bar', label: 'Бар / Винная карта' },
+  { id: 'desserts', label: 'Десерты' },
+]
+
 // TODO: удалить после подключения меню к CRM — данные будут приходить с бэкенда
 const P = '/dish_placeholder.webp'
 const B = '/bar_placeholder.webp'

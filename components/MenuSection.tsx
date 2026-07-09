@@ -117,7 +117,7 @@ function SliderDot({ isActive, label, onClick }: SliderDotProps) {
       aria-label={label}
       animate={{
         width: isActive ? '2rem' : '1rem',
-        backgroundColor: isActive ? 'var(--color-devider)' : 'transparent',
+        backgroundColor: isActive ? 'var(--color-devider)' : 'rgba(0, 0, 0, 0)',
       }}
       transition={{ type: 'spring', stiffness: 800, damping: 35 }}
       className="h-4 rounded-full border border-(--color-devider)"

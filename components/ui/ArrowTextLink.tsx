@@ -6,7 +6,7 @@ import type { ReactNode } from 'react'
 import Paragraph from './Paragraph'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 type ArrowTextLinkProps = {
   children: ReactNode

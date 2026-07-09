@@ -3,9 +3,7 @@
     "allow": [
       "Bash(npx tsc *)",
       "Bash(npx prettier *)",
-      "Bash(node -e \"console.log\\(require\\('./node_modules/tailwindcss/package.json'\\).version\\)\")",
       "Bash(python3 *)",
-      "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).version\\)\")",
       "Bash(npm install *)"
     ]
   }

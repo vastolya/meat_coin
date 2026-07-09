@@ -9,7 +9,7 @@ import Paragraph from './ui/Paragraph'
 import H2Title from './ui/H2Title'
 import GridSection from './ui/GridSection'
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 // h-25 = 6.25rem = 100px — высота строки с тегом/названием
 const CARD_HEADER_H = 100
