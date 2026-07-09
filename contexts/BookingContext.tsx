@@ -20,7 +20,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   return (
     <BookingContext.Provider value={{ openBooking: (loc) => setBookingLocation(loc ?? LOCATIONS[0]) }}>
       {children}
-      <BookingModal key={bookingLocation?.name} location={bookingLocation} onClose={() => setBookingLocation(null)} />
+      <BookingModal location={bookingLocation} onClose={() => setBookingLocation(null)} />
     </BookingContext.Provider>
   )
 }

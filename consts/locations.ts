@@ -6,6 +6,11 @@ export interface LocationSchedule {
 export interface Location {
   name: string
   city: string
+  cityAbbr: string
+  shortAddress: string
+  description: string
+  bgClass: string
+  href: string
   note: string
   address: string
   addressNote?: string
@@ -21,6 +26,12 @@ export const LOCATIONS: Location[] = [
   {
     name: 'Steak & Terrace',
     city: 'Москва',
+    cityAbbr: 'МСК',
+    shortAddress: 'Смоленская',
+    description:
+      'Стейк-хаус с панорамной террасой в ТЦ «Смоленский Пассаж». Современная интерпретация классики и авторская подача в ритме столицы',
+    bgClass: "bg-[url('/steak.webp')]",
+    href: '/locations/moscow',
     note: 'Бесплатный крытый паркинг для гостей',
     address: 'Смоленская площадь • 5',
     addressNote: '(отдельный вход со стороны Николощеповского переулка)',
@@ -35,6 +46,12 @@ export const LOCATIONS: Location[] = [
   {
     name: 'Country Club',
     city: 'Комарово',
+    cityAbbr: 'КМР',
+    shortAddress: 'Приморское',
+    description:
+      'Загородный гриль-ресторан на берегу Финского залива. Идеальное место для семейного отдыха в окружении живописной природы. Уютный зал с камином, просторная терраса с видом на воду и детская комната',
+    bgClass: "bg-[url('/country.webp')]",
+    href: '/locations/komarovo',
     note: 'Для гостей доступна бесплатная парковка',
     address: 'Ленинградская область • пос. Комарово • Приморское шоссе • 466',
     schedule: [
@@ -52,6 +69,12 @@ export const LOCATIONS: Location[] = [
   {
     name: 'Butcher&Grill',
     city: 'Санкт-Петербург',
+    cityAbbr: 'СПБ',
+    shortAddress: 'Рубинштейна',
+    description:
+      'История бренда началась именно здесь, на улице Рубинштейна. Здесь сформировался характер Meat_Coin. Аутентичное мясное меню, открытая кухня и одна из первых в городе камер сухого вызревания',
+    bgClass: "bg-[url('/butcher.webp')]",
+    href: '/locations/spb',
     note: 'С видом на Садовое кольцо, у открытой кухни',
     address: 'ул. Рубинштейна • 4',
     schedule: [{ label: 'Ежедневно', time: '12:00–00:00' }],

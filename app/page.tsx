@@ -9,10 +9,12 @@ import EventsSection from '@/components/EventsSection'
 import LoyaltySection from '@/components/LoyaltySection'
 import ClassesSection from '@/components/ClassesSection'
 import ButcherSection from '@/components/ButcherSection'
+import MobileBookingButton from '@/components/MobileBookingButton'
 
 export default function Home() {
   return (
     <main className="">
+      <MobileBookingButton />
       <HeroSection />
 
       <LocationCards />
